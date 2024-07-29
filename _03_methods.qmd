@@ -174,3 +174,15 @@ We employed a comprehensive statistical methodology to evaluate the performance 
 By employing these statistical methods, we comprehensively evaluated the AI's diagnostic capabilities, providing a robust framework for understanding its accuracy, reliability, and areas for future enhancement. This multi-faceted approach ensured a thorough assessment, contributing valuable insights into the feasibility and effectiveness of using generative AI for healthcare diagnostics.
 
 ## Machine Learning
+
+### Model Selection and Development
+
+We developed multiple machine learning models, including logistic regression, decision trees, random forests, support vector machines (SVM), and neural networks, to diagnose ailments based on the collected and augmented data. Logistic regression served as a baseline model due to its simplicity and interpretability. Decision trees provided a clear visual representation of decision-making processes. Random forests and SVMs are known for their high accuracy and robustness, while neural networks can capture complex patterns in data. By exploring various models, we aimed to leverage their strengths and mitigate their weaknesses, identifying the best-suited algorithm for our dataset.
+
+### Addressing Overfitting and Validation
+
+To ensure our models did not overfit the training data and could generalize well to unseen data, we implemented k-fold cross-validation and pruning techniques. K-fold cross-validation involved repeatedly training and testing the models on different subsets of the data, providing a more reliable estimate of their performance. Pruning, specifically for decision trees, reduced model complexity by removing branches that had little significance, further preventing overfitting. These techniques were crucial for validating our models' ability to perform well on new, unseen data.
+
+### Model Comparison and Feature Importance
+
+Comparing the performance of different models allowed us to determine the most effective algorithm for diagnosing ailments. The random forest, SVM, and neural network models demonstrated high accuracy, with SVM achieving perfect accuracy in some instances. Analyzing feature importance in the random forest model provided insights into which symptoms were most influential in predicting prognosis. Understanding feature importance helped guide further refinement of telehealth diagnosis platforms by focusing on the most critical indicators.
