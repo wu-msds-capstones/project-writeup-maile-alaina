@@ -1,15 +1,121 @@
+---
+editor: 
+  markdown: 
+    wrap: sentence
+---
 
-# Background 
-Generative AI (GAI) is revolutionizing healthcare by offering innovative solutions for diagnosis, treatment, and patient care. This advanced form of artificial intelligence enhances healthcare delivery by generating new data and insights, providing a versatile tool for various applications including text, images, audio, and video . However, its integration into healthcare systems raises questions about its benefits, challenges, and practical applications .
-In a comprehensive scoping review following PRISMA-ScR guidelines, researchers searched databases like Web of Science, PubMed, and Scopus, ultimately including 109 articles from an initial pool of 1406 . The study identified nine prominent GAI models, with ChatGPT, Google Bard, and Microsoft Bing AI being the most frequently utilized in healthcare settings .
-Generative AI has several key applications in healthcare. It supports clinical decision-making by aiding in the diagnosis and prediction of diseases, triage, treatment strategy formulation, and offering management advice . It also plays a vital role in medical education by providing insights on health conditions, designing exam questions, producing medical articles, and supporting interactive learning tools for medical students . Additionally, GAI streamlines clinical documentation by summarizing patient problems, creating discharge summaries, and generating healthcare-related text and reports .
-The benefits of generative AI in healthcare are significant. It improves diagnosis accuracy, reduces human error, and efficiently analyzes symptoms to identify treatment options . GAI provides rapid access to valuable insights, offers high concordance rates with specialists' recommendations, and enhances patient engagement through personalized care . It also supports medical research and education by assisting in article drafting and clinical trial matching, promoting a better understanding of complex medical concepts . Furthermore, GAI offers substantial time and cost savings compared to traditional evaluations, reducing the workload for medical professionals .
-However, generative AI in healthcare also faces several challenges. While it cannot replace human doctors or account for individual patient preferences, it may exhibit biases and variability in human adjudication, leading to lower accuracy in some diagnoses and treatment recommendations . Ethical considerations and data privacy issues are also significant, with risks of AI generating inaccurate or biased information . Additionally, patients may lack confidence in AI accuracy, necessitating frequent human oversight and modifications . Continuous validation and updating are necessary to maintain performance and reliability, and there is a need for specific training and re-training of AI models in various medical contexts .
-Generative AI has also shown promise in remote patient monitoring (RPM) telehealth solutions. Companies like Andor Health and Babylon Health, as well as healthcare professionals such as Dr. Josh Tamayo-Sarver, utilize ChatGPT to enhance virtual health interactions, patient communication, and routine healthcare tasks . ChatGPT answers patient questions, monitors symptoms, provides personalized health education, offers emotional support, and overcomes language barriers, making healthcare more accessible and efficient . Its integration into telemedicine offers enhanced patient engagement, streamlined workflows, expanded accessibility, cost savings, and data-driven insights .
-Despite its benefits, concerns about accuracy, reliability, lack of human judgment, and patient privacy need addressing . Best practices for implementing GAI in healthcare include training and fine-tuning AI models, ensuring human oversight, adhering to regulatory compliance, conducting thorough testing, and continuous improvement based on feedback .
+# Background
+
+The integration of Generative AI (GAI) into healthcare is transforming the landscape of diagnosis, treatment, and patient care.
+By leveraging advanced algorithms, GAI generates new data and insights, offering versatile solutions across various applications such as text, images, audio, and video.
+This revolution in healthcare technology brings numerous benefits but also raises significant questions about the ethical implications, potential biases, and practical applications of these AI-driven tools.
+
+
+This document delves into the extensive scoping review conducted to understand the current state and potential of GAI in healthcare.
+Through this analysis, we aim to highlight both the advantages and challenges associated with the adoption of GAI in healthcare, particularly focusing on the ethical considerations and the mitigation of biases inherent in AI systems.
+
+# Background on Generative AI and Healthcare
+
+Generative AI (GAI) is revolutionizing healthcare by offering innovative solutions for diagnosis, treatment, and patient care.
+This advanced form of artificial intelligence enhances healthcare delivery by generating new data and insights, providing a versatile tool for various applications including text, images, audio, and video.
+However, its integration into healthcare systems raises questions about its benefits, challenges, and practical applications.
+
+In a comprehensive scoping review following PRISMA-ScR guidelines, researchers searched databases like Web of Science, PubMed, and Scopus, ultimately including 109 articles from an initial pool of 1406.
+The study identified nine prominent GAI models, with ChatGPT, Google Bard, and Microsoft Bing AI being the most frequently utilized in healthcare settings.
+
+Generative AI has several key applications in healthcare.
+It supports clinical decision-making by aiding in the diagnosis and prediction of diseases, triage, treatment strategy formulation, and offering management advice.
+It also plays a vital role in medical education by providing insights on health conditions, designing exam questions, producing medical articles, and supporting interactive learning tools for medical students.
+Additionally, GAI streamlines clinical documentation by summarizing patient problems, creating discharge summaries, and generating healthcare-related text and reports.
+
+The benefits of generative AI in healthcare are significant.
+It improves diagnosis accuracy, reduces human error, and efficiently analyzes symptoms to identify treatment options.
+GAI provides rapid access to valuable insights, offers high concordance rates with specialists' recommendations, and enhances patient engagement through personalized care.
+It also supports medical research and education by assisting in article drafting and clinical trial matching, promoting a better understanding of complex medical concepts.
+Furthermore, GAI offers substantial time and cost savings compared to traditional evaluations, reducing the workload for medical professionals.
+
+However, generative AI in healthcare also faces several challenges.
+While it cannot replace human doctors or account for individual patient preferences, it may exhibit biases and variability in human adjudication, leading to lower accuracy in some diagnoses and treatment recommendations.
+Ethical considerations and data privacy issues are also significant, with risks of AI generating inaccurate or biased information.
+Additionally, patients may lack confidence in AI accuracy, necessitating frequent human oversight and modifications.
+Continuous validation and updating are necessary to maintain performance and reliability, and there is a need for specific training and re-training of AI models in various medical contexts.
+
+Generative AI has also shown promise in remote patient monitoring (RPM) telehealth solutions.
+Companies like Andor Health and Babylon Health, as well as healthcare professionals such as Dr. Josh Tamayo-Sarver, utilize ChatGPT to enhance virtual health interactions, patient communication, and routine healthcare tasks.
+ChatGPT answers patient questions, monitors symptoms, provides personalized health education, offers emotional support, and overcomes language barriers, making healthcare more accessible and efficient.
+Its integration into telemedicine offers enhanced patient engagement, streamlined workflows, expanded accessibility, cost savings, and data-driven insights.
+Despite its benefits, concerns about accuracy, reliability, lack of human judgment, and patient privacy need addressing.
+Best practices for implementing GAI in healthcare include training and fine-tuning AI models, ensuring human oversight, adhering to regulatory compliance, conducting thorough testing, and continuous improvement based on feedback.
+
 For readers unfamiliar with this area, some key vocabulary and concepts are important to grasp:
-Generative AI: A type of artificial intelligence that generates new data based on patterns from existing data. It is different from other AI systems that might only classify or predict based on provided inputs.
-Diagnostic Accuracy: A measure of how correctly a diagnostic tool identifies or predicts a medical condition compared to a reference standard.
-Healthcare Systems Integration: The process of incorporating new technologies, such as AI, into existing healthcare frameworks.
-Our research is situated within the broader context of ongoing efforts to integrate AI into healthcare. The current state of research shows a growing interest in leveraging AI for diagnostics, but there is still much to learn about its practical implications and effectiveness. By evaluating the performance of generative AI in this context, we aim to contribute valuable insights that could inform future developments and enhance the role of AI in healthcare diagnostics.
 
+-   **Generative AI:** A type of artificial intelligence that generates new data based on patterns from existing data. It is different from other AI systems that might only classify or predict based on provided inputs.
+-   **Diagnostic Accuracy:** A measure of how correctly a diagnostic tool identifies or predicts a medical condition compared to a reference standard.
+-   **Healthcare Systems Integration:** The process of incorporating new technologies, such as AI, into existing healthcare frameworks.
+
+Our research is situated within the broader context of ongoing efforts to integrate AI into healthcare.
+The current state of research shows a growing interest in leveraging AI for diagnostics, but there is still much to learn about its practical implications and effectiveness.
+By evaluating the performance of generative AI in this context, we aim to contribute valuable insights that could inform future developments and enhance the role of AI in healthcare diagnostics.
+
+## Data Ethics in AI and Healthcare
+
+Biases are an inherent risk when working with AI and data-driven projects, particularly in the healthcare domain.
+The synthetic data sourced from Kaggle might reflect biases present in the original datasets from which it was derived, potentially influencing the representativeness of the data for certain conditions, diagnostic categories, or inherent biases in healthcare based on patient demographics.
+Additionally, generative AI models, including ChatGPT, can exhibit biases based on their training data, which may include inaccuracies or skewed information about medical conditions.
+
+### Bias in Healthcare AI
+
+In healthcare, these biases can have significant implications.
+For example, if the training data used to develop AI models includes incomplete or imprecise representations of certain medical conditions, the resulting diagnostic tools may not perform optimally in real-world scenarios.
+This can impact the accuracy and reliability of diagnoses and potentially affect patient outcomes.
+
+### Mitigating Bias
+
+To address these concerns, we have undertaken measures to identify and mitigate potential biases in our project.
+This involves analyzing the quality and comprehensiveness of the datasets and evaluating the AI’s performance to ensure that our findings are as accurate and reliable as possible.
+This includes:
+
+-   **Data Quality Analysis:** Ensuring the datasets are comprehensive and representative of diverse patient populations.
+-   **Bias Detection:** Implementing techniques to detect and quantify biases in the data and AI models.
+-   **Performance Evaluation:** Testing AI models across various demographic groups to ensure equitable performance.
+
+### Ethical Considerations
+
+Although we used synthetic and generative data, it is also important to note that in real-world scenarios involving actual patient data, obtaining informed consent is crucial.
+Our project did not involve real patient data, but if it had, we would have implemented measures to obtain explicit consent from individuals whose data was used, ensuring that they were fully aware of how their data would be utilized.
+
+### Informed Consent
+
+In real-world applications, informed consent involves:
+
+-   **Transparency:** Clearly explaining how the data will be used and the purposes of the AI models.
+-   **Voluntariness:** Ensuring participation is voluntary and that individuals can withdraw their consent at any time.
+-   **Comprehension:** Providing information in an understandable manner so that individuals can make informed decisions.
+
+### Broader Ethical Implications
+
+The integration of AI in healthcare comes with broader ethical considerations, including the potential impact on healthcare professionals and patient trust.
+We considered these implications by evaluating not only the technical accuracy of the AI but also its potential effects on the broader healthcare ecosystem.
+Our aim was to ensure that the use of AI enhances, rather than undermines, the quality of patient care and the role of healthcare providers.
+
+### Enhancing Patient Care
+
+-   **Augmenting Healthcare Providers:** Using AI to support and enhance the capabilities of healthcare professionals, not replace them.
+-   **Building Trust:** Ensuring transparency and explainability in AI decisions to build trust with patients and providers.
+-   **Continuous Monitoring:** Regularly updating and monitoring AI models to maintain their accuracy and reliability over time.
+
+By addressing these ethical considerations, we aim to develop AI tools that are not only technically sound but also ethically responsible, ultimately contributing to better healthcare outcomes and maintaining the trust of patients and healthcare providers.
+
+# References
+
+Moulaei, K., Yadegari, A., Baharestani, M., Farzanbakhsh, S., Sabet, B., & Reza Afrash, M.
+(2024).
+Generative artificial intelligence in healthcare: A scoping review on benefits, challenges and applications.
+International Journal of Medical Informatics, 188, 105474.
+https://doi.org/10.1016/j.ijmedinf.2024.105474 
+
+Temsah MH, Jamal A, Alhasan K, Aljamaan F, Altamimi I, Malki KH, Temsah A, Ohannessian R, Al-Eyadhy A. Transforming Virtual Healthcare: The Potentials of ChatGPT-4omni in Telemedicine.
+Cureus.
+2024 May 30;16(5):e61377.
+doi: 10.7759/cureus.61377.
+PMID: 38817799; PMCID: PMC11139454. 
