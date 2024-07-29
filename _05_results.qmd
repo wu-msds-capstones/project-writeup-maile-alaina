@@ -1,1 +1,10 @@
 # Results
+
+In our project, we applied statistical thinking by conducting an error analysis and a diagnostic accuracy assessment. These methods allowed us to distill the complex interactions between predictions and actual outcomes into more manageable and interpretable metrics.
+
+We analyzed the discrepancies between the original prognoses and the predictions provided by ChatGPT in an error analysis model. This involved identifying instances where the AI’s prognosis diverged from the original prognosis and categorizing these errors to understand their nature and distribution. This method was appropriate because it helped us identify specific areas where the AI’s predictions were less accurate and provided insights into potential causes of these errors.
+
+We assessed how well ChatGPT’s diagnostic predictions aligned with the original diagnoses by comparing the two sets of prognoses. We used a match scale for this assessment, where 1 indicated no match, 2 indicated a match within the same diagnosis group, and 3 indicated an exact match. This match scale, as mentioned above in our methods, allowed us to quantify the degree of alignment between the AI’s predictions and the original diagnoses. This involved calculating the frequency of each match level and analyzing how often ChatGPT’s predictions aligned with the original diagnoses. This approach was suitable for evaluating the overall performance of the AI in terms of accuracy and relevance.
+
+To better understand the results, we generated visualizations such as bar plots and histograms. These visualizations helped us interpret the distribution of accuracy ratings and errors, providing a clearer picture of the AI’s performance.
+
