@@ -1,1 +1,11 @@
-# Introduction
+
+
+## Introduction
+Accurate and timely diagnosis is crucial in healthcare as it directly affects recovery trajectories and patient outcomes. In recent years, advancements in technology, particularly in generative artificial intelligence (AI), have opened up new avenues for transforming the healthcare landscape. One of these new avenues, Generative AI, a subset of AI that can create new data based on patterns learned from existing data, has the potential to revolutionize how diagnoses are made and improve the overall efficiency of healthcare systems.
+
+To set the stage for our investigation, it is essential to understand the role of AI in healthcare and the current state of research in this field. Generative AI can quickly analyze vast amounts of data and identify patterns that may be challenging for human clinicians to discern. This capability promises more accurate and timely diagnoses, which could significantly enhance patient care.
+
+However, a critical question remains: How do the diagnoses from generative AI compare to those made by human clinicians when presented with identical symptoms?
+
+Our capstone project aims to evaluate the accuracy of generative AI in diagnosing medical conditions and explore the feasibility of developing precise diagnostic models using this technology. We seek to determine how well generative AI can perform in real-world scenarios and its potential impact on improving diagnostic processes.
+
