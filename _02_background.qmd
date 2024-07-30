@@ -10,7 +10,6 @@ The integration of Generative AI (GAI) into healthcare is transforming the lands
 By leveraging advanced algorithms, GAI generates new data and insights, offering versatile solutions across various applications such as text, images, audio, and video.
 This revolution in healthcare technology brings numerous benefits but also raises significant questions about the ethical implications, potential biases, and practical applications of these AI-driven tools.
 
-
 This document delves into the extensive scoping review conducted to understand the current state and potential of GAI in healthcare.
 Through this analysis, we aim to highlight both the advantages and challenges associated with the adoption of GAI in healthcare, particularly focusing on the ethical considerations and the mitigation of biases inherent in AI systems.
 

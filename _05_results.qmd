@@ -1,10 +1,187 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+``{r setup, include=FALSE}
+library(reticulate)
+use_python("/path/to/your/python")
+
 # Results
 
-In our project, we applied statistical thinking by conducting an error analysis and a diagnostic accuracy assessment. These methods allowed us to distill the complex interactions between predictions and actual outcomes into more manageable and interpretable metrics.
+In our project, we applied statistical thinking by conducting an error
+analysis and a diagnostic accuracy assessment. These methods allowed us
+to distill the complex interactions between predictions and actual
+outcomes into more manageable and interpretable metrics.
 
-We analyzed the discrepancies between the original prognoses and the predictions provided by ChatGPT in an error analysis model. This involved identifying instances where the AI’s prognosis diverged from the original prognosis and categorizing these errors to understand their nature and distribution. This method was appropriate because it helped us identify specific areas where the AI’s predictions were less accurate and provided insights into potential causes of these errors.
+We analyzed the discrepancies between the original prognoses and the
+predictions provided by ChatGPT in an error analysis model. This
+involved identifying instances where the AI’s prognosis diverged from
+the original prognosis and categorizing these errors to understand their
+nature and distribution. This method was appropriate because it helped
+us identify specific areas where the AI’s predictions were less accurate
+and provided insights into potential causes of these errors.
 
-We assessed how well ChatGPT’s diagnostic predictions aligned with the original diagnoses by comparing the two sets of prognoses. We used a match scale for this assessment, where 1 indicated no match, 2 indicated a match within the same diagnosis group, and 3 indicated an exact match. This match scale, as mentioned above in our methods, allowed us to quantify the degree of alignment between the AI’s predictions and the original diagnoses. This involved calculating the frequency of each match level and analyzing how often ChatGPT’s predictions aligned with the original diagnoses. This approach was suitable for evaluating the overall performance of the AI in terms of accuracy and relevance.
+We assessed how well ChatGPT’s diagnostic predictions aligned with the
+original diagnoses by comparing the two sets of prognoses. We used a
+match scale for this assessment, where 1 indicated no match, 2 indicated
+a match within the same diagnosis group, and 3 indicated an exact match.
+This match scale, as mentioned above in our methods, allowed us to
+quantify the degree of alignment between the AI’s predictions and the
+original diagnoses. This involved calculating the frequency of each
+match level and analyzing how often ChatGPT’s predictions aligned with
+the original diagnoses. This approach was suitable for evaluating the
+overall performance of the AI in terms of accuracy and relevance.
 
-To better understand the results, we generated visualizations such as bar plots and histograms. These visualizations helped us interpret the distribution of accuracy ratings and errors, providing a clearer picture of the AI’s performance.
+To better understand the results, we generated visualizations such as
+bar plots and histograms. These visualizations helped us interpret the
+distribution of accuracy ratings and errors, providing a clearer picture
+of the AI’s performance.
 
+## Machine Learning
+
+In recent years, machine learning has revolutionized various industries,
+including healthcare. Machine learning algorithms can analyze vast
+amounts of data to identify patterns and make predictions, potentially
+improving diagnosis accuracy and patient outcomes. One area of growing
+interest is the use of AI-based telehealth platforms, which provide
+remote medical diagnosis and consultation services. These platforms
+utilize machine learning models to assist healthcare providers in
+diagnosing patient ailments based on symptoms reported by patients
+online.
+
+We wanted to determine how difficult it is to accurately predict
+prognosis, so we developed our own machine learning model. By creating
+and testing this model, we aim to better understand the challenges and
+potential pain points that these AI-based platforms may encounter. Our
+goal is to provide insights into optimizing their algorithms for more
+accurate ailment diagnosis.
+
+### Results
+
+#### Logistic Regression 
+
+The Logistic Regression model correctly identified 83.57% of the
+diagnoses in the test set. This means it made correct predictions for
+83.57% of the cases, but there were still some errors.
+
+#### Decision Tree
+
+The Decision Tree model perfectly classified all samples in the test
+set, achieving 100% accuracy. This means it correctly identified every
+diagnosis without any errors.
+
+#### K-Fold Cross-Validation
+
+To ensure the Decision Tree model's performance was consistent, we used
+a technique called 5-fold cross-validation. This process splits the data
+into five parts, trains the model on four parts, and tests it on the
+remaining part. The average accuracy was nearly perfect at 99.98%,
+indicating the model performed exceptionally well across different
+subsets of the data.
+
+#### Pruned Decision
+
+Tree Pruning was applied to the Decision Tree to simplify it and prevent
+it from being too specific to the training data. The pruned tree
+achieved an average accuracy of 93.91%, which is lower than the unpruned
+tree, suggesting that while pruning reduced complexity, it also slightly
+decreased accuracy.
+
+#### Random Forest
+
+The Random Forest model, which uses multiple decision trees, also
+performed very well, with an average accuracy of 99.98%. This model
+considered various symptoms like muscle pain, itching, chest pain, and
+high fever as the most important factors in predicting diagnoses.
+
+#### Support Vector Machine (SVM)
+
+The SVM model achieved perfect accuracy, consistently making correct
+predictions across all subsets of the data.
+
+#### Neural Network
+
+The Neural Network model also showed near-perfect performance, with an
+average accuracy of 99.98%.
+
+#### Comparison of Models
+
+All three models—Random Forest, SVM, and Neural Network—demonstrated
+excellent performance with high accuracy and low variability. The SVM
+model showed perfect accuracy in every test, but the Random Forest and
+Neural Network models also performed exceptionally well.
+
+#### Testing on Predicted Prognosis
+
+We also evaluated the models on new data that included predicted
+diagnoses. The accuracy results were as follows:
+
+-   Random Forest: 98.5%
+
+-   SVM: 99.0%
+
+-   Neural Network: 98.7%
+
+### **Note on Synthetic Data** 
+
+It's important to mention that the data used in this project was
+synthetic, meaning it was artificially generated to simulate real-world
+scenarios. Because synthetic data can be designed to be clear and
+unambiguous, models often achieve very high accuracy. Therefore, while
+the results are promising, they do not fully represent the model's
+performance on real-world data, which can be more complex and noisy.
+
+#### Machine Learning Conclusion
+
+The models developed in this study achieved high accuracy in predicting
+diagnoses. The SVM model was especially impressive, with perfect
+accuracy in cross-validation tests. These results suggest that AI-based
+telehealth diagnosis platforms can be very accurate. However, it's
+important to ensure these models don't overfit to specific data and can
+generalize well to new cases. Future steps include testing on more
+diverse datasets, fine-tuning the models, and further analyzing the
+important features to optimize performance.
+
+```{python}
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.preprocessing import LabelEncoder
+
+# Load the dataset
+df = pd.read_csv('/Users/alainaholland/Documents/Github/project-workbook-maile-alaina/Data/data_with_predictions2'')
+
+# Encode categorical prognosis
+le = LabelEncoder()
+df['prognosis_encoded'] = le.fit_transform(df['prognosis'])
+
+# Display the mapping of prognosis to encoded values
+prognosis_mapping = dict(zip(le.classes_, le.transform(le.classes_)))
+print(prognosis_mapping)
+
+# Drop unnecessary columns
+columns_to_drop = ['UniqueID', 'Source', 'predicted_values', 'match_found', 'rating']
+X = df.drop(columns=columns_to_drop + ['prognosis', 'prognosis_encoded'])
+y = df['prognosis_encoded']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=31)
+
+# Logistic Regression
+log_reg = LogisticRegression()
+log_reg.fit(X_train, y_train)
+y_pred = log_reg.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+conf_matrix = confusion_matrix(y_test, y_pred)
+class_report = classification_report(y_test, y_pred)
+
+print('Logistic Regression Accuracy:', accuracy)
+print('Confusion Matrix:\n', conf_matrix)
+print('Classification Report:\n', class_report)
+
+```
