@@ -38,6 +38,95 @@ bar plots and histograms. These visualizations helped us interpret the
 distribution of accuracy ratings and errors, providing a clearer picture
 of the AI’s performance.
 
+```{r}
+library(ggplot2)
+library(dplyr)
+library(stringr)
+library(broom) # For tidying statistical test results
+library(knitr) # For displaying tables
+
+ds2 = read.csv("/Users/alainaholland/Documents/Github/project-workbook-maile-alaina/Data/data_with_predictions2")
+
+```
+### Match Status Analysis
+
+In our project, we evaluated the accuracy of ChatGPT's diagnostic predictions by comparing them to the actual diagnoses. We categorized the predictions into two groups:
+
+- **False**: The diagnoses do not match.
+- **True**: The diagnoses match.
+
+To provide an overall picture of ChatGPT's performance, we visualized the distribution of these match statuses.
+
+#### Key Findings:
+
+##### Distribution of Match Status:
+- Most of the predictions were categorized as **False**.
+- A smaller proportion of predictions were categorized as **True**.
+
+##### Visualization:
+- We used a bar plot to show the counts of `False` and `True` match statuses. This visual helps to quickly see the proportion of correct predictions versus incorrect ones.
+
+
+
+```{r}
+ds2 %>%
+  mutate(match_found = ifelse(match_found == 1, "True", "False")) %>%
+  ggplot(aes(x = factor(match_found),fill = factor(match_found))) +
+  geom_bar() +
+  labs(x = "Match Found", y ="", title = "Prognosis vs. ChatGPT Prognosis: Match Analysis", fill = "Match Status") + 
+  theme_minimal()
+```
+#### Interpretation:
+- **False**: This category had a higher count, indicating that ChatGPT's predictions often did not match the actual diagnoses.
+- **True**: This category had a lower count, showing that fewer predictions were accurate.
+
+
+The bar plot provides a clear picture of how often ChatGPT’s predictions align with the actual diagnoses. This analysis highlights areas where the predictions were accurate and where they were not, helping us understand the strengths and weaknesses of ChatGPT's diagnostic capabilities. Going forward, we can focus on improving the model to increase the number of accurate predictions, test it on more diverse datasets, and refine the prediction algorithms.
+### Summary of Mean Match Score Analysis
+
+In our project, we set out to evaluate the accuracy of ChatGPT’s diagnostic predictions compared to the original diagnoses. We used a match scale to measure how well the AI's predictions matched the actual outcomes:
+
+- **No Match (1)**: The diagnoses do not match at all.
+- **In the Same Family (2)**: The diagnoses are in the same general category.
+- **Perfect Match (3)**: The diagnoses are identical.
+
+To summarize the overall accuracy, we calculated the mean match score, which is the average of all match scores in the dataset.
+
+#### Key Findings:
+
+1. **Mean Match Score Calculation**:
+   - We computed the mean match score by adding all the match scores together and dividing by the number of data points. For example, with match scores of 3, 2, 1, 3, and 2, the mean match score is \( \frac{3 + 2 + 1 + 3 + 2}{5} = 2.2 \).
+
+2. **Interpretation of the Mean Match Score**:
+   - A higher mean score means ChatGPT's predictions are generally accurate and closely match the original diagnoses.
+   - A lower mean score indicates that the predictions are less accurate and often do not align with the actual diagnoses.
+
+3. **Visualization**:
+   - We created a bar plot to show the distribution of match scores, with a dashed line representing the mean match score. This visual helps to quickly understand the overall accuracy and the frequency of each match level.
+
+4. **Results**:
+   - The analysis showed that ChatGPT's predictions, on average, are more likely to fall into the same diagnostic category as the original diagnoses rather than being completely off.
+
+
+```{r}
+ds2 %>%
+  mutate(rating = recode(rating,`1` = "No Match",`2` = "In the Same Family",`3` = "Perfect Match")) %>%
+  mutate(rating = factor(rating, levels = names(sort(table(rating), decreasing = TRUE)))) %>%
+ggplot(aes(x = rating, fill=rating)) +
+  geom_bar() +
+  labs(x = "Prognosis Match Scale", y = "", 
+       title = "Prognosis vs. ChatGPT: Match Scale Analysis",
+       subtitle = "Evaluating the Accuracy of ChatGPT Prognosis Compared to Actual Prognosis",
+       fill = "Match Scale",
+       caption = "Scale Explanation:\n'No Match' = 1: The prognoses do not match at all.\n'In the Same Family' = 2: The prognoses are in the same general category.\n'Perfect Match' = 3: The prognoses are identical.") + 
+ # scale_fill_manual(values = c("No Match" = "lightblue", "In the Same Family" = "violet", "Perfect Match" = "hotpink")) + 
+  theme_minimal() +
+  theme(
+    plot.caption = element_text(hjust = 0, vjust = 1),                # Align caption to the left
+    plot.caption.position = "plot"                                    # Position the caption within the plot area
+  )
+```
+The mean match score offers a clear picture of ChatGPT’s diagnostic accuracy. By understanding this metric, we can see how well the AI-based platform performs and identify areas for improvement. Next steps include testing on more diverse datasets, refining the models, and further analyzing key features to boost prediction accuracy.
 ## Machine Learning
 
 In recent years, machine learning has revolutionized various industries,
@@ -57,6 +146,75 @@ potential pain points that these AI-based platforms may encounter. Our
 goal is to provide insights into optimizing their algorithms for more
 accurate ailment diagnosis.
 
+#### Process
+
+
+
+#### Data Preprocessing
+
+Involves dropping unnecessary columns, encoding categorical variables, and splitting the data into training and testing sets.
+
+
+```{python}
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.preprocessing import LabelEncoder
+
+df = pd.read_csv('/Users/alainaholland/Documents/Github/project-workbook-maile-alaina/Data/data_with_predictions2')
+
+# Encode categorical prognosis
+le = LabelEncoder()
+df['prognosis_encoded'] = le.fit_transform(df['prognosis'])
+
+# Display the mapping of prognosis to encoded values
+prognosis_mapping = dict(zip(le.classes_, le.transform(le.classes_)))
+prognosis_mapping
+
+# Drop unnecessary columns
+columns_to_drop = ['UniqueID', 'Source', 'predicted_values', 'match_found', 'rating']
+X = df.drop(columns=columns_to_drop + ['prognosis', 'prognosis_encoded'])
+y = df['prognosis_encoded']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=31)
+
+```
+
+#### Exploratory Data Analysis (EDA)
+
+In this section, we performed various analyses to understand the data better. 
+``` {python}
+# Check for missing values
+print(df.isnull().sum())
+
+# Summary statistics
+print(df.describe())
+
+# Column names
+print(df.columns.values)
+
+# Distribution of Prognosis
+plt.figure(figsize=(10, 6))
+sns.countplot(x='prognosis', data=df)
+plt.xticks(rotation=90)
+plt.title('Distribution of Prognosis')
+plt.show()
+
+# Correlation Matrix
+numeric_cols = df.select_dtypes(include=['number']).columns
+plt.figure(figsize=(12, 8))
+correlation_matrix = df[numeric_cols].corr()
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.title('Correlation Matrix')
+plt.show()
+
+```
+
 ### Results
 
 #### Logistic Regression 
@@ -65,28 +223,122 @@ The Logistic Regression model correctly identified 83.57% of the
 diagnoses in the test set. This means it made correct predictions for
 83.57% of the cases, but there were still some errors.
 
+``` {python}
+# Initialize the model
+log_reg = LogisticRegression()
+
+# Train the model
+log_reg.fit(X_train, y_train)
+
+# Make predictions
+y_pred = log_reg.predict(X_test)
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+conf_matrix = confusion_matrix(y_test, y_pred)
+class_report = classification_report(y_test, y_pred)
+
+print("Logistic Regression Accuracy:", accuracy)
+print("Confusion Matrix:\n", conf_matrix)
+print("Classification Report:\n", class_report)
+
+```
+
 #### Decision Tree
 
 The Decision Tree model perfectly classified all samples in the test
 set, achieving 100% accuracy. This means it correctly identified every
 diagnosis without any errors.
+```{python}
+# Initialize the model
+tree = DecisionTreeClassifier()
 
+# Train the model
+tree.fit(X_train, y_train)
+
+# Make predictions
+y_pred_tree = tree.predict(X_test)
+
+# Evaluate the model
+accuracy_tree = accuracy_score(y_test, y_pred_tree)
+conf_matrix_tree = confusion_matrix(y_test, y_pred_tree)
+class_report_tree = classification_report(y_test, y_pred_tree)
+
+print("Decision Tree Accuracy:", accuracy_tree)
+print("Confusion Matrix:\n", conf_matrix_tree)
+print("Classification Report:\n", class_report_tree)
+
+# Plot the tree
+plt.figure(figsize=(20, 10))
+plot_tree(tree, filled=True, feature_names=X.columns.tolist(), class_names=le.classes_.tolist())
+plt.show()
+
+```
 #### K-Fold Cross-Validation
 
 To ensure the Decision Tree model's performance was consistent, we used
 a technique called 5-fold cross-validation. This process splits the data
-into five parts, trains the model on four parts, and tests it on the
-remaining part. The average accuracy was nearly perfect at 99.98%,
+into five parts, trains the model on four parts, and tests it on the remaining part. The average accuracy was nearly perfect at 99.98%,
 indicating the model performed exceptionally well across different
 subsets of the data.
+```{python}
+from sklearn.model_selection import cross_val_score, KFold
 
+# Initialize the model
+tree = DecisionTreeClassifier()
+
+# Define the k-fold cross-validation configuration
+kf = KFold(n_splits=5, shuffle=True, random_state=31)
+
+# Perform cross-validation
+cv_scores = cross_val_score(tree, X, y, cv=kf, scoring='accuracy')
+
+# Print cross-validation results
+print("Cross-Validation Scores:", cv_scores)
+print("Mean Cross-Validation Score:", cv_scores.mean())
+print("Standard Deviation of Cross-Validation Score:", cv_scores.std())
+
+```
 #### Pruned Decision
 
-Tree Pruning was applied to the Decision Tree to simplify it and prevent
-it from being too specific to the training data. The pruned tree
-achieved an average accuracy of 93.91%, which is lower than the unpruned
-tree, suggesting that while pruning reduced complexity, it also slightly
-decreased accuracy.
+Tree Pruning was applied to the Decision Tree to simplify it and prevent it from being too specific to the training data. The pruned tree achieved an average accuracy of 93.91%, which is lower than the unpruned tree, suggesting that while pruning reduced complexity, it also slightly decreased accuracy.
+```{python}
+from sklearn.tree import DecisionTreeClassifier
+
+# Initialize the model with pruning
+tree_pruned = DecisionTreeClassifier(ccp_alpha=0.01)
+
+# Perform cross-validation
+cv_scores_pruned = cross_val_score(tree_pruned, X, y, cv=kf, scoring='accuracy')
+
+# Print cross-validation results for the pruned tree
+print("Pruned Tree Cross-Validation Scores:", cv_scores_pruned)
+print("Mean Pruned Tree Cross-Validation Score:", cv_scores_pruned.mean())
+print("Standard Deviation of Pruned Tree Cross-Validation Score:", cv_scores_pruned.std())
+
+```
+#### Feature Importance Analysis
+The feature importance analysis of the Random Forest model reveals the top features contributing to the model's predictions. The top 20 important features are visualized in the provided plot. The most important features in predicting the prognosis are muscle pain, itching, chest pain, and high fever. These features have the highest importance scores, indicating they play a significant role in the model's decision-making process.
+```{python}
+# Train the Random Forest model on the entire dataset
+rf.fit(X, y)
+
+# Get feature importances
+feature_importances = rf.feature_importances_
+
+# Create a DataFrame for visualization
+importance_df = pd.DataFrame({
+    'Feature': X.columns,
+    'Importance': feature_importances
+}).sort_values(by='Importance', ascending=False)
+
+# Plot feature importances
+plt.figure(figsize=(12, 8))
+sns.barplot(x='Importance', y='Feature', data=importance_df.head(20))  # Plot top 20 features
+plt.title('Feature Importance in Random Forest Model')
+plt.show()
+
+```
 
 #### Random Forest
 
@@ -95,16 +347,59 @@ performed very well, with an average accuracy of 99.98%. This model
 considered various symptoms like muscle pain, itching, chest pain, and
 high fever as the most important factors in predicting diagnoses.
 
+```{python}
+from sklearn.ensemble import RandomForestClassifier
+
+# Initialize the model
+rf = RandomForestClassifier(random_state=31)
+
+# Perform cross-validation
+cv_scores_rf = cross_val_score(rf, X, y, cv=kf, scoring='accuracy')
+
+# Print cross-validation results for the Random Forest
+print("Random Forest Cross-Validation Scores:", cv_scores_rf)
+print("Mean Random Forest Cross-Validation Score:", cv_scores_rf.mean())
+print("Standard Deviation of Random Forest Cross-Validation Score:", cv_scores_rf.std())
+
+```
+
 #### Support Vector Machine (SVM)
 
 The SVM model achieved perfect accuracy, consistently making correct
 predictions across all subsets of the data.
+```{python}
+from sklearn.svm import SVC
 
+# Initialize the model
+svm = SVC(kernel='linear', random_state=31)
+
+# Perform cross-validation
+cv_scores_svm = cross_val_score(svm, X, y, cv=kf, scoring='accuracy')
+
+# Print cross-validation results for the SVM
+print("SVM Cross-Validation Scores:", cv_scores_svm)
+print("Mean SVM Cross-Validation Score:", cv_scores_svm.mean())
+print("Standard Deviation of SVM Cross-Validation Score:", cv_scores_svm.std())
+
+```
 #### Neural Network
 
-The Neural Network model also showed near-perfect performance, with an
-average accuracy of 99.98%.
+The Neural Network model also showed near-perfect performance, with an average accuracy of 99.98%.
+```{python}
+from sklearn.neural_network import MLPClassifier
 
+# Initialize the model
+nn = MLPClassifier(hidden_layer_sizes=(100,), max_iter=1000, random_state=31)
+
+# Perform cross-validation
+cv_scores_nn = cross_val_score(nn, X, y, cv=kf, scoring='accuracy')
+
+# Print cross-validation results for the Neural Network
+print("Neural Network Cross-Validation Scores:", cv_scores_nn)
+print("Mean Neural Network Cross-Validation Score:", cv_scores_nn.mean())
+print("Standard Deviation of Neural Network Cross-Validation Score:", cv_scores_nn.std())
+
+```
 #### Comparison of Models
 
 All three models—Random Forest, SVM, and Neural Network—demonstrated
@@ -122,6 +417,9 @@ diagnoses. The accuracy results were as follows:
 -   SVM: 99.0%
 
 -   Neural Network: 98.7%
+
+```{python}
+```
 
 ### **Note on Synthetic Data** 
 
@@ -142,46 +440,3 @@ important to ensure these models don't overfit to specific data and can
 generalize well to new cases. Future steps include testing on more
 diverse datasets, fine-tuning the models, and further analyzing the
 important features to optimize performance.
-
-```{python}
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.tree import DecisionTreeClassifier, plot_tree
-from sklearn.preprocessing import LabelEncoder
-
-# Load the dataset
-df = pd.read_csv('/Users/alainaholland/Documents/Github/project-workbook-maile-alaina/Data/data_with_predictions2'')
-
-# Encode categorical prognosis
-le = LabelEncoder()
-df['prognosis_encoded'] = le.fit_transform(df['prognosis'])
-
-# Display the mapping of prognosis to encoded values
-prognosis_mapping = dict(zip(le.classes_, le.transform(le.classes_)))
-print(prognosis_mapping)
-
-# Drop unnecessary columns
-columns_to_drop = ['UniqueID', 'Source', 'predicted_values', 'match_found', 'rating']
-X = df.drop(columns=columns_to_drop + ['prognosis', 'prognosis_encoded'])
-y = df['prognosis_encoded']
-
-# Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=31)
-
-# Logistic Regression
-log_reg = LogisticRegression()
-log_reg.fit(X_train, y_train)
-y_pred = log_reg.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred)
-conf_matrix = confusion_matrix(y_test, y_pred)
-class_report = classification_report(y_test, y_pred)
-
-print('Logistic Regression Accuracy:', accuracy)
-print('Confusion Matrix:\n', conf_matrix)
-print('Classification Report:\n', class_report)
-
-```
