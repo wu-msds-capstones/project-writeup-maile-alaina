@@ -1,11 +1,4 @@
----
-editor: 
-  markdown: 
-    wrap: 72
----
-``{r setup, include=FALSE}
-library(reticulate)
-use_python("/path/to/your/python")
+
 
 # Results
 
@@ -38,7 +31,7 @@ bar plots and histograms. These visualizations helped us interpret the
 distribution of accuracy ratings and errors, providing a clearer picture
 of the AI’s performance.
 
-```{r}
+
 library(ggplot2)
 library(dplyr)
 library(stringr)
