@@ -274,7 +274,7 @@ a technique called 5-fold cross-validation. This process splits the data
 into five parts, trains the model on four parts, and tests it on the remaining part. The average accuracy was nearly perfect at 99.98%,
 indicating the model performed exceptionally well across different
 subsets of the data.
-```{python}
+
 from sklearn.model_selection import cross_val_score, KFold
 
 # Initialize the model
@@ -295,7 +295,7 @@ print("Standard Deviation of Cross-Validation Score:", cv_scores.std())
 #### Pruned Decision
 
 Tree Pruning was applied to the Decision Tree to simplify it and prevent it from being too specific to the training data. The pruned tree achieved an average accuracy of 93.91%, which is lower than the unpruned tree, suggesting that while pruning reduced complexity, it also slightly decreased accuracy.
-```{python}
+
 from sklearn.tree import DecisionTreeClassifier
 
 # Initialize the model with pruning
@@ -354,13 +354,13 @@ print("Random Forest Cross-Validation Scores:", cv_scores_rf)
 print("Mean Random Forest Cross-Validation Score:", cv_scores_rf.mean())
 print("Standard Deviation of Random Forest Cross-Validation Score:", cv_scores_rf.std())
 
-```
+
 
 #### Support Vector Machine (SVM)
 
 The SVM model achieved perfect accuracy, consistently making correct
 predictions across all subsets of the data.
-```{python}
+
 from sklearn.svm import SVC
 
 # Initialize the model
@@ -374,7 +374,7 @@ print("SVM Cross-Validation Scores:", cv_scores_svm)
 print("Mean SVM Cross-Validation Score:", cv_scores_svm.mean())
 print("Standard Deviation of SVM Cross-Validation Score:", cv_scores_svm.std())
 
-```
+
 #### Neural Network
 
 The Neural Network model also showed near-perfect performance, with an average accuracy of 99.98%.
@@ -392,7 +392,7 @@ print("Neural Network Cross-Validation Scores:", cv_scores_nn)
 print("Mean Neural Network Cross-Validation Score:", cv_scores_nn.mean())
 print("Standard Deviation of Neural Network Cross-Validation Score:", cv_scores_nn.std())
 
-```
+
 #### Comparison of Models
 
 All three models—Random Forest, SVM, and Neural Network—demonstrated
@@ -412,7 +412,7 @@ diagnoses. The accuracy results were as follows:
 -   Neural Network: 98.7%
 
 
-```
+
 
 ### **Note on Synthetic Data** 
 
