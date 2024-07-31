@@ -68,7 +68,7 @@ To provide an overall picture of ChatGPT's performance, we visualized the distri
 
 
 
-```{r}
+
 ds2 %>%
   mutate(match_found = ifelse(match_found == 1, "True", "False")) %>%
   ggplot(aes(x = factor(match_found),fill = factor(match_found))) +
@@ -108,7 +108,7 @@ To summarize the overall accuracy, we calculated the mean match score, which is 
    - The analysis showed that ChatGPT's predictions, on average, are more likely to fall into the same diagnostic category as the original diagnoses rather than being completely off.
 
 
-```{r}
+
 ds2 %>%
   mutate(rating = recode(rating,`1` = "No Match",`2` = "In the Same Family",`3` = "Perfect Match")) %>%
   mutate(rating = factor(rating, levels = names(sort(table(rating), decreasing = TRUE)))) %>%
@@ -155,7 +155,7 @@ accurate ailment diagnosis.
 Involves dropping unnecessary columns, encoding categorical variables, and splitting the data into training and testing sets.
 
 
-```{python}
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -188,7 +188,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random
 #### Exploratory Data Analysis (EDA)
 
 In this section, we performed various analyses to understand the data better. 
-``` {python}
+
 # Check for missing values
 print(df.isnull().sum())
 
@@ -249,7 +249,7 @@ print("Classification Report:\n", class_report)
 The Decision Tree model perfectly classified all samples in the test
 set, achieving 100% accuracy. This means it correctly identified every
 diagnosis without any errors.
-```{python}
+
 # Initialize the model
 tree = DecisionTreeClassifier()
 
@@ -319,7 +319,7 @@ print("Standard Deviation of Pruned Tree Cross-Validation Score:", cv_scores_pru
 ```
 #### Feature Importance Analysis
 The feature importance analysis of the Random Forest model reveals the top features contributing to the model's predictions. The top 20 important features are visualized in the provided plot. The most important features in predicting the prognosis are muscle pain, itching, chest pain, and high fever. These features have the highest importance scores, indicating they play a significant role in the model's decision-making process.
-```{python}
+
 # Train the Random Forest model on the entire dataset
 rf.fit(X, y)
 
@@ -347,7 +347,7 @@ performed very well, with an average accuracy of 99.98%. This model
 considered various symptoms like muscle pain, itching, chest pain, and
 high fever as the most important factors in predicting diagnoses.
 
-```{python}
+
 from sklearn.ensemble import RandomForestClassifier
 
 # Initialize the model
@@ -385,7 +385,7 @@ print("Standard Deviation of SVM Cross-Validation Score:", cv_scores_svm.std())
 #### Neural Network
 
 The Neural Network model also showed near-perfect performance, with an average accuracy of 99.98%.
-```{python}
+
 from sklearn.neural_network import MLPClassifier
 
 # Initialize the model
@@ -418,7 +418,7 @@ diagnoses. The accuracy results were as follows:
 
 -   Neural Network: 98.7%
 
-```{python}
+
 ```
 
 ### **Note on Synthetic Data** 

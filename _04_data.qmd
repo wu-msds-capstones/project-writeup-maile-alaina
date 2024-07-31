@@ -13,11 +13,11 @@ Our first dataset, the synthetic source, was sourced from a Disease Prediction U
 To understand how generative AI can impact prognosis diagnosing, we recognized that our original dataset was insufficient. Therefore, we augmented our data by comparing the accuracy between our initial dataset and generative AI outputs. We did this by making a series of API calls using OpenAI, with the AI acting as a virtual doctor.
 
 ## New Feature Creation
-As mentioned prior due to the API calls, the following new features (columns) were created they include “Predicted Values”, “Rating”, “Medical Family”, and “Predicted Family”. Based on these new features, we also created the following new “calculated columns” to determine a match between the original data and the generative AI data. These features include “match_found” and “match_found_family”. 
+As mentioned prior due to the API calls, the following new features (columns) were created they include “Predicted Values”, and “Rating”. Based on these new features, we also created the following new “calculated columns” to determine a match between the original data and the generative AI data. These features include “match_found” and “match_found_family”. 
 
 It was done in R by adding a new column to the dataset to check if there are any matching words between the prognosis and predicted values. This helps identify if the predicted prognosis contains any terms that appear in the actual prognosis.
 
-```r
+
 ds2 = ds2 %>%
   mutate(match_found = mapply(function(x, y) {
     words1 <- str_split(x, " ")[[1]]
