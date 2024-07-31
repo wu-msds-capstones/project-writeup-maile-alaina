@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -185,119 +151,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
+<section id="dataset-selection-and-api-development" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-selection-and-api-development">Dataset Selection and API Development</h2>
 <p>We started by selecting a dataset licensed from the Massachusetts Institute of Technology (MIT), where each row indicates the presence or absence of over one hundred symptoms associated with a single diagnosis. Using this dataset, we developed multiple API calls utilizing ChatGPT, a popular generative AI platform, to act as a tele-health doctor. For each row in our dataset, the API presented ChatGPT with a randomized order of symptoms that tested positive and requested its diagnosis estimation. Following the API’s execution, we compared ChatGPT’s diagnosis with the diagnosis provided in the source dataset. To assess accuracy, we applied a scoring system: one point for an incorrect and unrelated diagnosis, two points for an incorrect but related diagnosis, and three points for a correct diagnosis. This methodology enabled us to evaluate the effectiveness of ChatGPT in accurately predicting diagnoses based on symptom data.</p>
+</section>
 <section id="data-engineering" class="level2">
 <h2 class="anchored" data-anchor-id="data-engineering">Data Engineering</h2>
-<p>Our data collection process involved several stages and sources. Initially, we sourced synthetic symptom and prognosis data from Kaggle. This provided a foundational dataset for our project. To expand and enrich this dataset, we utilized the ChatGPT API to generate additional data. Specifically, we generated diagnosis estimations through ChatGPT, which served as our primary generative AI tool for this project. Alongside the diagnosis estimations, we also recorded an accuracy score ranging from 1 to 3. This score was used to evaluate the performance of ChatGPT in terms of its diagnostic accuracy.</p>
-<section id="data" class="level3">
-<h3 class="anchored" data-anchor-id="data">Data</h3>
-<p>Our first dataset, the synthetic source, was sourced from a Disease Prediction Using Machine Learning on Kaggle.com, a data science competition platform and online community for data scientists and machine learning practitioners. The dataset comprises two primary CSV files—one for training and another for testing. Each file contains 133 columns, with 132 columns representing different symptoms experienced by patients and the final column denoting the disease prognosis. This structure supports the development of models capable of predicting 42 distinct diseases based on the given symptoms.</p>
-<p>The dataset’s main goal is to enable the creation of machine learning models that can accurately predict diseases based on a wide array of symptoms. By mapping 132 parameters to 42 different diseases, the dataset provides an extensive framework for applying machine learning to medical science, ultimately aiming to streamline the diagnostic process for healthcare professionals.</p>
+<section id="data-collection" class="level3">
+<h3 class="anchored" data-anchor-id="data-collection">Data Collection</h3>
+<p>Our data collection process involved several stages and sources:</p>
+<ul>
+<li>Initially, we sourced synthetic symptom and prognosis data from Kaggle, providing a foundational dataset for our project.</li>
+<li>We utilized the ChatGPT API to generate additional data by requesting diagnosis estimations.</li>
+<li>Alongside the diagnosis estimations, we recorded an accuracy score ranging from 1 to 3 to evaluate ChatGPT’s diagnostic performance. ### Dataset Description <strong>Synthetic Source:</strong> The synthetic dataset was sourced from Kaggle’s “Disease Prediction Using Machine Learning” competition. It contains two primary CSV files for training and testing, with each file containing 133 columns (132 symptom columns and 1 prognosis column).</li>
+</ul>
 <section id="content-breakdown" class="level4">
-<h4 class="anchored" data-anchor-id="content-breakdown">Content Breakdown</h4>
-<p><strong>Columns:</strong> The dataset includes 133 columns: - 132 columns representing various symptoms (e.g., itching, skin rash, continuous sneezing, joint pain). - 1 column for disease prognosis indicating the disease corresponding to the symptoms.</p>
-<p><strong>Files:</strong> The dataset comprises two files: - Training.csv: Used to train machine learning models. - Testing.csv: Used to evaluate the performance of the trained models.</p>
+<h4 class="anchored" data-anchor-id="content-breakdown">Content Breakdown:</h4>
+<ul>
+<li><strong>Columns:</strong> 132 columns for symptoms (e.g., itching, skin rash) and 1 column for disease prognosis.</li>
+<li><strong>Files:</strong> Training.csv for model training and Testing.csv for model evaluation. ### Data Augmentation To understand the impact of generative AI on prognosis diagnosing, we augmented our data by comparing the accuracy between the initial dataset and generative AI outputs through API calls using OpenAI.</li>
+</ul>
 </section>
 </section>
-<section id="data-augmentation" class="level3">
-<h3 class="anchored" data-anchor-id="data-augmentation">Data Augmentation</h3>
-<p>To understand how generative AI can impact prognosis diagnosing, we recognized that our original dataset was insufficient. Therefore, we augmented our data by comparing the accuracy between our initial dataset and generative AI outputs. We did this by making a series of API calls using OpenAI with the AI acting as a virtual doctor.</p>
-<section id="api-key-setup" class="level4">
-<h4 class="anchored" data-anchor-id="api-key-setup">API Key Setup</h4>
-<p>We selected OpenAI for this project because its API allows developers to integrate advanced language features such as text completion, translation, and summarization into their applications. OpenAI’s versatility in chatbots, virtual assistants, and content creation makes it ideal for providing intelligent and context-aware interactions. In our case, we used OpenAI to simulate a doctor’s role.</p>
+<section id="api-key-setup" class="level3">
+<h3 class="anchored" data-anchor-id="api-key-setup">API Key Setup</h3>
+<p>We selected OpenAI for this project because its API allows developers to integrate advanced language features into their applications. OpenAI’s versatility in chatbots, virtual assistants, and content creation made it ideal for simulating a doctor’s role.</p>
 </section>
-<section id="model-selection" class="level4">
-<h4 class="anchored" data-anchor-id="model-selection">Model Selection</h4>
-<p>We utilized the “gpt-3.5-turbo” model, an advanced language model from OpenAI known for its efficiency and enhanced capabilities. This model offers improved performance and faster response times compared to its predecessors. It is designed to understand and generate human-like text, making it suitable for a variety of applications including chatbots, content creation, and language translation. We chose this model for its ability to handle complex language tasks with high accuracy, making it a powerful tool for integrating sophisticated language processing into our project.</p>
-</section>
+<section id="model-selection" class="level3">
+<h3 class="anchored" data-anchor-id="model-selection">Model Selection</h3>
+<p>We utilized the “gpt-3.5-turbo” model from OpenAI, known for its efficiency and enhanced capabilities. This model was chosen for its ability to handle complex language tasks with high accuracy.</p>
 </section>
 <section id="initial-diagnosis-call" class="level3">
 <h3 class="anchored" data-anchor-id="initial-diagnosis-call">Initial Diagnosis Call</h3>
-<p>Our first API call involved instructing the AI to act as a doctor. We provided the following prompt to the GPT-3.5-turbo model:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"Pretend you are a doctor. Patient presents to you with symptoms: {' '.join(symptoms)}. Predict the primary diagnosis concisely using ten words or less."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This was used to determine if the generative AI would reach the same conclusion as our sample dataset regarding the ailment based on a randomized order of symptoms.</p>
+<p>Our first API call involved instructing the AI to act as a doctor with the following prompt:</p>
+<blockquote class="blockquote">
+<p>*“Pretend you are a doctor. Patient presents to you with symptoms: {’ ’.join(symptoms)}.</p>
+<p>Predict the primary diagnosis concisely using ten words or less.”*</p>
+</blockquote>
 </section>
 <section id="accuracy-evaluation" class="level3">
 <h3 class="anchored" data-anchor-id="accuracy-evaluation">Accuracy Evaluation</h3>
-<p>Next, we evaluated the newly predicted prognosis using a custom function get_rating. This function sends a prognosis and its predicted values to the GPT-4 API and receives a rating based on the match accuracy. The rating scale ranges from 1 to 3:</p>
+<p>We evaluated the predicted prognosis using a custom function get_rating that sends a prognosis and its predicted values to the GPT-4 API and receives a rating based on match accuracy. The rating scale ranges from 1 to 3:</p>
 <ol type="1">
-<li><p>No match</p></li>
-<li><p>Same family</p></li>
-<li><p>Perfect match</p></li>
+<li>No match</li>
+<li>Same family</li>
+<li>Perfect match</li>
 </ol>
-<p>The evaluation prompt was:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_rating(prognosis, predicted_values):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    prompt <span class="op">=</span> (</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Prognosis: </span><span class="sc">{</span>prognosis<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Predicted Values: </span><span class="sc">{</span>predicted_values<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Rate the predicted values on a scale of 1 to 3 where 1 means no match, 2 means in the same family, and 3 means perfect match. "</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Respond with only the number."</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="medical-family-determination" class="level3">
 <h3 class="anchored" data-anchor-id="medical-family-determination">Medical Family Determination</h3>
-<p>Finally, we determined the medical “family” for both the original prognosis and the generative AI prognosis using these prompts:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Predicted Values: {predicted_values}</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Determine the medical family this prognosis belongs to.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Prognosis: {prognosis}</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Determine the medical family this prognosis belongs to.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We determined the medical “family” for both the original prognosis and the generative AI prognosis using specific prompts to categorize them.</p>
 </section>
 <section id="new-feature-creation" class="level3">
 <h3 class="anchored" data-anchor-id="new-feature-creation">New Feature Creation</h3>
-<p>As mentioned prior, due to the API calls, the following new features (columns) were created:</p>
+<p>Due to the API calls, the following new features (columns) were created:</p>
 <ul>
-<li><p>Predicted Values</p></li>
-<li><p>Rating</p></li>
-<li><p>Medical Family</p></li>
-<li><p>Predicted Family</p></li>
+<li>Predicted Values</li>
+<li>Rating</li>
+<li>Medical Family</li>
+<li>Predicted Family</li>
 </ul>
-<p>Based on these new features, we also created the following new “calculated columns” to determine a match between the original data and the generative AI data. These features include:</p>
+<p>We also created new “calculated columns” to determine a match between the original data and the generative AI data, including match_found and match_found_family.</p>
+</section>
+<section id="data-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h3>
+<p>Data cleaning and preprocessing were essential to ensure the quality and reliability of our dataset. Key steps included:</p>
 <ul>
-<li><p>match_found</p></li>
-<li><p>match_found_family</p></li>
+<li>Addressing inconsistencies or errors.</li>
+<li>Extracting scales from the “predicted diagnosis” to include only the diagnosis.</li>
+<li>Randomizing the order of symptoms to account for replicates.</li>
 </ul>
-<p>This was done in R by adding a new column to the dataset to check if there are any matching words between the prognosis and predicted values. This helps identify if the predicted prognosis contains any terms that appear in the actual prognosis.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ds2<span class="ot">=</span>ds2 <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">match_found =</span> <span class="fu">mapply</span>(<span class="cf">function</span>(x, y) {</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    words1 <span class="ot">&lt;-</span> <span class="fu">str_split</span>(x, <span class="st">" "</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    words2 <span class="ot">&lt;-</span> <span class="fu">str_split</span>(y, <span class="st">" "</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.integer</span>(<span class="fu">any</span>(words1 <span class="sc">%in%</span> words2))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  }, prognosis, predicted_values))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="data-storage" class="level3">
+<h3 class="anchored" data-anchor-id="data-storage">Data Storage</h3>
+<p>We utilized a GitHub repository for the effective organization and future reference of our data, enabling efficient version control and centralized access.</p>
 </section>
-<section id="data-cleaning" class="level2">
-<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
-<p>Data cleaning and preprocessing were essential to ensure the quality and reliability of our dataset. We made several assumptions during this process, including the accuracy of the synthetic data from Kaggle and the consistency of the accuracy scores provided by ChatGPT. After all of the new features were created, all inconsistencies or errors identified during the cleaning process were addressed to maintain the integrity of the data.</p>
-<p>These inconsistencies included our new features being too wordy, with the new “predicted diagnosis” including the scale along with the diagnosis. We then extracted the scale from the feature so that the output would only include the diagnosis.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/alainaholland/Documents/Github/project-workbook-maile-alaina/Data"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data_with_scale.csv"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ds<span class="sc">$</span>predicted_values,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Possible diagnosis: Pityriasis versicolor or tinea versicolor."                               
-[2] "Possible diagnosis: Dermatitis herpetiformis, linked to gluten sensitivity or celiac disease."
-[3] "Possible diagnosis: Dermatitis herpetiformis, a form of celiac disease rash."                 
-[4] "Likely diagnosis: Dermatitis or eczema. Further evaluation and treatment needed."             
-[5] "Contact dermatitis from allergen exposure."                                                   </code></pre>
-</div>
-</div>
-<p>Furthermore, we noted that in the original dataset, there were several replicates of the same symptoms and diagnosis. Originally, we considered removing all the duplicates but then decided instead to randomize the order of the symptoms since the dataset only included 41 prognosis.</p>
-</section>
-<section id="data-storage" class="level2">
-<h2 class="anchored" data-anchor-id="data-storage">Data Storage</h2>
-<p>For the effective organization and future reference of our data, we have utilized a GitHub repository. This repository not only allows us to manage version control efficiently but also provides a centralized location for accessing and referring to various components of our project throughout its development and documentation.</p>
 <section id="repository-structure-and-purpose" class="level3">
 <h3 class="anchored" data-anchor-id="repository-structure-and-purpose">Repository Structure and Purpose</h3>
-<p>Our GitHub repository is organized into several directories, each serving a specific purpose and rationale to streamline our workflow and enhance collaboration. The .github directory contains GitHub-specific configurations essential for automating workflows, managing issues, and incorporating feedback from GitHub Classroom. The Data directory centralizes all raw and processed datasets, simplifying data management and ensuring consistency and accuracy across various stages of the project. The Data_Engineering directory includes scripts and resources for data engineering tasks such as preprocessing and transformation, maintaining clarity and facilitating reproducibility and debugging. The Documentation directory houses project documentation, reports, and other written materials, supporting effective communication and collaboration. The Machine_Learning directory consolidates all machine learning-related components, making it easier to track model development, training processes, and performance evaluations. The .DS_Store file, automatically generated by macOS, is included to avoid unnecessary clutter and ensure the repository reflects the actual file system. Finally, the README.md file serves as the entry point for anyone accessing the repository, providing a comprehensive overview of the project and guiding users through the repository structure with essential information about the project’s goals and resources.</p>
 <ul>
-<li><strong>.github</strong>: Contains GitHub-specific configurations and feedback from GitHub Classroom.</li>
-<li><strong>Data</strong>: Stores raw and processed datasets used in the project.</li>
-<li><strong>Data_Engineering</strong>: Includes scripts and resources for data engineering tasks such as preprocessing and transformation.</li>
-<li><strong>Documentation</strong>: Contains project documentation, reports, and other written materials.</li>
-<li><strong>Machine_Learning</strong>: Houses machine learning models, training scripts, and evaluation metrics.</li>
-<li><strong>.DS_Store</strong>: A system file related to macOS directory management.</li>
-<li><strong>README.md</strong>: Provides an overview of the project, including the research question, project description, and links to additional resources.</li>
+<li>.github: GitHub-specific configurations.</li>
+<li><strong>Data:</strong> Stores raw and processed datasets.</li>
+<li><strong>Data_Engineering:</strong> Scripts and resources for data engineering tasks.</li>
+<li><strong>Documentation:</strong> Project documentation, reports, and written materials.</li>
+<li><strong>Machine_Learning:</strong> Machine learning models, training scripts, and evaluation metrics.</li>
+<li><strong>Statistics:</strong> Statisitical modeling, scripts, and evaluation metrics.</li>
+<li><strong>.DS_Store:</strong> A system file related to macOS directory management.</li>
+<li><strong>README.md:</strong> Overview of the project, research question, project description, and links to additional resources.</li>
 </ul>
+</section>
+<section id="entity-relationship-diagram-erd" class="level3">
+<h3 class="anchored" data-anchor-id="entity-relationship-diagram-erd">Entity-Relationship Diagram (ERD)</h3>
+<p>Our data is structured in a relational database to maintain a normalized and efficient schema, which is visualized in the following ERD:</p>
 </section>
 </section>
 <section id="statistical-methodology" class="level2">
@@ -314,21 +258,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
-<section id="model-selection-and-development" class="level3">
-<h3 class="anchored" data-anchor-id="model-selection-and-development">Model Selection and Development</h3>
-<p>We developed multiple machine learning models, including logistic regression, decision trees, random forests, support vector machines (SVM), and neural networks, to diagnose ailments based on the collected and augmented data. Logistic regression served as a baseline model due to its simplicity and interpretability. Decision trees provided a clear visual representation of decision-making processes. Random forests and SVMs are known for their high accuracy and robustness, while neural networks can capture complex patterns in data. By exploring various models, we aimed to leverage their strengths and mitigate their weaknesses, identifying the best-suited algorithm for our dataset.</p>
-</section>
-<section id="addressing-overfitting-and-validation" class="level3">
-<h3 class="anchored" data-anchor-id="addressing-overfitting-and-validation">Addressing Overfitting and Validation</h3>
-<p>To ensure our models did not overfit the training data and could generalize well to unseen data, we implemented k-fold cross-validation and pruning techniques. K-fold cross-validation involved repeatedly training and testing the models on different subsets of the data, providing a more reliable estimate of their performance. Pruning, specifically for decision trees, reduced model complexity by removing branches that had little significance, further preventing overfitting. These techniques were crucial for validating our models’ ability to perform well on new, unseen data.</p>
-</section>
-<section id="model-comparison-and-feature-importance" class="level3">
-<h3 class="anchored" data-anchor-id="model-comparison-and-feature-importance">Model Comparison and Feature Importance</h3>
-<p>Comparing the performance of different models allowed us to determine the most effective algorithm for diagnosing ailments. The random forest, SVM, and neural network models demonstrated high accuracy, with SVM achieving perfect accuracy in some instances. Analyzing feature importance in the random forest model provided insights into which symptoms were most influential in predicting prognosis. Understanding feature importance helped guide further refinement of telehealth diagnosis platforms by focusing on the most critical indicators.</p>
 </section>
 </section>
+<section id="model-selection-and-development" class="level1">
+<h1>Model Selection and Development</h1>
+<p>We developed multiple machine learning models, including logistic regression, decision trees, random forests, support vector machines (SVM), and neural networks to diagnose ailments.</p>
 </section>
-<section id="data-1" class="level1">
+<section id="addressing-overfitting-and-validation" class="level1">
+<h1>Addressing Overfitting and Validation</h1>
+<p>To prevent overfitting and ensure generalizability, we implemented k-fold cross-validation and pruning techniques.</p>
+</section>
+<section id="model-comparison-and-feature-importance" class="level1">
+<h1>Model Comparison and Feature Importance</h1>
+<p>Comparing different models allowed us to identify the most effective algorithm for diagnosing ailments. Analyzing feature importance in the random forest model provided insights into influential symptoms, guiding further refinement of telehealth diagnosis platforms.</p>
+</section>
+<section id="data" class="level1">
 <h1>Data</h1>
 <p>Our first dataset, the synthetic source, was sourced from a Disease Prediction Using Machine Learning on Kaggle.com, a data science competition platform and online community for data scientists and machine learning practitioners. The dataset comprises two primary CSV files—one for training and another for testing. Each file contains 133 columns, with 132 columns representing different symptoms experienced by patients, and the final column denoting the disease prognosis. This structure supports the development of models capable of predicting 42 distinct diseases based on the given symptoms.</p>
 <section id="content-breakdown-1" class="level2">
@@ -346,8 +290,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="data-augmentation-1" class="level2">
-<h2 class="anchored" data-anchor-id="data-augmentation-1">Data Augmentation</h2>
+<section id="data-augmentation" class="level2">
+<h2 class="anchored" data-anchor-id="data-augmentation">Data Augmentation</h2>
 <p>To understand how generative AI can impact prognosis diagnosing, we recognized that our original dataset was insufficient. Therefore, we augmented our data by comparing the accuracy between our initial dataset and generative AI outputs. We did this by making a series of API calls using OpenAI, with the AI acting as a virtual doctor.</p>
 </section>
 <section id="new-feature-creation-1" class="level2">
