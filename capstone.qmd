@@ -1,9 +1,9 @@
 ---
-title: "Capstone Project"
-subtitle: Subtitle
+title: "Capstone Project: Evaluating AI Accuracy for Telehealth Diagnosis"
+subtitle: "Generative AI & Healthcare Diagnoses"
 authors:
-  - Bob
-  - Jane
+  - Alaina Holland 
+  - Maile Sakamoto
 title-block-banner: true
 format: 
   html:
