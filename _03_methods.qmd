@@ -153,22 +153,7 @@ We employed a comprehensive statistical methodology to evaluate the performance 
 4.  **Chi-Square Test:**
     To determine if there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test. This helped us assess the model's performance consistency across different diagnostic categories.
 
-5.  **McNemar's Test:**
-    McNemar's test was used to compare the AI model's predictions with a benchmark or standard (e.g., human clinician's diagnosis). This test is particularly suited for paired categorical data and helped us understand the significant differences in performance.
-
-6.  **T-Test:**
-    We performed independent t-tests to compare the means of accuracy scores between different groups (e.g., different datasets or methods). This analysis revealed whether there were significant differences in performance across groups.
-
-7.  **Cohen's Kappa:**
-    Cohen's kappa was calculated to measure the agreement between the AI model's predictions and human clinician's diagnoses. This statistic provided a quantitative measure of inter-rater reliability.
-
-8.  **Error Analysis:**
-    We conducted an error analysis to identify the nature and distribution of discrepancies between the AI's predictions and the actual diagnoses. This involved categorizing errors to gain insights into specific areas where the AI's predictions were less accurate.
-
-9.  **Bias and Variability Analysis:**
-    To assess potential biases in predictions and estimate variability, we used bootstrapping methods. This involved generating confidence intervals for our accuracy metrics and identifying any systematic biases in the AI model's predictions.
-
-10. **Correlation Analysis:**
+5. **Correlation Analysis:**
     Correlation analysis was performed to assess the relationships between different features in the dataset and the accuracy of AI predictions. This helped us understand the impact of various features on the model's performance and identify areas for potential improvement.
 
 By employing these statistical methods, we comprehensively evaluated the AI's diagnostic capabilities, providing a robust framework for understanding its accuracy, reliability, and areas for future enhancement. This multi-faceted approach ensured a thorough assessment, contributing valuable insights into the feasibility and effectiveness of using generative AI for healthcare diagnostics.
