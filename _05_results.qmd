@@ -40,7 +40,7 @@ library(knitr) # For displaying tables
 
 ds2 = read.csv("/Users/alainaholland/Documents/Github/project-workbook-maile-alaina/Data/data_with_predictions2")
 
-```
+
 ### Match Status Analysis
 
 In our project, we evaluated the accuracy of ChatGPT's diagnostic predictions by comparing them to the actual diagnoses. We categorized the predictions into two groups:
@@ -68,7 +68,7 @@ ds2 %>%
   geom_bar() +
   labs(x = "Match Found", y ="", title = "Prognosis vs. ChatGPT Prognosis: Match Analysis", fill = "Match Status") + 
   theme_minimal()
-```
+
 #### Interpretation:
 - **False**: This category had a higher count, indicating that ChatGPT's predictions often did not match the actual diagnoses.
 - **True**: This category had a lower count, showing that fewer predictions were accurate.
@@ -118,7 +118,7 @@ ggplot(aes(x = rating, fill=rating)) +
     plot.caption = element_text(hjust = 0, vjust = 1),                # Align caption to the left
     plot.caption.position = "plot"                                    # Position the caption within the plot area
   )
-```
+
 The mean match score offers a clear picture of ChatGPT’s diagnostic accuracy. By understanding this metric, we can see how well the AI-based platform performs and identify areas for improvement. Next steps include testing on more diverse datasets, refining the models, and further analyzing key features to boost prediction accuracy.
 ## Machine Learning
 
