@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Capstone Project</title>
+<title>Capstone Project: Evaluating AI Accuracy for Telehealth Diagnosis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,8 +78,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Capstone Project</h1>
-            <p class="subtitle lead">Subtitle</p>
+      <h1 class="title">Capstone Project: Evaluating AI Accuracy for Telehealth Diagnosis</h1>
+            <p class="subtitle lead">Generative AI &amp; Healthcare Diagnoses</p>
                       </div>
   </div>
     
@@ -89,8 +89,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Authors</div>
       <div class="quarto-title-meta-contents">
-               <p>Bob </p>
-               <p>Jane </p>
+               <p>Alaina Holland </p>
+               <p>Maile Sakamoto </p>
             </div>
     </div>
       
@@ -308,11 +308,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Confusion Matrix:</strong> We used a confusion matrix to visualize the AI model’s performance by showing the counts of true positives, true negatives, false positives, and false negatives. This helped in understanding the model’s strengths and weaknesses in classification tasks.</p></li>
 <li><p><strong>Accuracy Metrics:</strong> We calculated precision, recall, and F1 scores to evaluate the model’s performance. Precision and recall provided insights into the model’s ability to correctly identify positive cases, while the F1 score balanced these metrics to give an overall performance measure.</p></li>
 <li><p><strong>Chi-Square Test:</strong> To determine if there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test. This helped us assess the model’s performance consistency across different diagnostic categories.</p></li>
-<li><p><strong>McNemar’s Test:</strong> McNemar’s test was used to compare the AI model’s predictions with a benchmark or standard (e.g., human clinician’s diagnosis). This test is particularly suited for paired categorical data and helped us understand the significant differences in performance.</p></li>
-<li><p><strong>T-Test:</strong> We performed independent t-tests to compare the means of accuracy scores between different groups (e.g., different datasets or methods). This analysis revealed whether there were significant differences in performance across groups.</p></li>
-<li><p><strong>Cohen’s Kappa:</strong> Cohen’s kappa was calculated to measure the agreement between the AI model’s predictions and human clinician’s diagnoses. This statistic provided a quantitative measure of inter-rater reliability.</p></li>
-<li><p><strong>Error Analysis:</strong> We conducted an error analysis to identify the nature and distribution of discrepancies between the AI’s predictions and the actual diagnoses. This involved categorizing errors to gain insights into specific areas where the AI’s predictions were less accurate.</p></li>
-<li><p><strong>Bias and Variability Analysis:</strong> To assess potential biases in predictions and estimate variability, we used bootstrapping methods. This involved generating confidence intervals for our accuracy metrics and identifying any systematic biases in the AI model’s predictions.</p></li>
 <li><p><strong>Correlation Analysis:</strong> Correlation analysis was performed to assess the relationships between different features in the dataset and the accuracy of AI predictions. This helped us understand the impact of various features on the model’s performance and identify areas for potential improvement.</p></li>
 </ol>
 <p>By employing these statistical methods, we comprehensively evaluated the AI’s diagnostic capabilities, providing a robust framework for understanding its accuracy, reliability, and areas for future enhancement. This multi-faceted approach ensured a thorough assessment, contributing valuable insights into the feasibility and effectiveness of using generative AI for healthcare diagnostics.</p>
@@ -357,9 +352,155 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="new-feature-creation-1" class="level2">
 <h2 class="anchored" data-anchor-id="new-feature-creation-1">New Feature Creation</h2>
-<p>As mentioned prior due to the API calls, the following new features (columns) were created they include “Predicted Values”, “Rating”, “Medical Family”, and “Predicted Family”. Based on these new features, we also created the following new “calculated columns” to determine a match between the original data and the generative AI data. These features include “match_found” and “match_found_family”.</p>
+<p>As mentioned prior due to the API calls, the following new features (columns) were created they include “Predicted Values”, and “Rating”. Based on these new features, we also created the following new “calculated columns” to determine a match between the original data and the generative AI data. These features include “match_found” and “match_found_family”.</p>
 <p>It was done in R by adding a new column to the dataset to check if there are any matching words between the prognosis and predicted values. This helps identify if the predicted prognosis contains any terms that appear in the actual prognosis.</p>
-<p>```r ds2 = ds2 %&gt;% mutate(match_found = mapply(function(x, y) { words1 &lt;- str_split(x, ” “)[[1]] words2 &lt;- str_split(y,” “)[[1]] as.integer(any(words1 %in% words2)) }, prognosis, predicted_values))</p>
+<p>ds2 = ds2 %&gt;% mutate(match_found = mapply(function(x, y) { words1 &lt;- str_split(x, ” “)[[1]] words2 &lt;- str_split(y,” “)[[1]] as.integer(any(words1 %in% words2)) }, prognosis, predicted_values))</p>
+</section>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
+<p>In our project, we applied statistical thinking by conducting an error analysis and a diagnostic accuracy assessment. These methods allowed us to distill the complex interactions between predictions and actual outcomes into more manageable and interpretable metrics.</p>
+<p>We analyzed the discrepancies between the original prognoses and the predictions provided by ChatGPT in an error analysis model. This involved identifying instances where the AI’s prognosis diverged from the original prognosis and categorizing these errors to understand their nature and distribution. This method was appropriate because it helped us identify specific areas where the AI’s predictions were less accurate and provided insights into potential causes of these errors.</p>
+<p>We assessed how well ChatGPT’s diagnostic predictions aligned with the original diagnoses by comparing the two sets of prognoses. We used a match scale for this assessment, where 1 indicated no match, 2 indicated a match within the same diagnosis group, and 3 indicated an exact match. This match scale, as mentioned above in our methods, allowed us to quantify the degree of alignment between the AI’s predictions and the original diagnoses. This involved calculating the frequency of each match level and analyzing how often ChatGPT’s predictions aligned with the original diagnoses. This approach was suitable for evaluating the overall performance of the AI in terms of accuracy and relevance.</p>
+<p>To better understand the results, we generated visualizations such as bar plots and histograms. These visualizations helped us interpret the distribution of accuracy ratings and errors, providing a clearer picture of the AI’s performance.</p>
+<section id="match-status-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="match-status-analysis">Match Status Analysis</h3>
+<p>In our project, we evaluated the accuracy of ChatGPT’s diagnostic predictions by comparing them to the actual diagnoses. We categorized the predictions into two groups:</p>
+<ul>
+<li><strong>False</strong>: The diagnoses do not match.</li>
+<li><strong>True</strong>: The diagnoses match.</li>
+</ul>
+<p>To provide an overall picture of ChatGPT’s performance, we visualized the distribution of these match statuses.</p>
+<section id="key-findings" class="level4">
+<h4 class="anchored" data-anchor-id="key-findings">Key Findings:</h4>
+<section id="distribution-of-match-status" class="level5">
+<h5 class="anchored" data-anchor-id="distribution-of-match-status">Distribution of Match Status:</h5>
+<ul>
+<li>Most of the predictions were categorized as <strong>False</strong>.</li>
+<li>A smaller proportion of predictions were categorized as <strong>True</strong>.</li>
+</ul>
+</section>
+<section id="visualization" class="level5">
+<h5 class="anchored" data-anchor-id="visualization">Visualization:</h5>
+<ul>
+<li>We used a bar plot to show the counts of <code>False</code> and <code>True</code> match statuses. This visual helps to quickly see the proportion of correct predictions versus incorrect ones.</li>
+</ul>
+</section>
+</section>
+<section id="interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation">Interpretation:</h4>
+<ul>
+<li><strong>False</strong>: This category had a higher count, indicating that ChatGPT’s predictions often did not match the actual diagnoses.</li>
+<li><strong>True</strong>: This category had a lower count, showing that fewer predictions were accurate.</li>
+</ul>
+<p>The bar plot provides a clear picture of how often ChatGPT’s predictions align with the actual diagnoses. This analysis highlights areas where the predictions were accurate and where they were not, helping us understand the strengths and weaknesses of ChatGPT’s diagnostic capabilities. Going forward, we can focus on improving the model to increase the number of accurate predictions, test it on more diverse datasets, and refine the prediction algorithms. ### Summary of Mean Match Score Analysis</p>
+<p>In our project, we set out to evaluate the accuracy of ChatGPT’s diagnostic predictions compared to the original diagnoses. We used a match scale to measure how well the AI’s predictions matched the actual outcomes:</p>
+<ul>
+<li><strong>No Match (1)</strong>: The diagnoses do not match at all.</li>
+<li><strong>In the Same Family (2)</strong>: The diagnoses are in the same general category.</li>
+<li><strong>Perfect Match (3)</strong>: The diagnoses are identical.</li>
+</ul>
+<p>To summarize the overall accuracy, we calculated the mean match score, which is the average of all match scores in the dataset.</p>
+</section>
+<section id="key-findings-1" class="level4">
+<h4 class="anchored" data-anchor-id="key-findings-1">Key Findings:</h4>
+<ol type="1">
+<li><strong>Mean Match Score Calculation</strong>:
+<ul>
+<li>We computed the mean match score by adding all the match scores together and dividing by the number of data points. For example, with match scores of 3, 2, 1, 3, and 2, the mean match score is ( = 2.2 ).</li>
+</ul></li>
+<li><strong>Interpretation of the Mean Match Score</strong>:
+<ul>
+<li>A higher mean score means ChatGPT’s predictions are generally accurate and closely match the original diagnoses.</li>
+<li>A lower mean score indicates that the predictions are less accurate and often do not align with the actual diagnoses.</li>
+</ul></li>
+<li><strong>Visualization</strong>:
+<ul>
+<li>We created a bar plot to show the distribution of match scores, with a dashed line representing the mean match score. This visual helps to quickly understand the overall accuracy and the frequency of each match level.</li>
+</ul></li>
+<li><strong>Results</strong>:
+<ul>
+<li>The analysis showed that ChatGPT’s predictions, on average, are more likely to fall into the same diagnostic category as the original diagnoses rather than being completely off.</li>
+</ul></li>
+</ol>
+<p>The mean match score offers a clear picture of ChatGPT’s diagnostic accuracy. By understanding this metric, we can see how well the AI-based platform performs and identify areas for improvement. Next steps include testing on more diverse datasets, refining the models, and further analyzing key features to boost prediction accuracy. ## Machine Learning</p>
+<p>In recent years, machine learning has revolutionized various industries, including healthcare. Machine learning algorithms can analyze vast amounts of data to identify patterns and make predictions, potentially improving diagnosis accuracy and patient outcomes. One area of growing interest is the use of AI-based telehealth platforms, which provide remote medical diagnosis and consultation services. These platforms utilize machine learning models to assist healthcare providers in diagnosing patient ailments based on symptoms reported by patients online.</p>
+<p>We wanted to determine how difficult it is to accurately predict prognosis, so we developed our own machine learning model. By creating and testing this model, we aim to better understand the challenges and potential pain points that these AI-based platforms may encounter. Our goal is to provide insights into optimizing their algorithms for more accurate ailment diagnosis.</p>
+</section>
+<section id="process" class="level4">
+<h4 class="anchored" data-anchor-id="process">Process</h4>
+</section>
+<section id="data-preprocessing" class="level4">
+<h4 class="anchored" data-anchor-id="data-preprocessing">Data Preprocessing</h4>
+<p>Involves dropping unnecessary columns, encoding categorical variables, and splitting the data into training and testing sets.</p>
+<pre><code>
+#### Exploratory Data Analysis (EDA)
+
+In this section, we performed various analyses to understand the data better. 
+
+
+### Results
+
+#### Logistic Regression 
+
+The Logistic Regression model correctly identified 83.57% of the
+diagnoses in the test set. This means it made correct predictions for
+83.57% of the cases, but there were still some errors.
+
+
+#### Decision Tree
+
+The Decision Tree model perfectly classified all samples in the test
+set, achieving 100% accuracy. This means it correctly identified every
+diagnosis without any errors.
+
+</code></pre>
+</section>
+<section id="k-fold-cross-validation" class="level4">
+<h4 class="anchored" data-anchor-id="k-fold-cross-validation">K-Fold Cross-Validation</h4>
+<p>To ensure the Decision Tree model’s performance was consistent, we used a technique called 5-fold cross-validation. This process splits the data into five parts, trains the model on four parts, and tests it on the remaining part. The average accuracy was nearly perfect at 99.98%, indicating the model performed exceptionally well across different subsets of the data.</p>
+</section>
+<section id="pruned-decision" class="level4">
+<h4 class="anchored" data-anchor-id="pruned-decision">Pruned Decision</h4>
+<p>Tree Pruning was applied to the Decision Tree to simplify it and prevent it from being too specific to the training data. The pruned tree achieved an average accuracy of 93.91%, which is lower than the unpruned tree, suggesting that while pruning reduced complexity, it also slightly decreased accuracy.</p>
+</section>
+<section id="feature-importance-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="feature-importance-analysis">Feature Importance Analysis</h4>
+<p>The feature importance analysis of the Random Forest model reveals the top features contributing to the model’s predictions. The top 20 important features are visualized in the provided plot. The most important features in predicting the prognosis are muscle pain, itching, chest pain, and high fever. These features have the highest importance scores, indicating they play a significant role in the model’s decision-making process.</p>
+</section>
+<section id="random-forest" class="level4">
+<h4 class="anchored" data-anchor-id="random-forest">Random Forest</h4>
+<p>The Random Forest model, which uses multiple decision trees, also performed very well, with an average accuracy of 99.98%. This model considered various symptoms like muscle pain, itching, chest pain, and high fever as the most important factors in predicting diagnoses.</p>
+</section>
+<section id="support-vector-machine-svm" class="level4">
+<h4 class="anchored" data-anchor-id="support-vector-machine-svm">Support Vector Machine (SVM)</h4>
+<p>The SVM model achieved perfect accuracy, consistently making correct predictions across all subsets of the data.</p>
+</section>
+<section id="neural-network" class="level4">
+<h4 class="anchored" data-anchor-id="neural-network">Neural Network</h4>
+<p>The Neural Network model also showed near-perfect performance, with an average accuracy of 99.98%.</p>
+</section>
+<section id="comparison-of-models" class="level4">
+<h4 class="anchored" data-anchor-id="comparison-of-models">Comparison of Models</h4>
+<p>All three models—Random Forest, SVM, and Neural Network—demonstrated excellent performance with high accuracy and low variability. The SVM model showed perfect accuracy in every test, but the Random Forest and Neural Network models also performed exceptionally well.</p>
+</section>
+<section id="testing-on-predicted-prognosis" class="level4">
+<h4 class="anchored" data-anchor-id="testing-on-predicted-prognosis">Testing on Predicted Prognosis</h4>
+<p>We also evaluated the models on new data that included predicted diagnoses. The accuracy results were as follows:</p>
+<ul>
+<li><p>Random Forest: 98.5%</p></li>
+<li><p>SVM: 99.0%</p></li>
+<li><p>Neural Network: 98.7%</p></li>
+</ul>
+</section>
+</section>
+<section id="note-on-synthetic-data" class="level3">
+<h3 class="anchored" data-anchor-id="note-on-synthetic-data"><strong>Note on Synthetic Data</strong></h3>
+<p>It’s important to mention that the data used in this project was synthetic, meaning it was artificially generated to simulate real-world scenarios. Because synthetic data can be designed to be clear and unambiguous, models often achieve very high accuracy. Therefore, while the results are promising, they do not fully represent the model’s performance on real-world data, which can be more complex and noisy.</p>
+<section id="machine-learning-conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="machine-learning-conclusion">Machine Learning Conclusion</h4>
+<p>The models developed in this study achieved high accuracy in predicting diagnoses. The SVM model was especially impressive, with perfect accuracy in cross-validation tests. These results suggest that AI-based telehealth diagnosis platforms can be very accurate. However, it’s important to ensure these models don’t overfit to specific data and can generalize well to new cases. Future steps include testing on more diverse datasets, fine-tuning the models, and further analyzing the important features to optimize performance.</p>
+</section>
 </section>
 </section>
 <section id="conclusions" class="level1">
