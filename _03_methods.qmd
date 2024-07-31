@@ -96,15 +96,7 @@ Based on these new features, we also created the following new “calculated col
 
 This was done in R by adding a new column to the dataset to check if there are any matching words between the prognosis and predicted values. This helps identify if the predicted prognosis contains any terms that appear in the actual prognosis.
 
-```r
-ds2=ds2 %>%
-  mutate(match_found = mapply(function(x, y) {
-    words1 <- str_split(x, " ")[[1]]
-    words2 <- str_split(y, " ")[[1]]
-    as.integer(any(words1 %in% words2))
-  }, prognosis, predicted_values))
 
-```
 
 ## Data Cleaning
 
@@ -112,12 +104,6 @@ Data cleaning and preprocessing were essential to ensure the quality and reliabi
 
 These inconsistencies included our new features being too wordy, with the new “predicted diagnosis” including the scale along with the diagnosis. We then extracted the scale from the feature so that the output would only include the diagnosis.
 
-```{r}
-setwd("/Users/alainaholland/Documents/Github/project-workbook-maile-alaina/Data")
-ds = read.csv("data_with_scale.csv")
-head(ds$predicted_values,5)
-
-```
 
 Furthermore, we noted that in the original dataset, there were several replicates of the same symptoms and diagnosis. Originally, we considered removing all the duplicates but then decided instead to randomize the order of the symptoms since the dataset only included 41 prognosis.
 
