@@ -1,159 +1,108 @@
 # Methods
-
+## Dataset Selection and API Development
 We started by selecting a dataset licensed from the Massachusetts Institute of Technology (MIT), where each row indicates the presence or absence of over one hundred symptoms associated with a single diagnosis. Using this dataset, we developed multiple API calls utilizing ChatGPT, a popular generative AI platform, to act as a tele-health doctor. For each row in our dataset, the API presented ChatGPT with a randomized order of symptoms that tested positive and requested its diagnosis estimation. Following the API's execution, we compared ChatGPT's diagnosis with the diagnosis provided in the source dataset. To assess accuracy, we applied a scoring system: one point for an incorrect and unrelated diagnosis, two points for an incorrect but related diagnosis, and three points for a correct diagnosis. This methodology enabled us to evaluate the effectiveness of ChatGPT in accurately predicting diagnoses based on symptom data.
 
 ## Data Engineering
+### Data Collection
+Our data collection process involved several stages and sources:
 
-Our data collection process involved several stages and sources. Initially, we sourced synthetic symptom and prognosis data from Kaggle. This provided a foundational dataset for our project. To expand and enrich this dataset, we utilized the ChatGPT API to generate additional data. Specifically, we generated diagnosis estimations through ChatGPT, which served as our primary generative AI tool for this project. Alongside the diagnosis estimations, we also recorded an accuracy score ranging from 1 to 3. This score was used to evaluate the performance of ChatGPT in terms of its diagnostic accuracy.
+* Initially, we sourced synthetic symptom and prognosis data from Kaggle, providing a foundational dataset for our project.
+* We utilized the ChatGPT API to generate additional data by requesting diagnosis estimations.
+* Alongside the diagnosis estimations, we recorded an accuracy score ranging from 1 to 3 to evaluate ChatGPT's diagnostic performance.
+### Dataset Description
+**Synthetic Source:** The synthetic dataset was sourced from Kaggle's "Disease Prediction Using Machine Learning" competition. It contains two primary CSV files for training and testing, with each file containing 133 columns (132 symptom columns and 1 prognosis column).
 
-### Data
+####  Content Breakdown:
 
-Our first dataset, the synthetic source, was sourced from a Disease Prediction Using Machine Learning on Kaggle.com, a data science competition platform and online community for data scientists and machine learning practitioners. The dataset comprises two primary CSV files—one for training and another for testing. Each file contains 133 columns, with 132 columns representing different symptoms experienced by patients and the final column denoting the disease prognosis. This structure supports the development of models capable of predicting 42 distinct diseases based on the given symptoms.
-
-The dataset's main goal is to enable the creation of machine learning models that can accurately predict diseases based on a wide array of symptoms. By mapping 132 parameters to 42 different diseases, the dataset provides an extensive framework for applying machine learning to medical science, ultimately aiming to streamline the diagnostic process for healthcare professionals.
-
-#### Content Breakdown
-
-**Columns:** The dataset includes 133 columns: - 132 columns representing various symptoms (e.g., itching, skin rash, continuous sneezing, joint pain). - 1 column for disease prognosis indicating the disease corresponding to the symptoms.
-
-**Files:** The dataset comprises two files: - Training.csv: Used to train machine learning models. - Testing.csv: Used to evaluate the performance of the trained models.
-
+* **Columns:** 132 columns for symptoms (e.g., itching, skin rash) and 1 column for disease prognosis.
+* **Files:** Training.csv for model training and Testing.csv for model evaluation.
 ### Data Augmentation
+To understand the impact of generative AI on prognosis diagnosing, we augmented our data by comparing the accuracy between the initial dataset and generative AI outputs through API calls using OpenAI.
 
-To understand how generative AI can impact prognosis diagnosing, we recognized that our original dataset was insufficient. Therefore, we augmented our data by comparing the accuracy between our initial dataset and generative AI outputs. We did this by making a series of API calls using OpenAI with the AI acting as a virtual doctor.
+### API Key Setup
+We selected OpenAI for this project because its API allows developers to integrate advanced language features into their applications. OpenAI's versatility in chatbots, virtual assistants, and content creation made it ideal for simulating a doctor's role.
 
-#### API Key Setup
-
-We selected OpenAI for this project because its API allows developers to integrate advanced language features such as text completion, translation, and summarization into their applications. OpenAI's versatility in chatbots, virtual assistants, and content creation makes it ideal for providing intelligent and context-aware interactions. In our case, we used OpenAI to simulate a doctor's role.
-
-#### Model Selection
-
-We utilized the "gpt-3.5-turbo" model, an advanced language model from OpenAI known for its efficiency and enhanced capabilities. This model offers improved performance and faster response times compared to its predecessors. It is designed to understand and generate human-like text, making it suitable for a variety of applications including chatbots, content creation, and language translation. We chose this model for its ability to handle complex language tasks with high accuracy, making it a powerful tool for integrating sophisticated language processing into our project.
+### Model Selection
+We utilized the "gpt-3.5-turbo" model from OpenAI, known for its efficiency and enhanced capabilities. This model was chosen for its ability to handle complex language tasks with high accuracy.
 
 ### Initial Diagnosis Call
+Our first API call involved instructing the AI to act as a doctor with the following prompt:
 
-Our first API call involved instructing the AI to act as a doctor. We provided the following prompt to the GPT-3.5-turbo model:
 
-``` python
-"Pretend you are a doctor. Patient presents to you with symptoms: {' '.join(symptoms)}. Predict the primary diagnosis concisely using ten words or less."
-```
-
-This was used to determine if the generative AI would reach the same conclusion as our sample dataset regarding the ailment based on a randomized order of symptoms.
+> *"Pretend you are a doctor. Patient presents to you with symptoms: {' '.join(symptoms)}.
+> 
+> Predict the primary diagnosis concisely using ten words or less."*
 
 ### Accuracy Evaluation
+We evaluated the predicted prognosis using a custom function get_rating that sends a prognosis and its predicted values to the GPT-4 API and receives a rating based on match accuracy. The rating scale ranges from 1 to 3:
 
-Next, we evaluated the newly predicted prognosis using a custom function get_rating. This function sends a prognosis and its predicted values to the GPT-4 API and receives a rating based on the match accuracy. The rating scale ranges from 1 to 3:
-
-1.  No match
-
-2.  Same family
-
-3.  Perfect match
-
-The evaluation prompt was:
-
-``` python
-def get_rating(prognosis, predicted_values):
-    prompt = (
-        f"Prognosis: {prognosis}\n"
-        f"Predicted Values: {predicted_values}\n"
-        "Rate the predicted values on a scale of 1 to 3 where 1 means no match, 2 means in the same family, and 3 means perfect match. "
-        "Respond with only the number."
-    )
-```
+1. No match
+2. Same family
+3. Perfect match
 
 ### Medical Family Determination
-
-Finally, we determined the medical “family” for both the original prognosis and the generative AI prognosis using these prompts:
-
-``` python
-Predicted Values: {predicted_values}
-Determine the medical family this prognosis belongs to.
-```
-
-``` python
-Prognosis: {prognosis}
-Determine the medical family this prognosis belongs to.
-```
+We determined the medical "family" for both the original prognosis and the generative AI prognosis using specific prompts to categorize them.
 
 ### New Feature Creation
+Due to the API calls, the following new features (columns) were created:
 
-As mentioned prior, due to the API calls, the following new features (columns) were created:
+* Predicted Values
+* Rating
+* Medical Family
+* Predicted Family
 
--   Predicted Values
+We also created new "calculated columns" to determine a match between the original data and the generative AI data, including match_found and match_found_family.
 
--   Rating
+### Data Cleaning
+Data cleaning and preprocessing were essential to ensure the quality and reliability of our dataset. Key steps included:
 
--   Medical Family
+* Addressing inconsistencies or errors.
+* Extracting scales from the "predicted diagnosis" to include only the diagnosis.
+* Randomizing the order of symptoms to account for replicates.
 
--   Predicted Family
-
-Based on these new features, we also created the following new “calculated columns” to determine a match between the original data and the generative AI data. These features include:
-
--   match_found
-
--   match_found_family
-
-This was done in R by adding a new column to the dataset to check if there are any matching words between the prognosis and predicted values. This helps identify if the predicted prognosis contains any terms that appear in the actual prognosis.
-
-
-
-## Data Cleaning
-
-Data cleaning and preprocessing were essential to ensure the quality and reliability of our dataset. We made several assumptions during this process, including the accuracy of the synthetic data from Kaggle and the consistency of the accuracy scores provided by ChatGPT. After all of the new features were created, all inconsistencies or errors identified during the cleaning process were addressed to maintain the integrity of the data.
-
-These inconsistencies included our new features being too wordy, with the new “predicted diagnosis” including the scale along with the diagnosis. We then extracted the scale from the feature so that the output would only include the diagnosis.
-
-
-Furthermore, we noted that in the original dataset, there were several replicates of the same symptoms and diagnosis. Originally, we considered removing all the duplicates but then decided instead to randomize the order of the symptoms since the dataset only included 41 prognosis.
-
-## Data Storage
-
-For the effective organization and future reference of our data, we have utilized a GitHub repository. This repository not only allows us to manage version control efficiently but also provides a centralized location for accessing and referring to various components of our project throughout its development and documentation.
+### Data Storage
+We utilized a GitHub repository for the effective organization and future reference of our data, enabling efficient version control and centralized access.
 
 ### Repository Structure and Purpose
+* .github: GitHub-specific configurations.
+* **Data:** Stores raw and processed datasets.
+* **Data_Engineering:** Scripts and resources for data engineering tasks.
+* **Documentation:** Project documentation, reports, and written materials.
+* **Machine_Learning:** Machine learning models, training scripts, and evaluation metrics.
+* **Statistics:** Statisitical modeling, scripts, and evaluation metrics. 
+* **.DS_Store:** A system file related to macOS directory management.
+* **README.md:** Overview of the project, research question, project description, and links to additional resources.
 
-Our GitHub repository is organized into several directories, each serving a specific purpose and rationale to streamline our workflow and enhance collaboration. The .github directory contains GitHub-specific configurations essential for automating workflows, managing issues, and incorporating feedback from GitHub Classroom. The Data directory centralizes all raw and processed datasets, simplifying data management and ensuring consistency and accuracy across various stages of the project. The Data_Engineering directory includes scripts and resources for data engineering tasks such as preprocessing and transformation, maintaining clarity and facilitating reproducibility and debugging. The Documentation directory houses project documentation, reports, and other written materials, supporting effective communication and collaboration. The Machine_Learning directory consolidates all machine learning-related components, making it easier to track model development, training processes, and performance evaluations. The .DS_Store file, automatically generated by macOS, is included to avoid unnecessary clutter and ensure the repository reflects the actual file system. Finally, the README.md file serves as the entry point for anyone accessing the repository, providing a comprehensive overview of the project and guiding users through the repository structure with essential information about the project's goals and resources.
+### Entity-Relationship Diagram (ERD)
+Our data is structured in a relational database to maintain a normalized and efficient schema, which is visualized in the following ERD:
 
--   **.github**: Contains GitHub-specific configurations and feedback from GitHub Classroom.
--   **Data**: Stores raw and processed datasets used in the project.
--   **Data_Engineering**: Includes scripts and resources for data engineering tasks such as preprocessing and transformation.
--   **Documentation**: Contains project documentation, reports, and other written materials.
--   **Machine_Learning**: Houses machine learning models, training scripts, and evaluation metrics.
--   **.DS_Store**: A system file related to macOS directory management.
--   **README.md**: Provides an overview of the project, including the research question, project description, and links to additional resources.
 
-## Statistical Methodology 
-
+## Statistical Methodology
 We employed a comprehensive statistical methodology to evaluate the performance of generative AI (ChatGPT) in diagnosing medical conditions. Our approach included descriptive statistics, accuracy metrics, various statistical tests, error analysis, and bias and variability analysis. Here’s an overview of the statistical methods used:
 
-1.  **Descriptive Statistics:**
-    To summarize the central tendency and dispersion of accuracy scores, we calculated the mean, median, mode, standard deviation, and variance. This provided a foundational understanding of the distribution of diagnostic accuracy ratings.
+1. **Descriptive Statistics:**
+To summarize the central tendency and dispersion of accuracy scores, we calculated the mean, median, mode, standard deviation, and variance. This provided a foundational understanding of the distribution of diagnostic accuracy ratings.
 
-2.  **Confusion Matrix:**
-    We used a confusion matrix to visualize the AI model's performance by showing the counts of true positives, true negatives, false positives, and false negatives. This helped in understanding the model's strengths and weaknesses in classification tasks.
+2. **Confusion Matrix:**
+We used a confusion matrix to visualize the AI model's performance by showing the counts of true positives, true negatives, false positives, and false negatives. This helped in understanding the model's strengths and weaknesses in classification tasks.
 
-3.  **Accuracy Metrics:**
-    We calculated precision, recall, and F1 scores to evaluate the model's performance. Precision and recall provided insights into the model's ability to correctly identify positive cases, while the F1 score balanced these metrics to give an overall performance measure.
+3. **Accuracy Metrics:**
+We calculated precision, recall, and F1 scores to evaluate the model's performance. Precision and recall provided insights into the model's ability to correctly identify positive cases, while the F1 score balanced these metrics to give an overall performance measure.
 
-4.  **Chi-Square Test:**
-    To determine if there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test. This helped us assess the model's performance consistency across different diagnostic categories.
+4. **Chi-Square Test:**
+To determine if there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test. This helped us assess the model's performance consistency across different diagnostic categories.
 
 5. **Correlation Analysis:**
-    Correlation analysis was performed to assess the relationships between different features in the dataset and the accuracy of AI predictions. This helped us understand the impact of various features on the model's performance and identify areas for potential improvement.
+Correlation analysis was performed to assess the relationships between different features in the dataset and the accuracy of AI predictions. This helped us understand the impact of various features on the model's performance and identify areas for potential improvement.
 
 By employing these statistical methods, we comprehensively evaluated the AI's diagnostic capabilities, providing a robust framework for understanding its accuracy, reliability, and areas for future enhancement. This multi-faceted approach ensured a thorough assessment, contributing valuable insights into the feasibility and effectiveness of using generative AI for healthcare diagnostics.
 
 ## Machine Learning
+# Model Selection and Development
+We developed multiple machine learning models, including logistic regression, decision trees, random forests, support vector machines (SVM), and neural networks to diagnose ailments.
 
-### Model Selection and Development
+# Addressing Overfitting and Validation
+To prevent overfitting and ensure generalizability, we implemented k-fold cross-validation and pruning techniques.
 
-We developed multiple machine learning models, including logistic regression, decision trees, random forests, support vector machines (SVM), and neural networks, to diagnose ailments based on the collected and augmented data. Logistic regression served as a baseline model due to its simplicity and interpretability. Decision trees provided a clear visual representation of decision-making processes. Random forests and SVMs are known for their high accuracy and robustness, while neural networks can capture complex patterns in data. By exploring various models, we aimed to leverage their strengths and mitigate their weaknesses, identifying the best-suited algorithm for our dataset.
-
-### Addressing Overfitting and Validation
-
-To ensure our models did not overfit the training data and could generalize well to unseen data, we implemented k-fold cross-validation and pruning techniques. K-fold cross-validation involved repeatedly training and testing the models on different subsets of the data, providing a more reliable estimate of their performance. Pruning, specifically for decision trees, reduced model complexity by removing branches that had little significance, further preventing overfitting. These techniques were crucial for validating our models' ability to perform well on new, unseen data.
-
-### Model Comparison and Feature Importance
-
-Comparing the performance of different models allowed us to determine the most effective algorithm for diagnosing ailments. The random forest, SVM, and neural network models demonstrated high accuracy, with SVM achieving perfect accuracy in some instances. Analyzing feature importance in the random forest model provided insights into which symptoms were most influential in predicting prognosis. Understanding feature importance helped guide further refinement of telehealth diagnosis platforms by focusing on the most critical indicators.
+# Model Comparison and Feature Importance
+Comparing different models allowed us to identify the most effective algorithm for diagnosing ailments. Analyzing feature importance in the random forest model provided insights into influential symptoms, guiding further refinement of telehealth diagnosis platforms.
