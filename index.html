@@ -79,75 +79,125 @@ ul.task-list li input[type="checkbox"] {
 <p>To set the stage for our investigation, it is essential to understand the role of AI in healthcare and the current state of research in this field. Generative AI can quickly analyze vast amounts of data and identify patterns that may be challenging for human clinicians to discern. This capability promises more accurate and timely diagnoses, which could significantly enhance patient care.</p>
 <p>However, a critical question remains: How do the diagnoses from generative AI compare to those made by human clinicians when presented with identical symptoms?</p>
 <p>Our capstone project aims to evaluate the accuracy of generative AI in diagnosing medical conditions and explore the feasibility of developing precise diagnostic models using this technology. We seek to determine how well generative AI can perform in real-world scenarios and its potential impact on improving diagnostic processes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/introImage_chatGPT_Doctor%20Small.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Figure 1:</strong> AI Doctor Illustration generated using DALL-E by OpenAI. The prompt used was <em>“A bitmoji-style illustration of a female AI doctor with a ChatGPT logo on her lab coat, standing next to a small AI robot labeled ‘CHATGPT’ with a minimalistic background featuring a medical bed, cactus, and clipboard.”</em>.</figcaption>
+</figure>
+</div>
 </section>
 <section id="background" class="level1">
 <h1>Background</h1>
-<p>The integration of Generative AI (GAI) into healthcare is transforming the landscape of diagnosis, treatment, and patient care. By leveraging advanced algorithms, GAI generates new data and insights, offering versatile solutions across various applications such as text, images, audio, and video. This revolution in healthcare technology brings numerous benefits but also raises significant questions about the ethical implications, potential biases, and practical applications of these AI-driven tools.</p>
-<p>This document delves into the extensive scoping review conducted to understand the current state and potential of GAI in healthcare. Through this analysis, we aim to highlight both the advantages and challenges associated with the adoption of GAI in healthcare, particularly focusing on the ethical considerations and the mitigation of biases inherent in AI systems.</p>
-</section>
-<section id="background-on-generative-ai-and-healthcare" class="level1">
-<h1>Background on Generative AI and Healthcare</h1>
-<p>Generative AI (GAI) is revolutionizing healthcare by offering innovative solutions for diagnosis, treatment, and patient care. This advanced form of artificial intelligence enhances healthcare delivery by generating new data and insights, providing a versatile tool for various applications including text, images, audio, and video. However, its integration into healthcare systems raises questions about its benefits, challenges, and practical applications.</p>
-<p>In a comprehensive scoping review following PRISMA-ScR guidelines, researchers searched databases like Web of Science, PubMed, and Scopus, ultimately including 109 articles from an initial pool of 1406. The study identified nine prominent GAI models, with ChatGPT, Google Bard, and Microsoft Bing AI being the most frequently utilized in healthcare settings.</p>
-<p>Generative AI has several key applications in healthcare. It supports clinical decision-making by aiding in the diagnosis and prediction of diseases, triage, treatment strategy formulation, and offering management advice. It also plays a vital role in medical education by providing insights on health conditions, designing exam questions, producing medical articles, and supporting interactive learning tools for medical students. Additionally, GAI streamlines clinical documentation by summarizing patient problems, creating discharge summaries, and generating healthcare-related text and reports.</p>
-<p>The benefits of generative AI in healthcare are significant. It improves diagnosis accuracy, reduces human error, and efficiently analyzes symptoms to identify treatment options. GAI provides rapid access to valuable insights, offers high concordance rates with specialists’ recommendations, and enhances patient engagement through personalized care. It also supports medical research and education by assisting in article drafting and clinical trial matching, promoting a better understanding of complex medical concepts. Furthermore, GAI offers substantial time and cost savings compared to traditional evaluations, reducing the workload for medical professionals.</p>
-<p>However, generative AI in healthcare also faces several challenges. While it cannot replace human doctors or account for individual patient preferences, it may exhibit biases and variability in human adjudication, leading to lower accuracy in some diagnoses and treatment recommendations. Ethical considerations and data privacy issues are also significant, with risks of AI generating inaccurate or biased information. Additionally, patients may lack confidence in AI accuracy, necessitating frequent human oversight and modifications. Continuous validation and updating are necessary to maintain performance and reliability, and there is a need for specific training and re-training of AI models in various medical contexts.</p>
-<p>Generative AI has also shown promise in remote patient monitoring (RPM) telehealth solutions. Companies like Andor Health and Babylon Health, as well as healthcare professionals such as Dr.&nbsp;Josh Tamayo-Sarver, utilize ChatGPT to enhance virtual health interactions, patient communication, and routine healthcare tasks. ChatGPT answers patient questions, monitors symptoms, provides personalized health education, offers emotional support, and overcomes language barriers, making healthcare more accessible and efficient. Its integration into telemedicine offers enhanced patient engagement, streamlined workflows, expanded accessibility, cost savings, and data-driven insights. Despite its benefits, concerns about accuracy, reliability, lack of human judgment, and patient privacy need addressing. Best practices for implementing GAI in healthcare include training and fine-tuning AI models, ensuring human oversight, adhering to regulatory compliance, conducting thorough testing, and continuous improvement based on feedback.</p>
-<p>For readers unfamiliar with this area, some key vocabulary and concepts are important to grasp:</p>
+<p>Generative AI (GAI) is changing the way healthcare works by improving diagnosis, treatment, and patient care. Using advanced technology, GAI creates new data and insights across text, images, audio, and video. While this brings many benefits, it also raises important questions about ethics, potential biases, and practical uses.</p>
+<p>Our review explores the current state and potential of GAI in healthcare, highlighting its advantages and challenges, with a focus on ethical considerations and bias mitigation.</p>
+<section id="generative-ai-and-healthcare" class="level2">
+<h2 class="anchored" data-anchor-id="generative-ai-and-healthcare">Generative AI and Healthcare</h2>
+<p>Generative AI (GAI) is making significant changes in healthcare by offering new solutions for diagnosis, treatment, and patient care. This technology creates new data and insights, helping healthcare providers in various ways, including text, images, audio, and video. However, bringing GAI into healthcare also comes with challenges and raises important questions.</p>
+<p>Our comprehensive review found that nine prominent GAI models, with <a href="https://www.openai.com/chatgpt">ChatGPT</a>, <a href="https://bard.google.com">Google Bard</a>, and <a href="https://www.bing.com">Microsoft Bing AI</a> were the most used in healthcare settings.</p>
+<section id="key-uses-of-gai-in-healthcare" class="level3">
+<h3 class="anchored" data-anchor-id="key-uses-of-gai-in-healthcare">Key Uses of GAI in Healthcare</h3>
 <ul>
-<li><strong>Generative AI:</strong> A type of artificial intelligence that generates new data based on patterns from existing data. It is different from other AI systems that might only classify or predict based on provided inputs.</li>
-<li><strong>Diagnostic Accuracy:</strong> A measure of how correctly a diagnostic tool identifies or predicts a medical condition compared to a reference standard.</li>
-<li><strong>Healthcare Systems Integration:</strong> The process of incorporating new technologies, such as AI, into existing healthcare frameworks.</li>
+<li><strong>Clinical Decision-Making</strong>: Helping with diagnosis, predicting diseases, triage, treatment planning, and management advice.</li>
+<li><strong>Medical Education</strong>: Providing insights on health conditions, designing exam questions, producing medical articles, and supporting interactive learning tools.</li>
+<li><strong>Clinical Documentation</strong>: Summarizing patient issues, creating discharge summaries, and generating healthcare-related text and reports.</li>
 </ul>
-<p>Our research is situated within the broader context of ongoing efforts to integrate AI into healthcare. The current state of research shows a growing interest in leveraging AI for diagnostics, but there is still much to learn about its practical implications and effectiveness. By evaluating the performance of generative AI in this context, we aim to contribute valuable insights that could inform future developments and enhance the role of AI in healthcare diagnostics.</p>
-<section id="data-ethics-in-ai-and-healthcare" class="level2">
-<h2 class="anchored" data-anchor-id="data-ethics-in-ai-and-healthcare">Data Ethics in AI and Healthcare</h2>
-<p>Biases are an inherent risk when working with AI and data-driven projects, particularly in the healthcare domain. The synthetic data sourced from Kaggle might reflect biases present in the original datasets from which it was derived, potentially influencing the representativeness of the data for certain conditions, diagnostic categories, or inherent biases in healthcare based on patient demographics. Additionally, generative AI models, including ChatGPT, can exhibit biases based on their training data, which may include inaccuracies or skewed information about medical conditions.</p>
-<section id="bias-in-healthcare-ai" class="level3">
-<h3 class="anchored" data-anchor-id="bias-in-healthcare-ai">Bias in Healthcare AI</h3>
-<p>In healthcare, these biases can have significant implications. For example, if the training data used to develop AI models includes incomplete or imprecise representations of certain medical conditions, the resulting diagnostic tools may not perform optimally in real-world scenarios. This can impact the accuracy and reliability of diagnoses and potentially affect patient outcomes.</p>
-</section>
-<section id="mitigating-bias" class="level3">
-<h3 class="anchored" data-anchor-id="mitigating-bias">Mitigating Bias</h3>
-<p>To address these concerns, we have undertaken measures to identify and mitigate potential biases in our project. This involves analyzing the quality and comprehensiveness of the datasets and evaluating the AI’s performance to ensure that our findings are as accurate and reliable as possible. This includes:</p>
+<section id="benefits-of-generative-ai-in-healthcare" class="level4">
+<h4 class="anchored" data-anchor-id="benefits-of-generative-ai-in-healthcare">Benefits of Generative AI in Healthcare</h4>
 <ul>
-<li><strong>Data Quality Analysis:</strong> Ensuring the datasets are comprehensive and representative of diverse patient populations.</li>
-<li><strong>Bias Detection:</strong> Implementing techniques to detect and quantify biases in the data and AI models.</li>
-<li><strong>Performance Evaluation:</strong> Testing AI models across various demographic groups to ensure equitable performance.</li>
+<li><strong>Improves Diagnosis Accuracy</strong>: Reduces human error and efficiently analyzes symptoms to identify treatment options.</li>
+<li><strong>Provides Rapid Insights</strong>: Offers quick access to valuable information and high agreement rates with specialists’ recommendations.</li>
+<li><strong>Enhances Patient Engagement</strong>: Personalizes care and supports medical research and education.</li>
+<li><strong>Saves Time and Costs</strong>: Reduces workload for medical professionals by streamlining processes.</li>
 </ul>
+</section>
+<section id="challenges-of-generative-ai-in-healthcare" class="level4">
+<h4 class="anchored" data-anchor-id="challenges-of-generative-ai-in-healthcare">Challenges of Generative AI in Healthcare</h4>
+<ul>
+<li><strong>Bias and Variability</strong>: May show biases, affecting diagnosis and treatment accuracy.</li>
+<li><strong>Ethical and Privacy Issues</strong>: Raises concerns about data privacy and the generation of inaccurate or biased information.</li>
+<li><strong>Need for Human Oversight</strong>: Requires frequent human checks and continuous updates to maintain performance and reliability.</li>
+</ul>
+<p>GAI also shows promise in remote patient monitoring (RPM) telehealth solutions, enhancing virtual health interactions and making healthcare more accessible and efficient. Despite its benefits, concerns about accuracy, reliability, and patient privacy need addressing.</p>
+</section>
+</section>
+<section id="best-practices-for-using-gai-in-healthcare" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices-for-using-gai-in-healthcare">Best Practices for Using GAI in Healthcare</h3>
+<ul>
+<li><strong>Training and Fine-Tuning AI Models</strong>: Ensure models are well-trained and continuously updated.</li>
+<li><strong>Human Oversight</strong>: Maintain human involvement to verify AI outputs.</li>
+<li><strong>Regulatory Compliance</strong>: Follow industry standards and regulations.</li>
+<li><strong>Thorough Testing and Continuous Improvement</strong>: Regularly test AI systems and incorporate feedback for improvements.</li>
+</ul>
+</section>
+<section id="data-ethics-in-healthcare" class="level3">
+<h3 class="anchored" data-anchor-id="data-ethics-in-healthcare">Data Ethics in Healthcare</h3>
+<p>Biases in AI and data-driven projects, especially in healthcare, pose significant risks. Synthetic data from sources like <a href="https://www.kaggle.com">Kaggle</a>, a data science competition platform, may carry biases from the original datasets, affecting the representation of certain conditions or demographics. Additionally, generative AI models like ChatGPT can exhibit biases based on their training data.</p>
+<section id="bias-in-healthcare-ai" class="level4">
+<h4 class="anchored" data-anchor-id="bias-in-healthcare-ai">Bias in Healthcare AI</h4>
+<p>Training data with incomplete or imprecise representations of medical conditions can impact diagnostic tools’ accuracy and reliability, affecting patient outcomes.</p>
+</section>
+<section id="mitigating-bias" class="level4">
+<h4 class="anchored" data-anchor-id="mitigating-bias">Mitigating Bias</h4>
+<p>To address biases, we:</p>
+<ul>
+<li><strong>Ensure Data Quality</strong>: Use comprehensive and representative datasets.</li>
+<li><strong>Detect and Quantify Biases</strong>: Implement techniques to identify biases.</li>
+<li><strong>Evaluate Performance</strong>: Test AI models across diverse demographic groups for equitable performance.</li>
+</ul>
+</section>
 </section>
 <section id="ethical-considerations" class="level3">
 <h3 class="anchored" data-anchor-id="ethical-considerations">Ethical Considerations</h3>
-<p>Although we used synthetic and generative data, it is also important to note that in real-world scenarios involving actual patient data, obtaining informed consent is crucial. Our project did not involve real patient data, but if it had, we would have implemented measures to obtain explicit consent from individuals whose data was used, ensuring that they were fully aware of how their data would be utilized.</p>
-</section>
-<section id="informed-consent" class="level3">
-<h3 class="anchored" data-anchor-id="informed-consent">Informed Consent</h3>
-<p>In real-world applications, informed consent involves:</p>
+<p>In real-world scenarios involving patient data, obtaining informed consent is crucial. Although our project used synthetic and generative data, real-world applications require:</p>
 <ul>
-<li><strong>Transparency:</strong> Clearly explaining how the data will be used and the purposes of the AI models.</li>
-<li><strong>Voluntariness:</strong> Ensuring participation is voluntary and that individuals can withdraw their consent at any time.</li>
-<li><strong>Comprehension:</strong> Providing information in an understandable manner so that individuals can make informed decisions.</li>
+<li><strong>Transparency</strong>: Clearly explain how data is used and the purposes of AI models.</li>
+<li><strong>Voluntariness</strong>: Ensure participation is voluntary and individuals can withdraw consent at any time.</li>
+<li><strong>Comprehension</strong>: Provide understandable information for informed decisions.</li>
 </ul>
 </section>
 <section id="broader-ethical-implications" class="level3">
 <h3 class="anchored" data-anchor-id="broader-ethical-implications">Broader Ethical Implications</h3>
-<p>The integration of AI in healthcare comes with broader ethical considerations, including the potential impact on healthcare professionals and patient trust. We considered these implications by evaluating not only the technical accuracy of the AI but also its potential effects on the broader healthcare ecosystem. Our aim was to ensure that the use of AI enhances, rather than undermines, the quality of patient care and the role of healthcare providers.</p>
-</section>
-<section id="enhancing-patient-care" class="level3">
-<h3 class="anchored" data-anchor-id="enhancing-patient-care">Enhancing Patient Care</h3>
+<p>AI integration in healthcare impacts healthcare professionals and patient trust. We reccomend developers ensure AI enhances patient care and supports healthcare providers by:</p>
 <ul>
-<li><strong>Augmenting Healthcare Providers:</strong> Using AI to support and enhance the capabilities of healthcare professionals, not replace them.</li>
-<li><strong>Building Trust:</strong> Ensuring transparency and explainability in AI decisions to build trust with patients and providers.</li>
-<li><strong>Continuous Monitoring:</strong> Regularly updating and monitoring AI models to maintain their accuracy and reliability over time.</li>
+<li><strong>Supporting Healthcare Professionals</strong>: Use AI to help, not replace, healthcare providers.</li>
+<li><strong>Building Trust</strong>: Ensure transparency and explainability in AI decisions.</li>
+<li><strong>Continuous Monitoring</strong>: Regularly update and monitor AI models for accuracy and reliability.</li>
 </ul>
-<p>By addressing these ethical considerations, we aim to develop AI tools that are not only technically sound but also ethically responsible, ultimately contributing to better healthcare outcomes and maintaining the trust of patients and healthcare providers.</p>
+</section>
+<section id="limitations-of-synthetic-data-in-healthcare-ai-models" class="level3">
+<h3 class="anchored" data-anchor-id="limitations-of-synthetic-data-in-healthcare-ai-models">Limitations of Synthetic Data in Healthcare AI Models</h3>
+<p>While synthetic data offers advantages like privacy compliance and scalability, it has limitations that prevent its use for training healthcare AI models or conducting clinical research. The key issues include data leakage, lack of diversity in generated patient cohorts, and inherent biases from training data. Addressing these limitations is crucial for developing accurate and reliable AI models in healthcare.</p>
+<p>Synthetic data is often “too clean,” lacking the inherent noise and variability present in real-world patient data. This can result in overly optimistic performance evaluations of AI models. For example, models based on synthetic data often achieve high accuracy scores due to data leakage, where the training and test datasets are too similar.</p>
+<p>To develop accurate AI models or conduct meaningful analyses, a large and diverse patient population is needed. Synthetic data generation’s strength lies in its ability to scale, but it struggles to accurately represent diverse patient populations, affecting the reliability of AI models in real-world scenarios.</p>
+<p>Generative algorithms are only as good as the data they are trained on, and any biases in the source data will be reflected in the generated synthetic data. This can exacerbate existing healthcare disparities and lead to inaccurate AI models for underrepresented groups.</p>
+<p>For more details on Synthetic Healthcare Data, see the full article on <a href="https://www.forbes.com/sites/forbestechcouncil/2023/05/26/the-dangers-of-using-synthetic-patient-data-to-build-healthcare-ai-models/">Forbes</a>.</p>
+<hr>
+</section>
+<section id="key-terms" class="level3">
+<h3 class="anchored" data-anchor-id="key-terms">Key Terms</h3>
+<ul>
+<li><strong>Generative AI</strong>: AI that creates new data based on patterns from existing data.</li>
+<li><strong>Diagnostic Accuracy</strong>: How correctly a diagnostic tool identifies or predicts a medical condition.</li>
+<li><strong>Healthcare Systems Integration</strong>: Incorporating new technologies like AI into existing healthcare frameworks.</li>
+</ul>
+<hr>
+</section>
+<section id="in-summary" class="level3">
+<h3 class="anchored" data-anchor-id="in-summary">In Summary</h3>
+<p>Generative AI holds great promise in transforming healthcare by improving diagnosis, treatment, and patient care. It offers significant benefits, such as enhancing diagnostic accuracy, providing rapid insights, and personalizing patient care. However, the integration of GAI into healthcare systems also presents challenges, including potential biases, ethical concerns, and the need for continuous human oversight.</p>
+<p>To fully realize the potential of GAI, it is essential to address these challenges through best practices, ethical considerations, and rigorous testing. By doing so, we can ensure that AI technology enhances the capabilities of healthcare providers, improves patient outcomes, and maintains the trust of both patients and medical professionals.</p>
+<p>The journey of integrating GAI into healthcare is ongoing, and with continued research and development, we can pave the way for a more efficient, accurate, and ethical healthcare system.</p>
+<hr>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<ul>
+<li>Moulaei, K., et al.&nbsp;(2024). Generative artificial intelligence in healthcare: A scoping review on benefits, challenges, and applications. <em>International Journal of Medical Informatics</em>, 188, 105474. <a href="https://doi.org/10.1016/j.ijmedinf.2024.105474">https://doi.org/10.1016/j.ijmedinf.2024.105474</a></li>
+<li>Temsah, M.H., et al.&nbsp;(2024). Transforming Virtual Healthcare: The Potentials of ChatGPT-4omni in Telemedicine. <em>Cureus</em>, 16(5), e61377. doi: 10.7759/cureus.61377. PMID: 38817799; PMCID: PMC11139454.</li>
+<li>Talby, D. (2023). The Dangers of Using Synthetic Patient Data to Build Healthcare AI Models. <em>Forbes</em>. <a href="https://www.forbes.com/sites/forbestechcouncil/2023/05/26/the-dangers-of-using-synthetic-patient-data-to-build-healthcare-ai-models/">https://www.forbes.com/sites/forbestechcouncil/2023/05/26/the-dangers-of-using-synthetic-patient-data-to-build-healthcare-ai-models/</a></li>
+</ul>
 </section>
 </section>
-</section>
-<section id="references" class="level1">
-<h1>References</h1>
-<p>Moulaei, K., Yadegari, A., Baharestani, M., Farzanbakhsh, S., Sabet, B., &amp; Reza Afrash, M. (2024). Generative artificial intelligence in healthcare: A scoping review on benefits, challenges and applications. International Journal of Medical Informatics, 188, 105474. https://doi.org/10.1016/j.ijmedinf.2024.105474&nbsp;</p>
-<p>Temsah MH, Jamal A, Alhasan K, Aljamaan F, Altamimi I, Malki KH, Temsah A, Ohannessian R, Al-Eyadhy A. Transforming Virtual Healthcare: The Potentials of ChatGPT-4omni in Telemedicine. Cureus. 2024 May 30;16(5):e61377. doi: 10.7759/cureus.61377. PMID: 38817799; PMCID: PMC11139454.&nbsp;</p>
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
