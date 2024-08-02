@@ -9,3 +9,5 @@ However, a critical question remains: How do the diagnoses from generative AI co
 
 Our capstone project aims to evaluate the accuracy of generative AI in diagnosing medical conditions and explore the feasibility of developing precise diagnostic models using this technology. We seek to determine how well generative AI can perform in real-world scenarios and its potential impact on improving diagnostic processes.
 
+![**Figure 1:** AI Doctor Illustration generated using DALL-E by OpenAI. The prompt used was 
+*"A bitmoji-style illustration of a female AI doctor with a ChatGPT logo on her lab coat, standing next to a small AI robot labeled 'CHATGPT' with a minimalistic background featuring a medical bed, cactus, and clipboard."*. ](./images/introImage_chatGPT_Doctor Small.png)
