@@ -11,8 +11,8 @@ format:
       light: lightly
       dark: darkly
       toc: true
-    html-math-method: katex
-    css: styles.css
+      toc-location: left
+      
 
 
 ---
