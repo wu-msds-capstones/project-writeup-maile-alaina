@@ -39,9 +39,9 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="fullcontent">
+<body>
 
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Capstone Project: Evaluating AI Accuracy for Telehealth Diagnosis</h1>
@@ -65,8 +65,68 @@ ul.task-list li input[type="checkbox"] {
     </div>
     
   
-  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a>
+  <ul class="collapse">
+  <li><a href="#generative-ai-and-healthcare" id="toc-generative-ai-and-healthcare" class="nav-link" data-scroll-target="#generative-ai-and-healthcare">Generative AI and Healthcare</a>
+  <ul class="collapse">
+  <li><a href="#key-uses-of-gai-in-healthcare" id="toc-key-uses-of-gai-in-healthcare" class="nav-link" data-scroll-target="#key-uses-of-gai-in-healthcare">Key Uses of GAI in Healthcare</a></li>
+  <li><a href="#best-practices-for-using-gai-in-healthcare" id="toc-best-practices-for-using-gai-in-healthcare" class="nav-link" data-scroll-target="#best-practices-for-using-gai-in-healthcare">Best Practices for Using GAI in Healthcare</a></li>
+  <li><a href="#data-ethics-in-healthcare" id="toc-data-ethics-in-healthcare" class="nav-link" data-scroll-target="#data-ethics-in-healthcare">Data Ethics in Healthcare</a></li>
+  <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link" data-scroll-target="#ethical-considerations">Ethical Considerations</a></li>
+  <li><a href="#broader-ethical-implications" id="toc-broader-ethical-implications" class="nav-link" data-scroll-target="#broader-ethical-implications">Broader Ethical Implications</a></li>
+  <li><a href="#limitations-of-synthetic-data-in-healthcare-ai-models" id="toc-limitations-of-synthetic-data-in-healthcare-ai-models" class="nav-link" data-scroll-target="#limitations-of-synthetic-data-in-healthcare-ai-models">Limitations of Synthetic Data in Healthcare AI Models</a></li>
+  <li><a href="#key-terms" id="toc-key-terms" class="nav-link" data-scroll-target="#key-terms">Key Terms</a></li>
+  <li><a href="#in-summary" id="toc-in-summary" class="nav-link" data-scroll-target="#in-summary">In Summary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
+  <ul class="collapse">
+  <li><a href="#dataset-selection-and-api-development" id="toc-dataset-selection-and-api-development" class="nav-link" data-scroll-target="#dataset-selection-and-api-development">Dataset Selection and API Development</a></li>
+  <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering">Data Engineering</a>
+  <ul class="collapse">
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
+  <li><a href="#api-key-setup" id="toc-api-key-setup" class="nav-link" data-scroll-target="#api-key-setup">API Key Setup</a></li>
+  <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model Selection</a></li>
+  <li><a href="#initial-diagnosis-call" id="toc-initial-diagnosis-call" class="nav-link" data-scroll-target="#initial-diagnosis-call">Initial Diagnosis Call</a></li>
+  <li><a href="#accuracy-evaluation" id="toc-accuracy-evaluation" class="nav-link" data-scroll-target="#accuracy-evaluation">Accuracy Evaluation</a></li>
+  <li><a href="#medical-family-determination" id="toc-medical-family-determination" class="nav-link" data-scroll-target="#medical-family-determination">Medical Family Determination</a></li>
+  <li><a href="#new-feature-creation" id="toc-new-feature-creation" class="nav-link" data-scroll-target="#new-feature-creation">New Feature Creation</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
+  <li><a href="#data-storage" id="toc-data-storage" class="nav-link" data-scroll-target="#data-storage">Data Storage</a></li>
+  <li><a href="#repository-structure-and-purpose" id="toc-repository-structure-and-purpose" class="nav-link" data-scroll-target="#repository-structure-and-purpose">Repository Structure and Purpose</a></li>
+  <li><a href="#entity-relationship-diagram-erd" id="toc-entity-relationship-diagram-erd" class="nav-link" data-scroll-target="#entity-relationship-diagram-erd">Entity-Relationship Diagram (ERD)</a></li>
+  </ul></li>
+  <li><a href="#statistical-methodology" id="toc-statistical-methodology" class="nav-link" data-scroll-target="#statistical-methodology">Statistical Methodology</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
+  </ul></li>
+  <li><a href="#model-selection-and-development" id="toc-model-selection-and-development" class="nav-link" data-scroll-target="#model-selection-and-development">Model Selection and Development</a></li>
+  <li><a href="#addressing-overfitting-and-validation" id="toc-addressing-overfitting-and-validation" class="nav-link" data-scroll-target="#addressing-overfitting-and-validation">Addressing Overfitting and Validation</a></li>
+  <li><a href="#model-comparison-and-feature-importance" id="toc-model-comparison-and-feature-importance" class="nav-link" data-scroll-target="#model-comparison-and-feature-importance">Model Comparison and Feature Importance</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#content-breakdown-1" id="toc-content-breakdown-1" class="nav-link" data-scroll-target="#content-breakdown-1">Content Breakdown</a></li>
+  <li><a href="#data-augmentation" id="toc-data-augmentation" class="nav-link" data-scroll-target="#data-augmentation">Data Augmentation</a></li>
+  <li><a href="#new-feature-creation-1" id="toc-new-feature-creation-1" class="nav-link" data-scroll-target="#new-feature-creation-1">New Feature Creation</a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <ul class="collapse">
+  <li><a href="#match-status-analysis" id="toc-match-status-analysis" class="nav-link" data-scroll-target="#match-status-analysis">Match Status Analysis</a></li>
+  <li><a href="#note-on-synthetic-data" id="toc-note-on-synthetic-data" class="nav-link" data-scroll-target="#note-on-synthetic-data"><strong>Note on Synthetic Data</strong></a></li>
+  </ul></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
