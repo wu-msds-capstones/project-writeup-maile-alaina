@@ -7,14 +7,11 @@ authors:
 title-block-banner: true
 format: 
   html:
-    theme:
-      light: lightly
-      dark: darkly
-      toc: true
-      toc-location: left
-      
-
-
+    theme: 
+      light: "lightly"
+      dark: "darkly"
+    toc: true
+    toc-location: left
 ---
 
 {{< include _01_intro.qmd >}}
