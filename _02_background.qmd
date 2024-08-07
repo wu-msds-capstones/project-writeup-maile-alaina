@@ -26,6 +26,7 @@ The integration of generative AI into healthcare systems offers several signific
 
 ### Challenges of Generative AI in Healthcare
 Despite its potential, the adoption of generative AI in healthcare is fraught with challenges:
+
 - **Bias and Variability:** AI models can exhibit biases based on their training data, which can affect diagnosis and treatment accuracy. Variability in AI performance across different demographic groups is also a concern.
 - **Ethical and Privacy Issues:**  The use of AI raises ethical questions related to data privacy, informed consent, and the potential for generating inaccurate or biased information.
 - **Need for Human Oversight:** While AI can assist in diagnostics, human oversight is necessary to verify AI outputs and ensure reliability. Continuous updates and monitoring are required to maintain performance standards.
