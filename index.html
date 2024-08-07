@@ -88,9 +88,11 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
   <ul class="collapse">
-  <li><a href="#dataset-selection-and-api-development" id="toc-dataset-selection-and-api-development" class="nav-link" data-scroll-target="#dataset-selection-and-api-development">Dataset Selection and API Development</a></li>
+  <li><a href="#dataset-selection-and-api-development" id="toc-dataset-selection-and-api-development" class="nav-link" data-scroll-target="#dataset-selection-and-api-development">Dataset Selection and API Development</a>
+  <ul class="collapse">
   <li><a href="#dataset-selection" id="toc-dataset-selection" class="nav-link" data-scroll-target="#dataset-selection">Dataset Selection:</a></li>
   <li><a href="#api-development" id="toc-api-development" class="nav-link" data-scroll-target="#api-development">API Development:</a></li>
+  </ul></li>
   <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering">Data Engineering</a>
   <ul class="collapse">
   <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection:</a></li>
@@ -209,13 +211,12 @@ ul.task-list li input[type="checkbox"] {
 <h1>Methods</h1>
 <section id="dataset-selection-and-api-development" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-selection-and-api-development">Dataset Selection and API Development</h2>
-</section>
-<section id="dataset-selection" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-selection">Dataset Selection:</h2>
+<section id="dataset-selection" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-selection">Dataset Selection:</h3>
 <p>We selected a dataset licensed from the Massachusetts Institute of Technology (MIT), which contains over one hundred symptoms associated with various diagnoses. The dataset includes both training and testing sets, each with 132 symptom columns and one prognosis column.</p>
 </section>
-<section id="api-development" class="level2">
-<h2 class="anchored" data-anchor-id="api-development">API Development:</h2>
+<section id="api-development" class="level3">
+<h3 class="anchored" data-anchor-id="api-development">API Development:</h3>
 <p>We developed multiple API calls utilizing ChatGPT, a popular generative AI platform, to act as a tele-health doctor. For each row in our dataset, the API presented ChatGPT with a randomized order of symptoms that tested positive and requested its diagnosis estimation.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -223,6 +224,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption><strong>Figure 2: Flowchart of Dataset Selection and API Development Process.</strong></figcaption>
 </figure>
 </div>
+</section>
 </section>
 <section id="data-engineering" class="level2">
 <h2 class="anchored" data-anchor-id="data-engineering">Data Engineering</h2>
@@ -236,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/figure_3.png" class="img-fluid figure-img"></p>
-<figcaption>** Figure 3: Flowchart of Datset Augmentation Approach.**</figcaption>
+<figcaption><strong>Figure 3: Flowchart of Datset Augmentation Approach.</strong></figcaption>
 </figure>
 </div>
 </section>
