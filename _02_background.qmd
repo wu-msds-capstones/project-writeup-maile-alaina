@@ -12,9 +12,9 @@ Generative AI is already making strides in healthcare through several key applic
 - **Medical Education:** Generative AI contributes to medical education by providing insights into health conditions, generating realistic medical scenarios for training, designing exam questions, and creating interactive learning tools.
 - **Clinical Documentation:** AI streamlines the documentation process by summarizing patient issues, generating discharge summaries, and creating comprehensive healthcare reports. This reduces the administrative burden on healthcare providers and allows them to focus more on patient care.
 
-    ![**Figure 1: Use Cases of Generative AI in Healthcare.**](images/figure_1.png)
-     
-    *This diagram illustrates various applications of generative AI in healthcare, including drug discovery, disease diagnosis, personalized treatment plans, research, patient care, medical chatbots, predictive maintenance, and medical robots (Uptech Team, n.d.).*
+![**Figure 1: Use Cases of Generative AI in Healthcare.**](images/figure_1.png)
+
+ *This diagram illustrates various applications of generative AI in healthcare, including drug discovery, disease diagnosis, personalized treatment plans, research, patient care, medical chatbots, predictive maintenance, and medical robots (Uptech Team, n.d.).*
 
 ### Benefits of Generative AI in Healthcare
 The integration of generative AI into healthcare systems offers several significant benefits:

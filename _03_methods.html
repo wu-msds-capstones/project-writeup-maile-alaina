@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>background</title>
+<title>methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,16 +23,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="_02_background_files/libs/clipboard/clipboard.min.js"></script>
-<script src="_02_background_files/libs/quarto-html/quarto.js"></script>
-<script src="_02_background_files/libs/quarto-html/popper.min.js"></script>
-<script src="_02_background_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="_02_background_files/libs/quarto-html/anchor.min.js"></script>
-<link href="_02_background_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="_02_background_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="_02_background_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="_02_background_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="_02_background_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="_03_methods_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_03_methods_files/libs/quarto-html/quarto.js"></script>
+<script src="_03_methods_files/libs/quarto-html/popper.min.js"></script>
+<script src="_03_methods_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_03_methods_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_03_methods_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_03_methods_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_03_methods_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_03_methods_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_03_methods_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -46,72 +46,96 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="background" class="level1">
-<h1>Background</h1>
-<section id="generative-ai-in-healthcare" class="level2">
-<h2 class="anchored" data-anchor-id="generative-ai-in-healthcare">Generative AI in Healthcare</h2>
-<p>Generative AI is a branch of artificial intelligence that focuses on creating new data by learning patterns from existing datasets. Unlike traditional AI models that classify or predict based on existing data, generative AI models can generate new, synthetic data that mimics the statistical properties of the training data. This capability has significant implications for various fields, including healthcare, where data generation and pattern recognition are crucial.</p>
-<section id="current-applications" class="level3">
-<h3 class="anchored" data-anchor-id="current-applications">Current Applications</h3>
-<p>Generative AI is already making strides in healthcare through several key applications:</p>
-<ul>
-<li><strong>Clinical Decision-Making:</strong> Generative AI assists in diagnosing diseases, predicting disease progression, triaging patients, and planning treatment. By analyzing vast amounts of patient data, AI can identify patterns and correlations that might be missed by human clinicians.</li>
-<li><strong>Medical Education:</strong> Generative AI contributes to medical education by providing insights into health conditions, generating realistic medical scenarios for training, designing exam questions, and creating interactive learning tools.</li>
-<li><strong>Clinical Documentation:</strong> AI streamlines the documentation process by summarizing patient issues, generating discharge summaries, and creating comprehensive healthcare reports. This reduces the administrative burden on healthcare providers and allows them to focus more on patient care.</li>
-</ul>
+<section id="methods" class="level1">
+<h1>Methods</h1>
+<section id="dataset-selection-and-api-development" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-selection-and-api-development">Dataset Selection and API Development</h2>
+<section id="dataset-selection" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-selection">Dataset Selection:</h3>
+<p>We selected a dataset licensed from the Massachusetts Institute of Technology (MIT), which contains over one hundred symptoms associated with various diagnoses. The dataset includes both training and testing sets, each with 132 symptom columns and one prognosis column.</p>
+</section>
+<section id="api-development" class="level3">
+<h3 class="anchored" data-anchor-id="api-development">API Development:</h3>
+<p>We developed multiple API calls utilizing ChatGPT, a popular generative AI platform, to act as a tele-health doctor. For each row in our dataset, the API presented ChatGPT with a randomized order of symptoms that tested positive and requested its diagnosis estimation.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/figure_1.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Figure 1: Use Cases of Generative AI in Healthcare.</strong></figcaption>
+<p><img src="images/figure_2.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Figure 2: Flowchart of Dataset Selection and API Development Process.</strong></figcaption>
 </figure>
 </div>
-<p><em>This diagram illustrates various applications of generative AI in healthcare, including drug discovery, disease diagnosis, personalized treatment plans, research, patient care, medical chatbots, predictive maintenance, and medical robots (Uptech Team, n.d.).</em></p>
 </section>
-<section id="benefits-of-generative-ai-in-healthcare" class="level3">
-<h3 class="anchored" data-anchor-id="benefits-of-generative-ai-in-healthcare">Benefits of Generative AI in Healthcare</h3>
-<p>The integration of generative AI into healthcare systems offers several significant benefits:</p>
+</section>
+<section id="data-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="data-engineering">Data Engineering</h2>
+<section id="data-collection" class="level3">
+<h3 class="anchored" data-anchor-id="data-collection">Data Collection:</h3>
+<p>Our data collection process involved several stages and sources:</p>
+<ol type="1">
+<li><strong>Synthetic Data from Kaggle:</strong> We sourced synthetic symptom and prognosis data from Kaggle’s “Disease Prediction Using Machine Learning” competition. 2 <strong>ChatGPT API Calls:</strong> We utilized the ChatGPT API to generate additional data by requesting diagnosis estimations based on the given symptoms.</li>
+<li><strong>Data Augmentation:</strong> To understand the impact of generative AI on prognosis diagnosing, we augmented our data by comparing the accuracy between the initial dataset and generative AI outputs through API calls using OpenAI.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure_3.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Figure 3: Flowchart of Datset Augmentation Approach.</strong></figcaption>
+</figure>
+</div>
+</section>
+<section id="model-selection-and-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="model-selection-and-evaluation">Model Selection and Evaluation</h3>
+<p><strong>Model Selection:</strong> We utilized the “gpt-3.5-turbo” model from OpenAI, known for its efficiency and enhanced capabilities. This model was chosen for its ability to handle complex language tasks with high accuracy.</p>
+<p><strong>Initial Diagnosis Call:</strong> Our first API call involved instructing the AI to act as a doctor with the following prompt: <em>“Pretend you are a doctor. Patient presents to you with symptoms: {symptoms}. Predict the primary diagnosis concisely using ten words or less.”</em></p>
+<p><strong>Accuracy Evaluation:</strong> We evaluated the predicted prognosis using a custom function get_rating that sends a prognosis and its predicted values to the GPT-4 API and receives a rating based on match accuracy.</p>
+<p>The rating scale ranges from 1 to 3:</p>
+<pre><code>            1. No match
+            2. Same family
+            3. Perfect match</code></pre>
+<p><strong>Medical Family Determination:</strong> We determined the medical “family” for both the original prognosis and the generative AI prognosis using specific prompts to categorize them.</p>
+</section>
+<section id="data-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h3>
+<p>Data cleaning and preprocessing were essential to ensure the quality and reliability of our dataset. Key steps included:</p>
 <ul>
-<li><strong>Improved Diagnostic Accuracy:</strong> Generative AI can reduce human error by efficiently analyzing symptoms and identifying potential treatment options, leading to more accurate diagnoses.</li>
-<li><strong>Rapid Insights:</strong> AI provides quick access to valuable information, often matching or exceeding the accuracy of specialist recommendations. This can expedite the diagnostic process and improve patient outcomes.</li>
-<li><strong>Enhanced Patient Engagement:</strong> By personalizing care and supporting medical research and education, AI enhances patient engagement and satisfaction.</li>
-<li><strong>Time and Cost Savings:</strong> AI streamlines processes, reduces the workload for medical professionals and lowers healthcare costs by optimizing resource utilization.</li>
+<li>Addressing inconsistencies or errors.</li>
+<li>Extracting scales from the “predicted diagnosis” to include only the diagnosis.</li>
+<li>Randomizing the order of symptoms to account for replicates.</li>
 </ul>
 </section>
-<section id="challenges-of-generative-ai-in-healthcare" class="level3">
-<h3 class="anchored" data-anchor-id="challenges-of-generative-ai-in-healthcare">Challenges of Generative AI in Healthcare</h3>
-<p>Despite its potential, the adoption of generative AI in healthcare is fraught with challenges:</p>
+<section id="data-storage" class="level3">
+<h3 class="anchored" data-anchor-id="data-storage">Data Storage</h3>
+<p>We utilized a GitHub repository for the effective organization and future reference of our data, enabling efficient version control and centralized access.</p>
+<p><strong>Repository Structure:</strong></p>
 <ul>
-<li><strong>Bias and Variability:</strong> AI models can exhibit biases based on their training data, which can affect diagnosis and treatment accuracy. Variability in AI performance across different demographic groups is also a concern.</li>
-<li><strong>Ethical and Privacy Issues:</strong> The use of AI raises ethical questions related to data privacy, informed consent, and the potential for generating inaccurate or biased information.</li>
-<li><strong>Need for Human Oversight:</strong> While AI can assist in diagnostics, human oversight is necessary to verify AI outputs and ensure reliability. Continuous updates and monitoring are required to maintain performance standards.</li>
+<li><strong>.github:</strong> GitHub-specific configurations.</li>
+<li><strong>Data:</strong> Stores raw and processed datasets.</li>
+<li><strong>Data_Engineering:</strong> Scripts and resources for data engineering tasks.</li>
+<li><strong>Documentation:</strong> Project documentation, reports, and written materials.</li>
+<li><strong>Machine_Learning:</strong> Machine learning models, training scripts, and evaluation metrics.</li>
+<li><strong>Statistics:</strong> Statistical modeling, scripts, and evaluation metrics.</li>
+<li><strong>README.md</strong>: Overview of the project, research question, project description, and links to additional resources.</li>
 </ul>
 </section>
 </section>
-<section id="ethical-considerations-and-bias-mitigation" class="level2">
-<h2 class="anchored" data-anchor-id="ethical-considerations-and-bias-mitigation">Ethical Considerations and Bias Mitigation</h2>
-<p>The ethical implications of using AI in healthcare are profound. Ensuring data privacy and addressing biases in AI models are paramount:</p>
-<ul>
-<li><strong>Ensuring Data Quality:</strong> Using comprehensive and representative datasets is crucial to minimize biases and improve the reliability of AI models.</li>
-<li><strong>Detecting and Quantifying Biases:</strong> Implementing techniques to identify and quantify biases helps in understanding their impact and developing strategies to mitigate them.</li>
-<li><strong>Human Oversight:</strong> Continuous human involvement is essential to verify AI outputs, make critical decisions, and maintain trust in AI systems.</li>
-</ul>
-<section id="broader-ethical-implications" class="level4">
-<h4 class="anchored" data-anchor-id="broader-ethical-implications">Broader Ethical Implications</h4>
-<p>Integrating AI into healthcare systems affects not only technical and ethical aspects but also impacts the roles of healthcare professionals and patient trust. Developers and policymakers must ensure that AI enhances patient care without replacing the invaluable human elements of healthcare.</p>
+<section id="statistical-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-methodology">Statistical Methodology</h2>
+<ol type="1">
+<li><strong>Summary Statistics:</strong> To summarize the central tendency and dispersion of accuracy scores, we calculated the mean, median, mode, standard deviation, and variance.</li>
+<li><strong>Confusion Matrix:</strong> We used a confusion matrix to visualize the AI model’s performance by showing the counts of true positives, true negatives, false positives, and false negatives.</li>
+<li><strong>Chi-Square Test:</strong> To determine if there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test.</li>
+<li><strong>Correlation Analysis:</strong> Correlation analysis was performed to assess the relationships between different features in the dataset and the accuracy of AI predictions.</li>
+</ol>
 </section>
-<section id="limitations-of-synthetic-data-in-healthcare-ai-models" class="level3">
-<h3 class="anchored" data-anchor-id="limitations-of-synthetic-data-in-healthcare-ai-models">Limitations of Synthetic Data in Healthcare AI Models</h3>
-<p>While synthetic data offers benefits such as privacy compliance and scalability, it has limitations that need to be addressed for effective AI model development:</p>
-<ul>
-<li><strong>Data Leakage:</strong> Synthetic data may inadvertently incorporate characteristics from the training data, leading to overly optimistic performance evaluations.</li>
-<li><strong>Lack of Diversity:</strong> Synthetic data may not accurately represent diverse patient populations, affecting the reliability and generalizability of AI models.</li>
-<li><strong>Inherent Biases:</strong> Any biases present in the original training data will be reflected in the synthetic data, potentially exacerbating existing healthcare disparities.</li>
-</ul>
+<section id="machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
+<p>To see how difficult it was to create an accurate prediction based on a list of symptoms, we decided to create our own in-house machine learning model to foresee the potential pain points of creating accurate diagnoses.</p>
+<section id="model-selection-and-development" class="level3">
+<h3 class="anchored" data-anchor-id="model-selection-and-development">Model Selection and Development:</h3>
+<p>We attempted multiple machine learning models, including logistic regression, decision trees, random forests, support vector machines (SVM), and neural networks to diagnose ailments. Before ultimatly landing on a logistic regression due to <strong>MORE</strong></p>
 </section>
+<section id="addressing-overfitting-and-validation" class="level3">
+<h3 class="anchored" data-anchor-id="addressing-overfitting-and-validation">Addressing Overfitting and Validation:</h3>
+<p><strong>ADD MORE HERE</strong></p>
 </section>
-<section id="conclusion-of-background" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion-of-background">Conclusion of Background</h2>
-<p>Generative AI holds great promise in transforming healthcare by improving diagnosis, treatment, and patient care. However, realizing this potential requires addressing challenges related to bias, ethics, and data quality. By implementing best practices and maintaining human oversight, we can harness the power of generative AI to enhance the capabilities of healthcare providers, improve patient outcomes, and build a more efficient, accurate, and ethical healthcare system.</p>
 </section>
 </section>
 
