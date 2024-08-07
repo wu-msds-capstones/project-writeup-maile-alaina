@@ -2,8 +2,10 @@
 title: "Capstone Project: Evaluating AI Accuracy for Telehealth Diagnosis"
 subtitle: "Generative AI & Healthcare Diagnoses"
 authors:
-  - Alaina Holland 
-  - Maile Sakamoto
+  - name: "Alaina Holland"
+    url: "https://www.linkedin.com/in/alainaholland/"
+  - name: "Maile Sakamoto"
+    url: "https://www.linkedin.com/in/maile-sakamoto/"
 title-block-banner: true
 format: 
   html:
