@@ -89,31 +89,27 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
   <ul class="collapse">
   <li><a href="#dataset-selection-and-api-development" id="toc-dataset-selection-and-api-development" class="nav-link" data-scroll-target="#dataset-selection-and-api-development">Dataset Selection and API Development</a></li>
+  <li><a href="#dataset-selection" id="toc-dataset-selection" class="nav-link" data-scroll-target="#dataset-selection">Dataset Selection:</a></li>
+  <li><a href="#api-development" id="toc-api-development" class="nav-link" data-scroll-target="#api-development">API Development:</a></li>
   <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering">Data Engineering</a>
   <ul class="collapse">
-  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
-  <li><a href="#api-key-setup" id="toc-api-key-setup" class="nav-link" data-scroll-target="#api-key-setup">API Key Setup</a></li>
-  <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model Selection</a></li>
-  <li><a href="#initial-diagnosis-call" id="toc-initial-diagnosis-call" class="nav-link" data-scroll-target="#initial-diagnosis-call">Initial Diagnosis Call</a></li>
-  <li><a href="#accuracy-evaluation" id="toc-accuracy-evaluation" class="nav-link" data-scroll-target="#accuracy-evaluation">Accuracy Evaluation</a></li>
-  <li><a href="#medical-family-determination" id="toc-medical-family-determination" class="nav-link" data-scroll-target="#medical-family-determination">Medical Family Determination</a></li>
-  <li><a href="#new-feature-creation" id="toc-new-feature-creation" class="nav-link" data-scroll-target="#new-feature-creation">New Feature Creation</a></li>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection:</a></li>
+  <li><a href="#model-selection-and-evaluation" id="toc-model-selection-and-evaluation" class="nav-link" data-scroll-target="#model-selection-and-evaluation">Model Selection and Evaluation</a></li>
   <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
   <li><a href="#data-storage" id="toc-data-storage" class="nav-link" data-scroll-target="#data-storage">Data Storage</a></li>
-  <li><a href="#repository-structure-and-purpose" id="toc-repository-structure-and-purpose" class="nav-link" data-scroll-target="#repository-structure-and-purpose">Repository Structure and Purpose</a></li>
-  <li><a href="#entity-relationship-diagram-erd" id="toc-entity-relationship-diagram-erd" class="nav-link" data-scroll-target="#entity-relationship-diagram-erd">Entity-Relationship Diagram (ERD)</a></li>
   </ul></li>
   <li><a href="#statistical-methodology" id="toc-statistical-methodology" class="nav-link" data-scroll-target="#statistical-methodology">Statistical Methodology</a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#model-selection-and-development" id="toc-model-selection-and-development" class="nav-link" data-scroll-target="#model-selection-and-development">Model Selection and Development:</a></li>
+  <li><a href="#addressing-overfitting-and-validation" id="toc-addressing-overfitting-and-validation" class="nav-link" data-scroll-target="#addressing-overfitting-and-validation">Addressing Overfitting and Validation:</a></li>
   </ul></li>
-  <li><a href="#model-selection-and-development" id="toc-model-selection-and-development" class="nav-link" data-scroll-target="#model-selection-and-development">Model Selection and Development</a></li>
-  <li><a href="#addressing-overfitting-and-validation" id="toc-addressing-overfitting-and-validation" class="nav-link" data-scroll-target="#addressing-overfitting-and-validation">Addressing Overfitting and Validation</a></li>
-  <li><a href="#model-comparison-and-feature-importance" id="toc-model-comparison-and-feature-importance" class="nav-link" data-scroll-target="#model-comparison-and-feature-importance">Model Comparison and Feature Importance</a></li>
+  </ul></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
   <ul class="collapse">
-  <li><a href="#content-breakdown-1" id="toc-content-breakdown-1" class="nav-link" data-scroll-target="#content-breakdown-1">Content Breakdown</a></li>
+  <li><a href="#content-breakdown" id="toc-content-breakdown" class="nav-link" data-scroll-target="#content-breakdown">Content Breakdown</a></li>
   <li><a href="#data-augmentation" id="toc-data-augmentation" class="nav-link" data-scroll-target="#data-augmentation">Data Augmentation</a></li>
-  <li><a href="#new-feature-creation-1" id="toc-new-feature-creation-1" class="nav-link" data-scroll-target="#new-feature-creation-1">New Feature Creation</a></li>
+  <li><a href="#new-feature-creation" id="toc-new-feature-creation" class="nav-link" data-scroll-target="#new-feature-creation">New Feature Creation</a></li>
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
@@ -150,17 +146,17 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="current-applications">Current Applications</h3>
 <p>Generative AI is already making strides in healthcare through several key applications:</p>
 <ul>
-<li><p><strong>Clinical Decision-Making:</strong> Generative AI assists in diagnosing diseases, predicting disease progression, triaging patients, and planning treatment. By analyzing vast amounts of patient data, AI can identify patterns and correlations that might be missed by human clinicians.</p></li>
-<li><p><strong>Medical Education:</strong> Generative AI contributes to medical education by providing insights into health conditions, generating realistic medical scenarios for training, designing exam questions, and creating interactive learning tools.</p></li>
-<li><p><strong>Clinical Documentation:</strong> AI streamlines the documentation process by summarizing patient issues, generating discharge summaries, and creating comprehensive healthcare reports. This reduces the administrative burden on healthcare providers and allows them to focus more on patient care.</p>
+<li><strong>Clinical Decision-Making:</strong> Generative AI assists in diagnosing diseases, predicting disease progression, triaging patients, and planning treatment. By analyzing vast amounts of patient data, AI can identify patterns and correlations that might be missed by human clinicians.</li>
+<li><strong>Medical Education:</strong> Generative AI contributes to medical education by providing insights into health conditions, generating realistic medical scenarios for training, designing exam questions, and creating interactive learning tools.</li>
+<li><strong>Clinical Documentation:</strong> AI streamlines the documentation process by summarizing patient issues, generating discharge summaries, and creating comprehensive healthcare reports. This reduces the administrative burden on healthcare providers and allows them to focus more on patient care.</li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/figure_1.png" class="img-fluid figure-img"></p>
 <figcaption><strong>Figure 1: Use Cases of Generative AI in Healthcare.</strong></figcaption>
 </figure>
 </div>
-<p><em>This diagram illustrates various applications of generative AI in healthcare, including drug discovery, disease diagnosis, personalized treatment plans, research, patient care, medical chatbots, predictive maintenance, and medical robots (Uptech Team, n.d.).</em></p></li>
-</ul>
+<p><em>This diagram illustrates various applications of generative AI in healthcare, including drug discovery, disease diagnosis, personalized treatment plans, research, patient care, medical chatbots, predictive maintenance, and medical robots (Uptech Team, n.d.).</em></p>
 </section>
 <section id="benefits-of-generative-ai-in-healthcare" class="level3">
 <h3 class="anchored" data-anchor-id="benefits-of-generative-ai-in-healthcare">Benefits of Generative AI in Healthcare</h3>
@@ -174,7 +170,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="challenges-of-generative-ai-in-healthcare" class="level3">
 <h3 class="anchored" data-anchor-id="challenges-of-generative-ai-in-healthcare">Challenges of Generative AI in Healthcare</h3>
-<p>Despite its potential, the adoption of generative AI in healthcare is fraught with challenges: - <strong>Bias and Variability:</strong> AI models can exhibit biases based on their training data, which can affect diagnosis and treatment accuracy. Variability in AI performance across different demographic groups is also a concern. - <strong>Ethical and Privacy Issues:</strong> The use of AI raises ethical questions related to data privacy, informed consent, and the potential for generating inaccurate or biased information. - <strong>Need for Human Oversight:</strong> While AI can assist in diagnostics, human oversight is necessary to verify AI outputs and ensure reliability. Continuous updates and monitoring are required to maintain performance standards.</p>
+<p>Despite its potential, the adoption of generative AI in healthcare is fraught with challenges:</p>
+<ul>
+<li><strong>Bias and Variability:</strong> AI models can exhibit biases based on their training data, which can affect diagnosis and treatment accuracy. Variability in AI performance across different demographic groups is also a concern.</li>
+<li><strong>Ethical and Privacy Issues:</strong> The use of AI raises ethical questions related to data privacy, informed consent, and the potential for generating inaccurate or biased information.</li>
+<li><strong>Need for Human Oversight:</strong> While AI can assist in diagnostics, human oversight is necessary to verify AI outputs and ensure reliability. Continuous updates and monitoring are required to maintain performance standards.</li>
+</ul>
 </section>
 </section>
 <section id="ethical-considerations-and-bias-mitigation" class="level2">
@@ -208,65 +209,47 @@ ul.task-list li input[type="checkbox"] {
 <h1>Methods</h1>
 <section id="dataset-selection-and-api-development" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-selection-and-api-development">Dataset Selection and API Development</h2>
-<p>We started by selecting a dataset licensed from the Massachusetts Institute of Technology (MIT), where each row indicates the presence or absence of over one hundred symptoms associated with a single diagnosis. Using this dataset, we developed multiple API calls utilizing ChatGPT, a popular generative AI platform, to act as a tele-health doctor. For each row in our dataset, the API presented ChatGPT with a randomized order of symptoms that tested positive and requested its diagnosis estimation. Following the API’s execution, we compared ChatGPT’s diagnosis with the diagnosis provided in the source dataset. To assess accuracy, we applied a scoring system: one point for an incorrect and unrelated diagnosis, two points for an incorrect but related diagnosis, and three points for a correct diagnosis. This methodology enabled us to evaluate the effectiveness of ChatGPT in accurately predicting diagnoses based on symptom data.</p>
+</section>
+<section id="dataset-selection" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-selection">Dataset Selection:</h2>
+<p>We selected a dataset licensed from the Massachusetts Institute of Technology (MIT), which contains over one hundred symptoms associated with various diagnoses. The dataset includes both training and testing sets, each with 132 symptom columns and one prognosis column.</p>
+</section>
+<section id="api-development" class="level2">
+<h2 class="anchored" data-anchor-id="api-development">API Development:</h2>
+<p>We developed multiple API calls utilizing ChatGPT, a popular generative AI platform, to act as a tele-health doctor. For each row in our dataset, the API presented ChatGPT with a randomized order of symptoms that tested positive and requested its diagnosis estimation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure_2.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Figure 2: Flowchart of Dataset Selection and API Development Process.</strong></figcaption>
+</figure>
+</div>
 </section>
 <section id="data-engineering" class="level2">
 <h2 class="anchored" data-anchor-id="data-engineering">Data Engineering</h2>
 <section id="data-collection" class="level3">
-<h3 class="anchored" data-anchor-id="data-collection">Data Collection</h3>
+<h3 class="anchored" data-anchor-id="data-collection">Data Collection:</h3>
 <p>Our data collection process involved several stages and sources:</p>
-<ul>
-<li>Initially, we sourced synthetic symptom and prognosis data from Kaggle, providing a foundational dataset for our project.</li>
-<li>We utilized the ChatGPT API to generate additional data by requesting diagnosis estimations.</li>
-<li>Alongside the diagnosis estimations, we recorded an accuracy score ranging from 1 to 3 to evaluate ChatGPT’s diagnostic performance. ### Dataset Description <strong>Synthetic Source:</strong> The synthetic dataset was sourced from Kaggle’s “Disease Prediction Using Machine Learning” competition. It contains two primary CSV files for training and testing, with each file containing 133 columns (132 symptom columns and 1 prognosis column).</li>
-</ul>
-<section id="content-breakdown" class="level4">
-<h4 class="anchored" data-anchor-id="content-breakdown">Content Breakdown:</h4>
-<ul>
-<li><strong>Columns:</strong> 132 columns for symptoms (e.g., itching, skin rash) and 1 column for disease prognosis.</li>
-<li><strong>Files:</strong> Training.csv for model training and Testing.csv for model evaluation. ### Data Augmentation To understand the impact of generative AI on prognosis diagnosing, we augmented our data by comparing the accuracy between the initial dataset and generative AI outputs through API calls using OpenAI.</li>
-</ul>
-</section>
-</section>
-<section id="api-key-setup" class="level3">
-<h3 class="anchored" data-anchor-id="api-key-setup">API Key Setup</h3>
-<p>We selected OpenAI for this project because its API allows developers to integrate advanced language features into their applications. OpenAI’s versatility in chatbots, virtual assistants, and content creation made it ideal for simulating a doctor’s role.</p>
-</section>
-<section id="model-selection" class="level3">
-<h3 class="anchored" data-anchor-id="model-selection">Model Selection</h3>
-<p>We utilized the “gpt-3.5-turbo” model from OpenAI, known for its efficiency and enhanced capabilities. This model was chosen for its ability to handle complex language tasks with high accuracy.</p>
-</section>
-<section id="initial-diagnosis-call" class="level3">
-<h3 class="anchored" data-anchor-id="initial-diagnosis-call">Initial Diagnosis Call</h3>
-<p>Our first API call involved instructing the AI to act as a doctor with the following prompt:</p>
-<blockquote class="blockquote">
-<p>*“Pretend you are a doctor. Patient presents to you with symptoms: {’ ’.join(symptoms)}.</p>
-<p>Predict the primary diagnosis concisely using ten words or less.”*</p>
-</blockquote>
-</section>
-<section id="accuracy-evaluation" class="level3">
-<h3 class="anchored" data-anchor-id="accuracy-evaluation">Accuracy Evaluation</h3>
-<p>We evaluated the predicted prognosis using a custom function get_rating that sends a prognosis and its predicted values to the GPT-4 API and receives a rating based on match accuracy. The rating scale ranges from 1 to 3:</p>
 <ol type="1">
-<li>No match</li>
-<li>Same family</li>
-<li>Perfect match</li>
+<li><strong>Synthetic Data from Kaggle:</strong> We sourced synthetic symptom and prognosis data from Kaggle’s “Disease Prediction Using Machine Learning” competition. 2 <strong>ChatGPT API Calls:</strong> We utilized the ChatGPT API to generate additional data by requesting diagnosis estimations based on the given symptoms.</li>
+<li><strong>Data Augmentation:</strong> To understand the impact of generative AI on prognosis diagnosing, we augmented our data by comparing the accuracy between the initial dataset and generative AI outputs through API calls using OpenAI.</li>
 </ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure_3.png" class="img-fluid figure-img"></p>
+<figcaption>** Figure 3: Flowchart of Datset Augmentation Approach.**</figcaption>
+</figure>
+</div>
 </section>
-<section id="medical-family-determination" class="level3">
-<h3 class="anchored" data-anchor-id="medical-family-determination">Medical Family Determination</h3>
-<p>We determined the medical “family” for both the original prognosis and the generative AI prognosis using specific prompts to categorize them.</p>
-</section>
-<section id="new-feature-creation" class="level3">
-<h3 class="anchored" data-anchor-id="new-feature-creation">New Feature Creation</h3>
-<p>Due to the API calls, the following new features (columns) were created:</p>
-<ul>
-<li>Predicted Values</li>
-<li>Rating</li>
-<li>Medical Family</li>
-<li>Predicted Family</li>
-</ul>
-<p>We also created new “calculated columns” to determine a match between the original data and the generative AI data, including match_found and match_found_family.</p>
+<section id="model-selection-and-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="model-selection-and-evaluation">Model Selection and Evaluation</h3>
+<p><strong>Model Selection:</strong> We utilized the “gpt-3.5-turbo” model from OpenAI, known for its efficiency and enhanced capabilities. This model was chosen for its ability to handle complex language tasks with high accuracy.</p>
+<p><strong>Initial Diagnosis Call:</strong> Our first API call involved instructing the AI to act as a doctor with the following prompt: <em>“Pretend you are a doctor. Patient presents to you with symptoms: {symptoms}. Predict the primary diagnosis concisely using ten words or less.”</em></p>
+<p><strong>Accuracy Evaluation:</strong> We evaluated the predicted prognosis using a custom function get_rating that sends a prognosis and its predicted values to the GPT-4 API and receives a rating based on match accuracy.</p>
+<p>The rating scale ranges from 1 to 3:</p>
+<pre><code>            1. No match
+            2. Same family
+            3. Perfect match</code></pre>
+<p><strong>Medical Family Determination:</strong> We determined the medical “family” for both the original prognosis and the generative AI prognosis using specific prompts to categorize them.</p>
 </section>
 <section id="data-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h3>
@@ -280,58 +263,45 @@ ul.task-list li input[type="checkbox"] {
 <section id="data-storage" class="level3">
 <h3 class="anchored" data-anchor-id="data-storage">Data Storage</h3>
 <p>We utilized a GitHub repository for the effective organization and future reference of our data, enabling efficient version control and centralized access.</p>
-</section>
-<section id="repository-structure-and-purpose" class="level3">
-<h3 class="anchored" data-anchor-id="repository-structure-and-purpose">Repository Structure and Purpose</h3>
+<p><strong>Repository Structure:</strong></p>
 <ul>
-<li>.github: GitHub-specific configurations.</li>
+<li><strong>.github:</strong> GitHub-specific configurations.</li>
 <li><strong>Data:</strong> Stores raw and processed datasets.</li>
 <li><strong>Data_Engineering:</strong> Scripts and resources for data engineering tasks.</li>
 <li><strong>Documentation:</strong> Project documentation, reports, and written materials.</li>
 <li><strong>Machine_Learning:</strong> Machine learning models, training scripts, and evaluation metrics.</li>
-<li><strong>Statistics:</strong> Statisitical modeling, scripts, and evaluation metrics.</li>
-<li><strong>.DS_Store:</strong> A system file related to macOS directory management.</li>
-<li><strong>README.md:</strong> Overview of the project, research question, project description, and links to additional resources.</li>
+<li><strong>Statistics:</strong> Statistical modeling, scripts, and evaluation metrics.</li>
+<li><strong>README.md</strong>: Overview of the project, research question, project description, and links to additional resources.</li>
 </ul>
-</section>
-<section id="entity-relationship-diagram-erd" class="level3">
-<h3 class="anchored" data-anchor-id="entity-relationship-diagram-erd">Entity-Relationship Diagram (ERD)</h3>
-<p>Our data is structured in a relational database to maintain a normalized and efficient schema, which is visualized in the following ERD:</p>
 </section>
 </section>
 <section id="statistical-methodology" class="level2">
 <h2 class="anchored" data-anchor-id="statistical-methodology">Statistical Methodology</h2>
-<p>We employed a comprehensive statistical methodology to evaluate the performance of generative AI (ChatGPT) in diagnosing medical conditions. Our approach included descriptive statistics, accuracy metrics, various statistical tests, error analysis, and bias and variability analysis. Here’s an overview of the statistical methods used:</p>
 <ol type="1">
-<li><p><strong>Descriptive Statistics:</strong> To summarize the central tendency and dispersion of accuracy scores, we calculated the mean, median, mode, standard deviation, and variance. This provided a foundational understanding of the distribution of diagnostic accuracy ratings.</p></li>
-<li><p><strong>Confusion Matrix:</strong> We used a confusion matrix to visualize the AI model’s performance by showing the counts of true positives, true negatives, false positives, and false negatives. This helped in understanding the model’s strengths and weaknesses in classification tasks.</p></li>
-<li><p><strong>Accuracy Metrics:</strong> We calculated precision, recall, and F1 scores to evaluate the model’s performance. Precision and recall provided insights into the model’s ability to correctly identify positive cases, while the F1 score balanced these metrics to give an overall performance measure.</p></li>
-<li><p><strong>Chi-Square Test:</strong> To determine if there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test. This helped us assess the model’s performance consistency across different diagnostic categories.</p></li>
-<li><p><strong>Correlation Analysis:</strong> Correlation analysis was performed to assess the relationships between different features in the dataset and the accuracy of AI predictions. This helped us understand the impact of various features on the model’s performance and identify areas for potential improvement.</p></li>
+<li><strong>Summary Statistics:</strong> To summarize the central tendency and dispersion of accuracy scores, we calculated the mean, median, mode, standard deviation, and variance.</li>
+<li><strong>Confusion Matrix:</strong> We used a confusion matrix to visualize the AI model’s performance by showing the counts of true positives, true negatives, false positives, and false negatives.</li>
+<li><strong>Chi-Square Test:</strong> To determine if there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test.</li>
+<li><strong>Correlation Analysis:</strong> Correlation analysis was performed to assess the relationships between different features in the dataset and the accuracy of AI predictions.</li>
 </ol>
-<p>By employing these statistical methods, we comprehensively evaluated the AI’s diagnostic capabilities, providing a robust framework for understanding its accuracy, reliability, and areas for future enhancement. This multi-faceted approach ensured a thorough assessment, contributing valuable insights into the feasibility and effectiveness of using generative AI for healthcare diagnostics.</p>
 </section>
 <section id="machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
+<p>To see how difficult it was to create an accurate prediction based on a list of symptoms, we decided to create our own in-house machine learning model to foresee the potential pain points of creating accurate diagnoses.</p>
+<section id="model-selection-and-development" class="level3">
+<h3 class="anchored" data-anchor-id="model-selection-and-development">Model Selection and Development:</h3>
+<p>We attempted multiple machine learning models, including logistic regression, decision trees, random forests, support vector machines (SVM), and neural networks to diagnose ailments. Before ultimatly landing on a logistic regression due to <strong>MORE</strong></p>
+</section>
+<section id="addressing-overfitting-and-validation" class="level3">
+<h3 class="anchored" data-anchor-id="addressing-overfitting-and-validation">Addressing Overfitting and Validation:</h3>
+<p><strong>ADD MORE HERE</strong></p>
 </section>
 </section>
-<section id="model-selection-and-development" class="level1">
-<h1>Model Selection and Development</h1>
-<p>We developed multiple machine learning models, including logistic regression, decision trees, random forests, support vector machines (SVM), and neural networks to diagnose ailments.</p>
-</section>
-<section id="addressing-overfitting-and-validation" class="level1">
-<h1>Addressing Overfitting and Validation</h1>
-<p>To prevent overfitting and ensure generalizability, we implemented k-fold cross-validation and pruning techniques.</p>
-</section>
-<section id="model-comparison-and-feature-importance" class="level1">
-<h1>Model Comparison and Feature Importance</h1>
-<p>Comparing different models allowed us to identify the most effective algorithm for diagnosing ailments. Analyzing feature importance in the random forest model provided insights into influential symptoms, guiding further refinement of telehealth diagnosis platforms.</p>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
 <p>Our first dataset, the synthetic source, was sourced from a Disease Prediction Using Machine Learning on Kaggle.com, a data science competition platform and online community for data scientists and machine learning practitioners. The dataset comprises two primary CSV files—one for training and another for testing. Each file contains 133 columns, with 132 columns representing different symptoms experienced by patients, and the final column denoting the disease prognosis. This structure supports the development of models capable of predicting 42 distinct diseases based on the given symptoms.</p>
-<section id="content-breakdown-1" class="level2">
-<h2 class="anchored" data-anchor-id="content-breakdown-1">Content Breakdown</h2>
+<section id="content-breakdown" class="level2">
+<h2 class="anchored" data-anchor-id="content-breakdown">Content Breakdown</h2>
 <ul>
 <li><strong>Columns</strong>: The dataset includes 133 columns:
 <ul>
@@ -349,8 +319,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="data-augmentation">Data Augmentation</h2>
 <p>To understand how generative AI can impact prognosis diagnosing, we recognized that our original dataset was insufficient. Therefore, we augmented our data by comparing the accuracy between our initial dataset and generative AI outputs. We did this by making a series of API calls using OpenAI, with the AI acting as a virtual doctor.</p>
 </section>
-<section id="new-feature-creation-1" class="level2">
-<h2 class="anchored" data-anchor-id="new-feature-creation-1">New Feature Creation</h2>
+<section id="new-feature-creation" class="level2">
+<h2 class="anchored" data-anchor-id="new-feature-creation">New Feature Creation</h2>
 <p>As mentioned prior due to the API calls, the following new features (columns) were created they include “Predicted Values”, and “Rating”. Based on these new features, we also created the following new “calculated columns” to determine a match between the original data and the generative AI data. These features include “match_found” and “match_found_family”.</p>
 <p>It was done in R by adding a new column to the dataset to check if there are any matching words between the prognosis and predicted values. This helps identify if the predicted prognosis contains any terms that appear in the actual prognosis.</p>
 <p>ds2 = ds2 %&gt;% mutate(match_found = mapply(function(x, y) { words1 &lt;- str_split(x, ” “)[[1]] words2 &lt;- str_split(y,” “)[[1]] as.integer(any(words1 %in% words2)) }, prognosis, predicted_values))</p>
