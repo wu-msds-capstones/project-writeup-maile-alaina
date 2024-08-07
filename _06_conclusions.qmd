@@ -1,1 +1,14 @@
 # Conclusions
+Our project aimed to assess the performance of generative AI, specifically ChatGPT, in the context of healthcare diagnostics. We evaluated the AI's diagnostic accuracy and conducted a detailed error analysis to understand its efficacy and limitations.
+
+The results of our analysis indicate that ChatGPT’s diagnostic capabilities show promise but are not yet entirely accurate. Our diagnostic accuracy assessment revealed that while the AI could group symptoms effectively, achieving exact matches with original diagnoses was less frequent. The use of a match scale (1-3) demonstrated that the AI often aligned within the same diagnostic group but often fell short of precise accuracy.
+
+Our analyses highlighted both the strengths and weaknesses of ChatGPT in diagnostic scenarios. While the AI provides valuable insights and can suggest plausible directions for further diagnosis, it does not yet offer the level of accuracy required for definitive diagnostic purposes.
+
+To extend this research, future projects could focus on:
+1. **Enhancing Accuracy**: Further development and training of AI models to improve their diagnostic precision.
+2. **Broader Data Integration**: Incorporating more diverse and comprehensive datasets to reduce biases and enhance the AI’s generalizability.
+3. **Clinical Validation**: Conducting studies in real clinical settings to evaluate the AI’s performance in practical, high-stakes environments.
+
+Alternatively, if these technological advancements do not achieve the desired accuracy, exploring alternative methods or augmenting AI with additional diagnostic tools might be worthwhile. This would ensure that time and resources are invested in avenues that offer the most significant potential for advancing diagnostic capabilities.
+

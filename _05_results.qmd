@@ -1,1 +1,219 @@
+
+
 # Results
+
+In our project, we applied statistical thinking by conducting an error
+analysis and a diagnostic accuracy assessment. These methods allowed us
+to distill the complex interactions between predictions and actual
+outcomes into more manageable and interpretable metrics.
+
+We analyzed the discrepancies between the original prognoses and the
+predictions provided by ChatGPT in an error analysis model. This
+involved identifying instances where the AI’s prognosis diverged from
+the original prognosis and categorizing these errors to understand their
+nature and distribution. This method was appropriate because it helped
+us identify specific areas where the AI’s predictions were less accurate
+and provided insights into potential causes of these errors.
+
+We assessed how well ChatGPT’s diagnostic predictions aligned with the
+original diagnoses by comparing the two sets of prognoses. We used a
+match scale for this assessment, where 1 indicated no match, 2 indicated
+a match within the same diagnosis group, and 3 indicated an exact match.
+This match scale, as mentioned above in our methods, allowed us to
+quantify the degree of alignment between the AI’s predictions and the
+original diagnoses. This involved calculating the frequency of each
+match level and analyzing how often ChatGPT’s predictions aligned with
+the original diagnoses. This approach was suitable for evaluating the
+overall performance of the AI in terms of accuracy and relevance.
+
+To better understand the results, we generated visualizations such as
+bar plots and histograms. These visualizations helped us interpret the
+distribution of accuracy ratings and errors, providing a clearer picture
+of the AI’s performance.
+
+
+### Match Status Analysis
+
+In our project, we evaluated the accuracy of ChatGPT's diagnostic predictions by comparing them to the actual diagnoses. We categorized the predictions into two groups:
+
+- **False**: The diagnoses do not match.
+- **True**: The diagnoses match.
+
+To provide an overall picture of ChatGPT's performance, we visualized the distribution of these match statuses.
+
+#### Key Findings:
+
+##### Distribution of Match Status:
+- Most of the predictions were categorized as **False**.
+- A smaller proportion of predictions were categorized as **True**.
+
+##### Visualization:
+- We used a bar plot to show the counts of `False` and `True` match statuses. This visual helps to quickly see the proportion of correct predictions versus incorrect ones.
+
+
+
+
+
+
+#### Interpretation:
+- **False**: This category had a higher count, indicating that ChatGPT's predictions often did not match the actual diagnoses.
+- **True**: This category had a lower count, showing that fewer predictions were accurate.
+
+
+The bar plot provides a clear picture of how often ChatGPT’s predictions align with the actual diagnoses. This analysis highlights areas where the predictions were accurate and where they were not, helping us understand the strengths and weaknesses of ChatGPT's diagnostic capabilities. Going forward, we can focus on improving the model to increase the number of accurate predictions, test it on more diverse datasets, and refine the prediction algorithms.
+### Summary of Mean Match Score Analysis
+
+In our project, we set out to evaluate the accuracy of ChatGPT’s diagnostic predictions compared to the original diagnoses. We used a match scale to measure how well the AI's predictions matched the actual outcomes:
+
+- **No Match (1)**: The diagnoses do not match at all.
+- **In the Same Family (2)**: The diagnoses are in the same general category.
+- **Perfect Match (3)**: The diagnoses are identical.
+
+To summarize the overall accuracy, we calculated the mean match score, which is the average of all match scores in the dataset.
+
+#### Key Findings:
+
+1. **Mean Match Score Calculation**:
+   - We computed the mean match score by adding all the match scores together and dividing by the number of data points. For example, with match scores of 3, 2, 1, 3, and 2, the mean match score is \( \frac{3 + 2 + 1 + 3 + 2}{5} = 2.2 \).
+
+2. **Interpretation of the Mean Match Score**:
+   - A higher mean score means ChatGPT's predictions are generally accurate and closely match the original diagnoses.
+   - A lower mean score indicates that the predictions are less accurate and often do not align with the actual diagnoses.
+
+3. **Visualization**:
+   - We created a bar plot to show the distribution of match scores, with a dashed line representing the mean match score. This visual helps to quickly understand the overall accuracy and the frequency of each match level.
+
+4. **Results**:
+   - The analysis showed that ChatGPT's predictions, on average, are more likely to fall into the same diagnostic category as the original diagnoses rather than being completely off.
+
+
+
+
+The mean match score offers a clear picture of ChatGPT’s diagnostic accuracy. By understanding this metric, we can see how well the AI-based platform performs and identify areas for improvement. Next steps include testing on more diverse datasets, refining the models, and further analyzing key features to boost prediction accuracy.
+## Machine Learning
+
+In recent years, machine learning has revolutionized various industries,
+including healthcare. Machine learning algorithms can analyze vast
+amounts of data to identify patterns and make predictions, potentially
+improving diagnosis accuracy and patient outcomes. One area of growing
+interest is the use of AI-based telehealth platforms, which provide
+remote medical diagnosis and consultation services. These platforms
+utilize machine learning models to assist healthcare providers in
+diagnosing patient ailments based on symptoms reported by patients
+online.
+
+We wanted to determine how difficult it is to accurately predict
+prognosis, so we developed our own machine learning model. By creating
+and testing this model, we aim to better understand the challenges and
+potential pain points that these AI-based platforms may encounter. Our
+goal is to provide insights into optimizing their algorithms for more
+accurate ailment diagnosis.
+
+#### Process
+
+
+
+#### Data Preprocessing
+
+Involves dropping unnecessary columns, encoding categorical variables, and splitting the data into training and testing sets.
+
+
+```
+
+#### Exploratory Data Analysis (EDA)
+
+In this section, we performed various analyses to understand the data better. 
+
+
+### Results
+
+#### Logistic Regression 
+
+The Logistic Regression model correctly identified 83.57% of the
+diagnoses in the test set. This means it made correct predictions for
+83.57% of the cases, but there were still some errors.
+
+
+#### Decision Tree
+
+The Decision Tree model perfectly classified all samples in the test
+set, achieving 100% accuracy. This means it correctly identified every
+diagnosis without any errors.
+
+
+```
+#### K-Fold Cross-Validation
+
+To ensure the Decision Tree model's performance was consistent, we used
+a technique called 5-fold cross-validation. This process splits the data
+into five parts, trains the model on four parts, and tests it on the remaining part. The average accuracy was nearly perfect at 99.98%,
+indicating the model performed exceptionally well across different
+subsets of the data.
+
+#### Pruned Decision
+
+Tree Pruning was applied to the Decision Tree to simplify it and prevent it from being too specific to the training data. The pruned tree achieved an average accuracy of 93.91%, which is lower than the unpruned tree, suggesting that while pruning reduced complexity, it also slightly decreased accuracy.
+
+#### Feature Importance Analysis
+The feature importance analysis of the Random Forest model reveals the top features contributing to the model's predictions. The top 20 important features are visualized in the provided plot. The most important features in predicting the prognosis are muscle pain, itching, chest pain, and high fever. These features have the highest importance scores, indicating they play a significant role in the model's decision-making process.
+
+
+#### Random Forest
+
+The Random Forest model, which uses multiple decision trees, also
+performed very well, with an average accuracy of 99.98%. This model
+considered various symptoms like muscle pain, itching, chest pain, and
+high fever as the most important factors in predicting diagnoses.
+
+
+
+#### Support Vector Machine (SVM)
+
+The SVM model achieved perfect accuracy, consistently making correct
+predictions across all subsets of the data.
+
+
+#### Neural Network
+
+The Neural Network model also showed near-perfect performance, with an average accuracy of 99.98%.
+
+#### Comparison of Models
+
+All three models—Random Forest, SVM, and Neural Network—demonstrated
+excellent performance with high accuracy and low variability. The SVM
+model showed perfect accuracy in every test, but the Random Forest and
+Neural Network models also performed exceptionally well.
+
+#### Testing on Predicted Prognosis
+
+We also evaluated the models on new data that included predicted
+diagnoses. The accuracy results were as follows:
+
+-   Random Forest: 98.5%
+
+-   SVM: 99.0%
+
+-   Neural Network: 98.7%
+
+
+
+
+### **Note on Synthetic Data** 
+
+It's important to mention that the data used in this project was
+synthetic, meaning it was artificially generated to simulate real-world
+scenarios. Because synthetic data can be designed to be clear and
+unambiguous, models often achieve very high accuracy. Therefore, while
+the results are promising, they do not fully represent the model's
+performance on real-world data, which can be more complex and noisy.
+
+#### Machine Learning Conclusion
+
+The models developed in this study achieved high accuracy in predicting
+diagnoses. The SVM model was especially impressive, with perfect
+accuracy in cross-validation tests. These results suggest that AI-based
+telehealth diagnosis platforms can be very accurate. However, it's
+important to ensure these models don't overfit to specific data and can
+generalize well to new cases. Future steps include testing on more
+diverse datasets, fine-tuning the models, and further analyzing the
+important features to optimize performance.
