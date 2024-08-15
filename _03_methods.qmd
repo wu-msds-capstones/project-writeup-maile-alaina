@@ -27,15 +27,21 @@ Addressing missing data is crucial in any dataset as it can significantly affect
 
 To further explore the dataset, initial visualizations were created to highlight the relationships between key variables. During this exploration, we observed that the dataset was designed with an equal distribution of diagnoses, each having 121 instances, except for "Fungal Infection," which surprisingly had 122 occurrences.
 
-_Figure 2: Count of each Diagnosis Present_
+![_Figure 2: Count of each Diagnosis Present_](images/Count of Each Diagnosis Present.png)
 
 When analyzing the most frequently occurring symptoms, we found that the top 10 included fatigue, vomiting, high fever, loss of appetite, nausea, headache, abdominal pain, yellowish skin, yellowing of eyes, and chills. Fatigue and vomiting were the most common, with 1,949 and 1,931 occurrences respectively, appearing in nearly half of the records in the dataset.
 
-_Figure 3: Top 10 Symptoms Present in Diagnoses_
+
+
+
+![_Figure 3: Top 10 Symptoms Present in Diagnoses_](images/symptom_prevalence_plot.png)
 
 This analysis prompted the question: where do these symptoms lead in terms of medical families and diagnoses? To explore this, a Sankey diagram was created to visualize the flow. The diagram shows that vomiting is most closely tied to gastrointestinal issues and infections, while fatigue is connected to a broader range of conditions, including metabolic disorders and heart problems. Both symptoms are also linked to neurological and respiratory issues, indicating that they are common in many different illnesses and serve as important diagnostic clues. Specific diseases like hepatitis, jaundice, and diabetes are highlighted, showing how these symptoms play a role in those diagnoses.
 
 _A brief note: the medical families were determined by querying ChatGPT, and while informative, may not be 100% accurate in their grouping._
+
+<iframe src="images/sankey_diagram.html" width="100%" height="600px" style="border:none;"></iframe>
+
 
 _Figure 4: Sankey flow diagram illustrating how the most common symptoms lead to specific diagnoses._
 
@@ -43,9 +49,9 @@ _Figure 4: Sankey flow diagram illustrating how the most common symptoms lead to
 
 To understand the relationships between symptoms and their associated diagnoses, a correlation matrix was constructed and visualized with a heatmap. This matrix shows the Pearson correlation coefficients between the top 10 most frequent symptoms.
 
-_Figure 5: A Correlation Heatmap of the Top 10 Symptoms_
+![_Figure 5: A Correlation Heatmap of the Top 10 Symptoms_](images/cor heat map.png)
 
-_Figure 6: Correlation Matrix of Selected Symptoms_
+![_Figure 6: Correlation Matrix of Selected Symptoms_](images/corr_matrix.png)
 
 The correlation matrix reveals some clear patterns: yellowing of the eyes and loss of appetite (0.7680), yellowish skin and abdominal pain (0.7336), and yellowish skin and yellowing of the eyes (0.7158) are strongly linked, suggesting these symptoms often occur together in conditions like jaundice. Moderate correlations, such as those between nausea and vomiting (0.5252) and between loss of appetite and abdominal pain (0.4865), are common in gastrointestinal issues. On the other hand, symptoms like headache and abdominal pain (-0.1540) show a weak or negative relationship, indicating they rarely appear together, which could suggest different underlying causes. These correlations are critical for understanding which symptoms might co-occur and potentially lead to specific diagnoses.
 
@@ -74,7 +80,7 @@ The data engineering process for this study involved several key steps to ensure
 - **Synthetic Data from Kaggle:** The foundational dataset, containing symptoms and prognoses, was sourced from Kaggle's "Disease Prediction Using Machine Learning" competition.
 - **ChatGPT API Calls:** Additional data was generated using the ChatGPT API by requesting diagnostic predictions based on the provided symptoms. This was crucial for evaluating the AI's predictive accuracy. The "gpt-3.5-turbo" model from OpenAI was chosen for its efficiency and advanced capabilities, making it ideal for handling complex language tasks with precision.
 
-_Figure 7: Flowchart showing steps from dataset selection to diagnosis estimation using API calls._
+![_Figure 7: Flowchart showing steps from dataset selection to diagnosis estimation using API calls._](images/figure_2.png)
 
 ### Data Augmentation
 
@@ -83,7 +89,7 @@ _Figure 7: Flowchart showing steps from dataset selection to diagnosis estimatio
 - **Accuracy Evaluation:** The predicted prognosis was evaluated using a custom function `get_rating` that sent the prognosis and predicted values to the GPT-4 API, receiving a rating based on match accuracy. The rating scale ranged from 1 (No match) to 3 (Perfect match).
 - **Medical Family Determination:** Specific prompts were used to categorize the original and AI-generated prognoses into their respective medical "families."
 
-_Figure 8: A visual flow chart illustrating the steps taken to further augment our data._
+![_Figure 8: A visual flow chart illustrating the steps taken to further augment our data._](images/figure_3.png)
 
 ### Data Cleaning
 
@@ -123,3 +129,4 @@ To provide a comparative analysis, we developed traditional machine learning mod
 ### Model Evaluation
 
 The machine learning models were evaluated using metrics such as accuracy, precision, recall, and F1 scores, providing a basis for comparing their performance with that of the generative AI model.
+ 

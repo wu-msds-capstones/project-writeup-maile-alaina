@@ -74,18 +74,40 @@ ul.task-list li input[type="checkbox"] {
 <section id="initial-visualizations" class="level2">
 <h2 class="anchored" data-anchor-id="initial-visualizations">Initial Visualizations</h2>
 <p>To further explore the dataset, initial visualizations were created to highlight the relationships between key variables. During this exploration, we observed that the dataset was designed with an equal distribution of diagnoses, each having 121 instances, except for “Fungal Infection,” which surprisingly had 122 occurrences.</p>
-<p><em>Figure 2: Count of each Diagnosis Present</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Count%20of%20Each%20Diagnosis%20Present.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 2: Count of each Diagnosis Present</em></figcaption>
+</figure>
+</div>
 <p>When analyzing the most frequently occurring symptoms, we found that the top 10 included fatigue, vomiting, high fever, loss of appetite, nausea, headache, abdominal pain, yellowish skin, yellowing of eyes, and chills. Fatigue and vomiting were the most common, with 1,949 and 1,931 occurrences respectively, appearing in nearly half of the records in the dataset.</p>
-<p><em>Figure 3: Top 10 Symptoms Present in Diagnoses</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/symptom_prevalence_plot.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 3: Top 10 Symptoms Present in Diagnoses</em></figcaption>
+</figure>
+</div>
 <p>This analysis prompted the question: where do these symptoms lead in terms of medical families and diagnoses? To explore this, a Sankey diagram was created to visualize the flow. The diagram shows that vomiting is most closely tied to gastrointestinal issues and infections, while fatigue is connected to a broader range of conditions, including metabolic disorders and heart problems. Both symptoms are also linked to neurological and respiratory issues, indicating that they are common in many different illnesses and serve as important diagnostic clues. Specific diseases like hepatitis, jaundice, and diabetes are highlighted, showing how these symptoms play a role in those diagnoses.</p>
 <p><em>A brief note: the medical families were determined by querying ChatGPT, and while informative, may not be 100% accurate in their grouping.</em></p>
+<iframe src="images/sankey_diagram.html" width="100%" height="600px" style="border:none;">
+</iframe>
 <p><em>Figure 4: Sankey flow diagram illustrating how the most common symptoms lead to specific diagnoses.</em></p>
 </section>
 <section id="correlation-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="correlation-analysis">Correlation Analysis</h2>
 <p>To understand the relationships between symptoms and their associated diagnoses, a correlation matrix was constructed and visualized with a heatmap. This matrix shows the Pearson correlation coefficients between the top 10 most frequent symptoms.</p>
-<p><em>Figure 5: A Correlation Heatmap of the Top 10 Symptoms</em></p>
-<p><em>Figure 6: Correlation Matrix of Selected Symptoms</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cor%20heat%20map.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 5: A Correlation Heatmap of the Top 10 Symptoms</em></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/corr_matrix.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 6: Correlation Matrix of Selected Symptoms</em></figcaption>
+</figure>
+</div>
 <p>The correlation matrix reveals some clear patterns: yellowing of the eyes and loss of appetite (0.7680), yellowish skin and abdominal pain (0.7336), and yellowish skin and yellowing of the eyes (0.7158) are strongly linked, suggesting these symptoms often occur together in conditions like jaundice. Moderate correlations, such as those between nausea and vomiting (0.5252) and between loss of appetite and abdominal pain (0.4865), are common in gastrointestinal issues. On the other hand, symptoms like headache and abdominal pain (-0.1540) show a weak or negative relationship, indicating they rarely appear together, which could suggest different underlying causes. These correlations are critical for understanding which symptoms might co-occur and potentially lead to specific diagnoses.</p>
 </section>
 <section id="conclusion-and-segue-to-methods" class="level2">
@@ -113,7 +135,12 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Synthetic Data from Kaggle:</strong> The foundational dataset, containing symptoms and prognoses, was sourced from Kaggle’s “Disease Prediction Using Machine Learning” competition.</li>
 <li><strong>ChatGPT API Calls:</strong> Additional data was generated using the ChatGPT API by requesting diagnostic predictions based on the provided symptoms. This was crucial for evaluating the AI’s predictive accuracy. The “gpt-3.5-turbo” model from OpenAI was chosen for its efficiency and advanced capabilities, making it ideal for handling complex language tasks with precision.</li>
 </ul>
-<p><em>Figure 7: Flowchart showing steps from dataset selection to diagnosis estimation using API calls.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure_2.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 7: Flowchart showing steps from dataset selection to diagnosis estimation using API calls.</em></figcaption>
+</figure>
+</div>
 </section>
 <section id="data-augmentation" class="level3">
 <h3 class="anchored" data-anchor-id="data-augmentation">Data Augmentation</h3>
@@ -123,7 +150,12 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Accuracy Evaluation:</strong> The predicted prognosis was evaluated using a custom function <code>get_rating</code> that sent the prognosis and predicted values to the GPT-4 API, receiving a rating based on match accuracy. The rating scale ranged from 1 (No match) to 3 (Perfect match).</li>
 <li><strong>Medical Family Determination:</strong> Specific prompts were used to categorize the original and AI-generated prognoses into their respective medical “families.”</li>
 </ul>
-<p><em>Figure 8: A visual flow chart illustrating the steps taken to further augment our data.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure_3.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 8: A visual flow chart illustrating the steps taken to further augment our data.</em></figcaption>
+</figure>
+</div>
 </section>
 <section id="data-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h3>
