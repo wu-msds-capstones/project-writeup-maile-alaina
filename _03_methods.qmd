@@ -1,87 +1,120 @@
+# Exploratory Data Analysis
+
+## Dataset Overview
+
+The dataset utilized in this study was sourced from Kaggle and licensed from the Massachusetts Institute of Technology (MIT). It contains over one hundred symptoms associated with various diagnoses, providing a comprehensive foundation for evaluating the diagnostic accuracy of generative AI models like ChatGPT. More information is provided in the Methods section.
+
+_Figure 1: A screenshot of the raw data prior to the Data Engineering process._
+
+## Summary Statistics
+
+To begin the analysis, summary statistics were calculated for the key variables in the dataset.
+
+- **Common Symptoms:** Fatigue and vomiting are the most prevalent, each occurring in about 39% of cases, followed by high fever at 28%.
+- **Rare Symptoms:** Nodal skin eruptions and muscle wasting are much less common, present in only 2% of cases.
+- **Symptom Distribution:** Most symptoms, including itching and skin rash, are rarely observed, with the majority of cases showing these symptoms as absent. This highlights the importance of focusing on the more frequent symptoms in the analysis.
+
+## Missing Data Analysis
+
+Addressing missing data is crucial in any dataset as it can significantly affect the analysis outcomes. An initial inspection revealed that this synthetic dataset contains no missing data, allowing for more straightforward analysis.
+
+## Initial Visualizations
+
+To further explore the dataset, initial visualizations were created to highlight the relationships between key variables. During this exploration, we observed that the dataset was designed with an equal distribution of diagnoses, each having 121 instances, except for "Fungal Infection," which surprisingly had 122 occurrences.
+
+_Figure 2: Count of each Diagnosis Present_
+
+When analyzing the most frequently occurring symptoms, we found that the top 10 included fatigue, vomiting, high fever, loss of appetite, nausea, headache, abdominal pain, yellowish skin, yellowing of eyes, and chills. Fatigue and vomiting were the most common, with 1,949 and 1,931 occurrences respectively, appearing in nearly half of the records in the dataset.
+
+_Figure 3: Top 10 Symptoms Present in Diagnoses_
+
+This analysis prompted the question: where do these symptoms lead in terms of medical families and diagnoses? To explore this, a Sankey diagram was created to visualize the flow. The diagram shows that vomiting is most closely tied to gastrointestinal issues and infections, while fatigue is connected to a broader range of conditions, including metabolic disorders and heart problems. Both symptoms are also linked to neurological and respiratory issues, indicating that they are common in many different illnesses and serve as important diagnostic clues. Specific diseases like hepatitis, jaundice, and diabetes are highlighted, showing how these symptoms play a role in those diagnoses.
+
+_A brief note: the medical families were determined by querying ChatGPT, and while informative, may not be 100% accurate in their grouping._
+
+_Figure 4: Sankey flow diagram illustrating how the most common symptoms lead to specific diagnoses._
+
+## Correlation Analysis
+
+To understand the relationships between symptoms and their associated diagnoses, a correlation matrix was constructed and visualized with a heatmap. This matrix shows the Pearson correlation coefficients between the top 10 most frequent symptoms.
+
+_Figure 5: A Correlation Heatmap of the Top 10 Symptoms_
+
+_Figure 6: Correlation Matrix of Selected Symptoms_
+
+The correlation matrix reveals some clear patterns: yellowing of the eyes and loss of appetite (0.7680), yellowish skin and abdominal pain (0.7336), and yellowish skin and yellowing of the eyes (0.7158) are strongly linked, suggesting these symptoms often occur together in conditions like jaundice. Moderate correlations, such as those between nausea and vomiting (0.5252) and between loss of appetite and abdominal pain (0.4865), are common in gastrointestinal issues. On the other hand, symptoms like headache and abdominal pain (-0.1540) show a weak or negative relationship, indicating they rarely appear together, which could suggest different underlying causes. These correlations are critical for understanding which symptoms might co-occur and potentially lead to specific diagnoses.
+
+## Conclusion and Segue to Methods
+
+In summary, the exploratory data analysis has provided valuable insights into the most common symptoms and their relationships with various diagnoses. The analysis highlighted key patterns in symptom occurrence, including strong correlations among symptoms commonly associated with specific conditions like jaundice and gastrointestinal disorders. Additionally, the visualizations offered a clear view of how symptoms like fatigue and vomiting are distributed across different medical categories.
+
+These findings underscore the importance of a detailed and structured approach in evaluating the diagnostic accuracy of generative AI models. To build on this exploratory analysis, we now turn to the methodology, where we will outline the steps taken to rigorously assess the performance of these models, including data preprocessing, model selection, and evaluation metrics. This systematic approach will ensure that the insights derived from the data are translated into meaningful diagnostic accuracy assessments.
+
 # Methods
 
-## Dataset Selection and API Development
+## Dataset Selection
 
-### Dataset Selection: 
+In this study, we used a dataset obtained from Kaggle, licensed by the Massachusetts Institute of Technology (MIT). The dataset includes over one hundred symptoms linked to various diagnoses, making it well-suited for assessing the diagnostic accuracy of generative AI models. The data was divided into training and testing sets, with each set containing 132 symptom columns and one prognosis column. Specifically, 80% of the data was allocated for training, and the remaining 20% was reserved for testing. This division was intended to ensure a thorough evaluation, allowing the model's generalization capabilities to be accurately measured by testing on previously unseen data.
 
-We selected a dataset licensed from the Massachusetts Institute of Technology (MIT), which contains over one hundred symptoms associated with various diagnoses. The dataset includes both training and testing sets, each with 132 symptom columns and one prognosis column.
+## API Development
 
-### API Development: 
-
-We developed multiple API calls utilizing ChatGPT, a popular generative AI platform, to act as a tele-health doctor. For each row in our dataset, the API presented ChatGPT with a randomized order of symptoms that tested positive and requested its diagnosis estimation.
-
- ![**Figure 2: Flowchart of Dataset Selection and API Development Process.**](images/figure_2.png)
-
-
-
-
+To simulate the role of a telehealth doctor, we employed ChatGPT, a generative AI model, through a series of API calls. Each row in our dataset was processed by presenting ChatGPT with a randomized sequence of symptoms that tested positive. The AI was then prompted to provide a diagnostic prediction based on these symptoms. This process allowed us to collect predictions that were later compared against the actual diagnoses in the dataset.
 
 ## Data Engineering
 
-### Data Collection: 
+The data engineering process for this study involved several key steps to ensure the quality and reliability of the dataset:
 
-Our data collection process involved several stages and sources:
+### Data Collection
 
-1. **Synthetic Data from Kaggle:** We sourced synthetic symptom and prognosis data from Kaggle's “Disease Prediction Using Machine Learning” competition.
-2 **ChatGPT API Calls:** We utilized the ChatGPT API to generate additional data by requesting diagnosis estimations based on the given symptoms.
-3. **Data Augmentation:** To understand the impact of generative AI on prognosis diagnosing, we augmented our data by comparing the accuracy between the initial dataset and generative AI outputs through API calls using OpenAI.
+- **Synthetic Data from Kaggle:** The foundational dataset, containing symptoms and prognoses, was sourced from Kaggle's "Disease Prediction Using Machine Learning" competition.
+- **ChatGPT API Calls:** Additional data was generated using the ChatGPT API by requesting diagnostic predictions based on the provided symptoms. This was crucial for evaluating the AI's predictive accuracy. The "gpt-3.5-turbo" model from OpenAI was chosen for its efficiency and advanced capabilities, making it ideal for handling complex language tasks with precision.
 
- 
+_Figure 7: Flowchart showing steps from dataset selection to diagnosis estimation using API calls._
 
- ![**Figure 3: Flowchart of Datset Augmentation Approach.**](images/figure_3.png)
+### Data Augmentation
 
-### Model Selection and Evaluation
+- **Generative AI Impact Assessment:** To evaluate the impact of generative AI on diagnostic accuracy, the original dataset’s accuracy was compared with the predictions generated by ChatGPT.
+- **Initial Diagnosis Call:** The first API call instructed the AI to act as a doctor with the prompt: "Pretend you are a doctor. Patient presents with symptoms: {symptoms}. Predict the primary diagnosis concisely using ten words or less."
+- **Accuracy Evaluation:** The predicted prognosis was evaluated using a custom function `get_rating` that sent the prognosis and predicted values to the GPT-4 API, receiving a rating based on match accuracy. The rating scale ranged from 1 (No match) to 3 (Perfect match).
+- **Medical Family Determination:** Specific prompts were used to categorize the original and AI-generated prognoses into their respective medical "families."
 
-**Model Selection:** We utilized the “gpt-3.5-turbo” model from OpenAI, known for its efficiency and enhanced capabilities. This model was chosen for its ability to handle complex language tasks with high accuracy.
-
-**Initial Diagnosis Call:** Our first API call involved instructing the AI to act as a doctor with the following prompt:  *"Pretend you are a doctor. Patient presents to you with symptoms: {symptoms}. Predict the primary diagnosis concisely using ten words or less."*
-
-**Accuracy Evaluation:** We evaluated the predicted prognosis using a custom function get_rating that sends a prognosis and its predicted values to the GPT-4 API and receives a rating based on match accuracy. 
-
-The rating scale ranges from 1 to 3:
-
-                1. No match
-                2. Same family
-                3. Perfect match
-
-**Medical Family Determination:** We determined the medical “family” for both the original prognosis and the generative AI prognosis using specific prompts to categorize them.
+_Figure 8: A visual flow chart illustrating the steps taken to further augment our data._
 
 ### Data Cleaning
 
-Data cleaning and preprocessing were essential to ensure the quality and reliability of our dataset. 
-Key steps included:
+- **Inconsistency Resolution:** Inconsistencies in the data were identified and corrected to ensure accurate symptom-disease relationships.
+- **Symptom Randomization:** To reduce bias, the order of symptoms presented to ChatGPT was randomized during API calls, ensuring the AI’s predictions were not influenced by symptom order.
+- **Data Storage:** We organized the dataset and associated resources in a GitHub repository to ensure efficient version control and centralized access. This repository serves as a comprehensive resource for data management and future reference.
 
-- Addressing inconsistencies or errors.
-- Extracting scales from the “predicted diagnosis” to include only the diagnosis.
-- Randomizing the order of symptoms to account for replicates.
+#### Repository Structure:
 
-### Data Storage
-We utilized a GitHub repository for the effective organization and future reference of our data, enabling efficient version control and centralized access.
+- `.github`: Contains GitHub-specific configurations.
+- `Data`: Houses both raw and processed datasets.
+- `Data_Engineering`: Includes scripts and resources for data engineering tasks.
+- `Documentation`: Contains project documentation, reports, and written materials.
+- `Machine_Learning`: Stores machine learning models, training scripts, and evaluation metrics.
+- `Statistics`: Includes statistical modeling scripts and evaluation metrics.
+- `README.md`: Provides an overview of the project, including the research question, project description, and links to additional resources.
 
-**Repository Structure:**
+## Statistical Analysis
 
-- **.github:** GitHub-specific configurations.
-- **Data:** Stores raw and processed datasets.
-- **Data_Engineering:** Scripts and resources for data engineering tasks.
-- **Documentation:** Project documentation, reports, and written materials.
-- **Machine_Learning:** Machine learning models, training scripts, and evaluation metrics.
-- **Statistics:** Statistical modeling, scripts, and evaluation metrics.
-- **README.md**: Overview of the project, research question, project description, and links to additional resources.
+To evaluate the performance of ChatGPT’s diagnostic predictions, we employed various statistical methods:
 
-## Statistical Methodology
+- **Descriptive Statistics:** We calculated metrics such as mean, median, standard deviation, and variance to summarize the accuracy scores and provide an overview of the AI’s performance.
+- **Confusion Matrix:** A confusion matrix was used to visualize the AI model's performance by showing the counts of true positives, true negatives, false positives, and false negatives. This provided insights into the accuracy and errors of the AI model.
+- **Accuracy Metrics:** Precision, recall, and F1 scores were calculated to evaluate the AI’s performance across different diagnostic categories, offering a more detailed understanding of its accuracy.
+- **Chi-Square Test:** To determine whether there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test, helping to assess the consistency of the AI’s predictions.
+- **Fisher's Exact Test:** In cases where sample sizes were small and the assumptions for the chi-square test might not hold, Fisher’s Exact Test was used to provide a more accurate measure of the significance of the association between the AI’s predictions and actual diagnoses.
 
-1. **Summary Statistics:** To summarize the central tendency and dispersion of accuracy scores, we calculated the mean, median, mode, standard deviation, and variance.
-2. **Confusion Matrix:** We used a confusion matrix to visualize the AI model’s performance by showing the counts of true positives, true negatives, false positives, and false negatives.
-3. **Chi-Square Test:** To determine if there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test.
-4. **Correlation Analysis:** Correlation analysis was performed to assess the relationships between different features in the dataset and the accuracy of AI predictions.
+## Machine Learning Model Development
 
-## Machine Learning
-To see how difficult it was to create an accurate prediction based on a list of symptoms, we decided to create our own in-house machine learning model to foresee the potential pain points of creating accurate diagnoses.
+To provide a comparative analysis, we developed traditional machine learning models using the same dataset, allowing us to compare their performance against ChatGPT’s:
 
-### Model Selection and Development:
+### Model Development
 
-We attempted multiple machine learning models, including logistic regression, decision trees, random forests, support vector machines (SVM), and neural networks to diagnose ailments. Before ultimatly landing on a logistic regression due to **MORE**
+- **Decision Trees:** Decision Trees were selected for their ability to handle complex datasets with hierarchical relationships. This model helps visualize the decision-making process and understand how specific symptoms influence diagnosis.
+- **Logistic Regression:** Logistic Regression was used for its strength in binary classification tasks, providing probabilistic outputs that indicate the likelihood of a diagnosis based on symptoms.
 
-### Addressing Overfitting and Validation:
+### Model Evaluation
 
-**ADD MORE HERE**
+The machine learning models were evaluated using metrics such as accuracy, precision, recall, and F1 scores, providing a basis for comparing their performance with that of the generative AI model.
