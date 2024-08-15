@@ -1,219 +1,80 @@
-
-
 # Results
 
-In our project, we applied statistical thinking by conducting an error
-analysis and a diagnostic accuracy assessment. These methods allowed us
-to distill the complex interactions between predictions and actual
-outcomes into more manageable and interpretable metrics.
+## Descriptive Statistics
 
-We analyzed the discrepancies between the original prognoses and the
-predictions provided by ChatGPT in an error analysis model. This
-involved identifying instances where the AI’s prognosis diverged from
-the original prognosis and categorizing these errors to understand their
-nature and distribution. This method was appropriate because it helped
-us identify specific areas where the AI’s predictions were less accurate
-and provided insights into potential causes of these errors.
+Initially, a quick text match analysis was conducted to compare the predicted prognosis with the original prognosis. The results showed that the majority of diagnoses did not match, with ChatGPT demonstrating an overall accuracy of 25.15%. This means the AI correctly identified the diagnosis in about one out of every four cases. While this indicates some diagnostic capability, it also highlights significant gaps in the model’s reliability for clinical use.
 
-We assessed how well ChatGPT’s diagnostic predictions aligned with the
-original diagnoses by comparing the two sets of prognoses. We used a
-match scale for this assessment, where 1 indicated no match, 2 indicated
-a match within the same diagnosis group, and 3 indicated an exact match.
-This match scale, as mentioned above in our methods, allowed us to
-quantify the degree of alignment between the AI’s predictions and the
-original diagnoses. This involved calculating the frequency of each
-match level and analyzing how often ChatGPT’s predictions aligned with
-the original diagnoses. This approach was suitable for evaluating the
-overall performance of the AI in terms of accuracy and relevance.
+![_Figure 9: API Results: Majority of Diagnoses Did Not Match After ChatGPT Simulated a Doctor's Diagnosis Based on Symptoms Text Match_](images/match_analysis.png)
 
-To better understand the results, we generated visualizations such as
-bar plots and histograms. These visualizations helped us interpret the
-distribution of accuracy ratings and errors, providing a clearer picture
-of the AI’s performance.
+However, after running another API call to compare the original prognosis with the predicted one and rating their similarity on a scale from 1 to 3, the results showed a shift. The matches were categorized into three groups: no match, same medical family, and perfect match. The analysis revealed that most predictions fell into the "same medical family" category. Descriptive statistics showed a mean match score of 2.2 out of 3, indicating that while ChatGPT often identified diagnoses within the correct medical family, it frequently lacked precision in delivering accurate diagnoses, underscoring its limitations in clinical settings.
 
+![_Figure 10: Summary statistics of Scale Match_](images/table_2_scale.png)
 
-### Match Status Analysis
+![_Figure 11: Distribution of ChatGPT's Prognosis Match Scores on a 1-3 Scale (Original vs. Predicted_)](images/figure_5.png)
 
-In our project, we evaluated the accuracy of ChatGPT's diagnostic predictions by comparing them to the actual diagnoses. We categorized the predictions into two groups:
+## Confusion Matrix Analysis
 
-- **False**: The diagnoses do not match.
-- **True**: The diagnoses match.
+The confusion matrix provided a detailed breakdown of ChatGPT's performance across different diagnostic categories:
 
-To provide an overall picture of ChatGPT's performance, we visualized the distribution of these match statuses.
+- **Rating 1 (No Match):** ChatGPT rarely identified cases with no match correctly, resulting in a low true positive rate. This indicates that the AI often failed to recognize when a set of symptoms did not correspond to the predicted diagnosis, a critical concern for clinical accuracy.
+- **Rating 2 (Same Medical Family):** The AI showed moderate performance in identifying related conditions, but the high number of false positives suggests frequent misclassification of unrelated conditions as related. This reflects a need for better contextual understanding of symptoms.
+- **Rating 3 (Perfect Match):** While ChatGPT performed better in this category, correctly identifying perfect matches with higher frequency, it also exhibited a tendency to over-predict perfect matches, leading to a significant number of false positives. This over-prediction could be misleading in a clinical setting where precision is essential.
 
-#### Key Findings:
+![_Figure 12: Confusion Matrix Comparing ChatGPT Prognosis with Original Prognosis_](images/confusion_matrix.png)
 
-##### Distribution of Match Status:
-- Most of the predictions were categorized as **False**.
-- A smaller proportion of predictions were categorized as **True**.
+## Precision, Recall, and F1-Score Evaluation
 
-##### Visualization:
-- We used a bar plot to show the counts of `False` and `True` match statuses. This visual helps to quickly see the proportion of correct predictions versus incorrect ones.
+To further evaluate ChatGPT’s performance, we calculated precision, recall, and F1-scores for each diagnostic category:
 
+- **Rating 1 (No Match):** The AI's precision (0.0008), recall (0.0135), and F1-score (0.0015) were extremely low, indicating a poor ability to correctly identify no matches.
+- **Rating 2 (Same Medical Family):** The AI demonstrated moderate precision (0.4247) and recall (0.1737), but the overall F1-score (0.2466) revealed significant room for improvement.
+- **Rating 3 (Perfect Match):** The AI showed better performance with a precision of 0.5745, recall of 0.3903, and F1-score of 0.4648. However, these metrics still indicate the need for enhancements to achieve clinical reliability.
 
+![_Figure 13: Precision, Recall, and F1-Score Evaluation_](images/Figure 13 Precision, Recall, and F1-Score Evaluation.png)
 
+## Chi-Square Test for Independence
 
+The Chi-Square test results (X-squared = 308.35, p-value < 2.2e-16) showed a statistically significant association between ChatGPT’s predictions and actual outcomes. This suggests that while the model's predictions are not random, there is considerable room for improving its accuracy and consistency across different match types.
 
+![_Figure 14: Pearson’s Chi-squared test output_](images/chi-square.png)
 
-#### Interpretation:
-- **False**: This category had a higher count, indicating that ChatGPT's predictions often did not match the actual diagnoses.
-- **True**: This category had a lower count, showing that fewer predictions were accurate.
+## Comparative Performance of Machine Learning Models
 
+To understand the challenges of creating accurate predictions based on a list of symptoms, we developed our own in-house machine learning models. This not only allowed us to identify potential pain points in diagnostic accuracy but also provided a basis for comparison between traditional machine learning methods and emerging generative AI, such as ChatGPT.
 
-The bar plot provides a clear picture of how often ChatGPT’s predictions align with the actual diagnoses. This analysis highlights areas where the predictions were accurate and where they were not, helping us understand the strengths and weaknesses of ChatGPT's diagnostic capabilities. Going forward, we can focus on improving the model to increase the number of accurate predictions, test it on more diverse datasets, and refine the prediction algorithms.
-### Summary of Mean Match Score Analysis
+In this project, we employed both Decision Tree models and Logistic Regression to predict diagnoses based on a set of symptoms. Both models achieved an accuracy of 57%, which was significantly better than the 43% accuracy demonstrated by generative AI methods like ChatGPT.
 
-In our project, we set out to evaluate the accuracy of ChatGPT’s diagnostic predictions compared to the original diagnoses. We used a match scale to measure how well the AI's predictions matched the actual outcomes:
+### Model Selection:
 
-- **No Match (1)**: The diagnoses do not match at all.
-- **In the Same Family (2)**: The diagnoses are in the same general category.
-- **Perfect Match (3)**: The diagnoses are identical.
+- **Decision Trees:** This model was chosen for its ability to handle complex datasets with hierarchical relationships. Decision Trees work by splitting data into branches based on feature values, capturing intricate interactions between symptoms and diagnoses. The model’s interpretability allows us to visualize decision-making processes, making it easier to understand the relationships between symptoms and diagnoses.
+  
+- **Logistic Regression:** Well-suited for binary classification tasks, Logistic Regression provides probabilistic outputs that indicate the likelihood of a diagnosis based on symptoms. It performs well when the relationship between predictors (symptoms) and the target variable (diagnosis) can be approximated by a linear decision boundary. Its simplicity and efficiency make it an ideal choice for tasks requiring interpretability and computational efficiency.
 
-To summarize the overall accuracy, we calculated the mean match score, which is the average of all match scores in the dataset.
+### Model Tuning and Accuracy:
 
-#### Key Findings:
+Initially, we fit the models using all available symptoms to predict diagnoses. However, this led to overfitting, where the models performed well on training data but struggled to generalize to new data. To address this, we refined the models by focusing on the 10 most common symptoms. This adjustment aimed to balance model complexity and improve generalizability.
 
-1. **Mean Match Score Calculation**:
-   - We computed the mean match score by adding all the match scores together and dividing by the number of data points. For example, with match scores of 3, 2, 1, 3, and 2, the mean match score is \( \frac{3 + 2 + 1 + 3 + 2}{5} = 2.2 \).
+After refinement, both Decision Trees and Logistic Regression maintained a stable accuracy of 57%. This performance was notably superior to that of generative AI methods like ChatGPT, which had an accuracy of roughly 43%. The difference in performance highlights the specialized nature of our machine learning models, which are more tailored to specific classification tasks, unlike generative AI models that are designed for a broad range of language tasks.
 
-2. **Interpretation of the Mean Match Score**:
-   - A higher mean score means ChatGPT's predictions are generally accurate and closely match the original diagnoses.
-   - A lower mean score indicates that the predictions are less accurate and often do not align with the actual diagnoses.
+![_Figure 15: A confusion matrix visualizing the distribution of diagnoses in our Logistic Regression model. Anything outside the diagonal line from top left to bottom right represents misdiagnosed cases, illustrating the challenges in achieving perfect accuracy._](images/ml_confusionmatrix.png)
 
-3. **Visualization**:
-   - We created a bar plot to show the distribution of match scores, with a dashed line representing the mean match score. This visual helps to quickly understand the overall accuracy and the frequency of each match level.
+## Heart Attack Prediction: A Case Study
 
-4. **Results**:
-   - The analysis showed that ChatGPT's predictions, on average, are more likely to fall into the same diagnostic category as the original diagnoses rather than being completely off.
+In our analysis, we observed that ChatGPT achieved a 100% accuracy rate for diagnosing heart attacks. To further explore this, we developed a logistic regression model specifically for heart attack diagnosis, using the top ten most common symptoms associated with heart attacks as predictors (X) and the corresponding diagnosis as the target (y). Remarkably, our logistic regression model also achieved a 100% accuracy rate, matching the performance of ChatGPT.
 
+This finding underscores the effectiveness of both machine learning models and generative AI in diagnosing conditions characterized by a well-defined set of specific symptoms. It highlights the potential for targeted symptom analysis to significantly enhance diagnostic accuracy in specific medical scenarios, particularly for acute conditions like heart attacks.
 
+![_Figure 16: ROC curve illustrating the 100% accuracy rate achieved by the logistic regression model in diagnosing heart attacks. This case study, coupled with the Fisher’s Exact Test results, demonstrates the importance of targeted symptom analysis and highlights areas where generative AI may still have limitations in utilizing certain symptoms effectively._](images/roc_logistic.png)
 
+To delve deeper into the influence of specific symptoms on ChatGPT’s diagnostic accuracy, particularly for heart attack cases, we conducted a Fisher’s Exact Test. The analysis provided the following insights:
 
-The mean match score offers a clear picture of ChatGPT’s diagnostic accuracy. By understanding this metric, we can see how well the AI-based platform performs and identify areas for improvement. Next steps include testing on more diverse datasets, refining the models, and further analyzing key features to boost prediction accuracy.
-## Machine Learning
+- **Chest Pain:** The test suggested a potential association with perfect match predictions, though the result was not statistically significant (p-value = 0.09711).
+- **Breathlessness, Sweating, Vomiting:** These symptoms did not show any significant association with the AI model’s prediction accuracy (p-values = 1), indicating that the model might not be effectively using these symptoms to improve diagnostic accuracy.
 
-In recent years, machine learning has revolutionized various industries,
-including healthcare. Machine learning algorithms can analyze vast
-amounts of data to identify patterns and make predictions, potentially
-improving diagnosis accuracy and patient outcomes. One area of growing
-interest is the use of AI-based telehealth platforms, which provide
-remote medical diagnosis and consultation services. These platforms
-utilize machine learning models to assist healthcare providers in
-diagnosing patient ailments based on symptoms reported by patients
-online.
+![_Figure 17: Fisher’s Exact Test on Assessing the Accuracy of Symptoms in Predicting Heart Attacks_](images/fisher_test.png)
 
-We wanted to determine how difficult it is to accurately predict
-prognosis, so we developed our own machine learning model. By creating
-and testing this model, we aim to better understand the challenges and
-potential pain points that these AI-based platforms may encounter. Our
-goal is to provide insights into optimizing their algorithms for more
-accurate ailment diagnosis.
+![_Figure 18: Fisher's Exact Test Results_](images/fisher_test_table.png)
 
-#### Process
+## Addressing Discrepancies
 
-
-
-#### Data Preprocessing
-
-Involves dropping unnecessary columns, encoding categorical variables, and splitting the data into training and testing sets.
-
-
-```
-
-#### Exploratory Data Analysis (EDA)
-
-In this section, we performed various analyses to understand the data better. 
-
-
-### Results
-
-#### Logistic Regression 
-
-The Logistic Regression model correctly identified 83.57% of the
-diagnoses in the test set. This means it made correct predictions for
-83.57% of the cases, but there were still some errors.
-
-
-#### Decision Tree
-
-The Decision Tree model perfectly classified all samples in the test
-set, achieving 100% accuracy. This means it correctly identified every
-diagnosis without any errors.
-
-
-```
-#### K-Fold Cross-Validation
-
-To ensure the Decision Tree model's performance was consistent, we used
-a technique called 5-fold cross-validation. This process splits the data
-into five parts, trains the model on four parts, and tests it on the remaining part. The average accuracy was nearly perfect at 99.98%,
-indicating the model performed exceptionally well across different
-subsets of the data.
-
-#### Pruned Decision
-
-Tree Pruning was applied to the Decision Tree to simplify it and prevent it from being too specific to the training data. The pruned tree achieved an average accuracy of 93.91%, which is lower than the unpruned tree, suggesting that while pruning reduced complexity, it also slightly decreased accuracy.
-
-#### Feature Importance Analysis
-The feature importance analysis of the Random Forest model reveals the top features contributing to the model's predictions. The top 20 important features are visualized in the provided plot. The most important features in predicting the prognosis are muscle pain, itching, chest pain, and high fever. These features have the highest importance scores, indicating they play a significant role in the model's decision-making process.
-
-
-#### Random Forest
-
-The Random Forest model, which uses multiple decision trees, also
-performed very well, with an average accuracy of 99.98%. This model
-considered various symptoms like muscle pain, itching, chest pain, and
-high fever as the most important factors in predicting diagnoses.
-
-
-
-#### Support Vector Machine (SVM)
-
-The SVM model achieved perfect accuracy, consistently making correct
-predictions across all subsets of the data.
-
-
-#### Neural Network
-
-The Neural Network model also showed near-perfect performance, with an average accuracy of 99.98%.
-
-#### Comparison of Models
-
-All three models—Random Forest, SVM, and Neural Network—demonstrated
-excellent performance with high accuracy and low variability. The SVM
-model showed perfect accuracy in every test, but the Random Forest and
-Neural Network models also performed exceptionally well.
-
-#### Testing on Predicted Prognosis
-
-We also evaluated the models on new data that included predicted
-diagnoses. The accuracy results were as follows:
-
--   Random Forest: 98.5%
-
--   SVM: 99.0%
-
--   Neural Network: 98.7%
-
-
-
-
-### **Note on Synthetic Data** 
-
-It's important to mention that the data used in this project was
-synthetic, meaning it was artificially generated to simulate real-world
-scenarios. Because synthetic data can be designed to be clear and
-unambiguous, models often achieve very high accuracy. Therefore, while
-the results are promising, they do not fully represent the model's
-performance on real-world data, which can be more complex and noisy.
-
-#### Machine Learning Conclusion
-
-The models developed in this study achieved high accuracy in predicting
-diagnoses. The SVM model was especially impressive, with perfect
-accuracy in cross-validation tests. These results suggest that AI-based
-telehealth diagnosis platforms can be very accurate. However, it's
-important to ensure these models don't overfit to specific data and can
-generalize well to new cases. Future steps include testing on more
-diverse datasets, fine-tuning the models, and further analyzing the
-important features to optimize performance.
+The difference in accuracy between ChatGPT (25%) and traditional machine learning models (57%) can be attributed to the specialized nature of the problem. Traditional models, which focus on specific symptom features and undergo targeted refinement, tend to perform better in specialized tasks like medical diagnosis. This points to the need for continued development and specialization in AI models to enhance their utility in clinical settings.
