@@ -71,54 +71,78 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a>
   <ul class="collapse">
-  <li><a href="#generative-ai-in-healthcare" id="toc-generative-ai-in-healthcare" class="nav-link" data-scroll-target="#generative-ai-in-healthcare">Generative AI in Healthcare</a>
-  <ul class="collapse">
-  <li><a href="#current-applications" id="toc-current-applications" class="nav-link" data-scroll-target="#current-applications">Current Applications</a></li>
-  <li><a href="#benefits-of-generative-ai-in-healthcare" id="toc-benefits-of-generative-ai-in-healthcare" class="nav-link" data-scroll-target="#benefits-of-generative-ai-in-healthcare">Benefits of Generative AI in Healthcare</a></li>
+  <li><a href="#generative-ai-in-healthcare" id="toc-generative-ai-in-healthcare" class="nav-link" data-scroll-target="#generative-ai-in-healthcare">Generative AI in Healthcare</a></li>
+  <li><a href="#current-applications-of-generative-ai" id="toc-current-applications-of-generative-ai" class="nav-link" data-scroll-target="#current-applications-of-generative-ai">Current Applications of Generative AI</a></li>
   <li><a href="#challenges-of-generative-ai-in-healthcare" id="toc-challenges-of-generative-ai-in-healthcare" class="nav-link" data-scroll-target="#challenges-of-generative-ai-in-healthcare">Challenges of Generative AI in Healthcare</a></li>
-  </ul></li>
-  <li><a href="#ethical-considerations-and-bias-mitigation" id="toc-ethical-considerations-and-bias-mitigation" class="nav-link" data-scroll-target="#ethical-considerations-and-bias-mitigation">Ethical Considerations and Bias Mitigation</a>
-  <ul class="collapse">
+  <li><a href="#ethical-considerations-and-bias-mitigation" id="toc-ethical-considerations-and-bias-mitigation" class="nav-link" data-scroll-target="#ethical-considerations-and-bias-mitigation">Ethical Considerations and Bias Mitigation</a></li>
   <li><a href="#limitations-of-synthetic-data-in-healthcare-ai-models" id="toc-limitations-of-synthetic-data-in-healthcare-ai-models" class="nav-link" data-scroll-target="#limitations-of-synthetic-data-in-healthcare-ai-models">Limitations of Synthetic Data in Healthcare AI Models</a></li>
   </ul></li>
-  <li><a href="#conclusion-of-background" id="toc-conclusion-of-background" class="nav-link" data-scroll-target="#conclusion-of-background">Conclusion of Background</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#dataset-overview" id="toc-dataset-overview" class="nav-link" data-scroll-target="#dataset-overview">Dataset Overview</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a></li>
+  <li><a href="#missing-data-analysis" id="toc-missing-data-analysis" class="nav-link" data-scroll-target="#missing-data-analysis">Missing Data Analysis</a></li>
+  <li><a href="#initial-visualizations" id="toc-initial-visualizations" class="nav-link" data-scroll-target="#initial-visualizations">Initial Visualizations</a></li>
+  <li><a href="#correlation-analysis" id="toc-correlation-analysis" class="nav-link" data-scroll-target="#correlation-analysis">Correlation Analysis</a></li>
+  <li><a href="#conclusion-and-segue-to-methods" id="toc-conclusion-and-segue-to-methods" class="nav-link" data-scroll-target="#conclusion-and-segue-to-methods">Conclusion and Segue to Methods</a></li>
   </ul></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
   <ul class="collapse">
-  <li><a href="#dataset-selection-and-api-development" id="toc-dataset-selection-and-api-development" class="nav-link" data-scroll-target="#dataset-selection-and-api-development">Dataset Selection and API Development</a>
-  <ul class="collapse">
-  <li><a href="#dataset-selection" id="toc-dataset-selection" class="nav-link" data-scroll-target="#dataset-selection">Dataset Selection:</a></li>
-  <li><a href="#api-development" id="toc-api-development" class="nav-link" data-scroll-target="#api-development">API Development:</a></li>
-  </ul></li>
+  <li><a href="#dataset-selection" id="toc-dataset-selection" class="nav-link" data-scroll-target="#dataset-selection">Dataset Selection</a></li>
+  <li><a href="#api-development" id="toc-api-development" class="nav-link" data-scroll-target="#api-development">API Development</a></li>
   <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering">Data Engineering</a>
   <ul class="collapse">
-  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection:</a></li>
-  <li><a href="#model-selection-and-evaluation" id="toc-model-selection-and-evaluation" class="nav-link" data-scroll-target="#model-selection-and-evaluation">Model Selection and Evaluation</a></li>
-  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
-  <li><a href="#data-storage" id="toc-data-storage" class="nav-link" data-scroll-target="#data-storage">Data Storage</a></li>
-  </ul></li>
-  <li><a href="#statistical-methodology" id="toc-statistical-methodology" class="nav-link" data-scroll-target="#statistical-methodology">Statistical Methodology</a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a>
-  <ul class="collapse">
-  <li><a href="#model-selection-and-development" id="toc-model-selection-and-development" class="nav-link" data-scroll-target="#model-selection-and-development">Model Selection and Development:</a></li>
-  <li><a href="#addressing-overfitting-and-validation" id="toc-addressing-overfitting-and-validation" class="nav-link" data-scroll-target="#addressing-overfitting-and-validation">Addressing Overfitting and Validation:</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
-  <ul class="collapse">
-  <li><a href="#content-breakdown" id="toc-content-breakdown" class="nav-link" data-scroll-target="#content-breakdown">Content Breakdown</a></li>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
   <li><a href="#data-augmentation" id="toc-data-augmentation" class="nav-link" data-scroll-target="#data-augmentation">Data Augmentation</a></li>
-  <li><a href="#new-feature-creation" id="toc-new-feature-creation" class="nav-link" data-scroll-target="#new-feature-creation">New Feature Creation</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
+  </ul></li>
+  <li><a href="#statistical-analysis" id="toc-statistical-analysis" class="nav-link" data-scroll-target="#statistical-analysis">Statistical Analysis</a></li>
+  <li><a href="#machine-learning-model-development" id="toc-machine-learning-model-development" class="nav-link" data-scroll-target="#machine-learning-model-development">Machine Learning Model Development</a>
+  <ul class="collapse">
+  <li><a href="#model-development" id="toc-model-development" class="nav-link" data-scroll-target="#model-development">Model Development</a></li>
+  <li><a href="#model-evaluation" id="toc-model-evaluation" class="nav-link" data-scroll-target="#model-evaluation">Model Evaluation</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
-  <li><a href="#match-status-analysis" id="toc-match-status-analysis" class="nav-link" data-scroll-target="#match-status-analysis">Match Status Analysis</a></li>
-  <li><a href="#note-on-synthetic-data" id="toc-note-on-synthetic-data" class="nav-link" data-scroll-target="#note-on-synthetic-data"><strong>Note on Synthetic Data</strong></a></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
+  <li><a href="#confusion-matrix-analysis" id="toc-confusion-matrix-analysis" class="nav-link" data-scroll-target="#confusion-matrix-analysis">Confusion Matrix Analysis</a></li>
+  <li><a href="#precision-recall-and-f1-score-evaluation" id="toc-precision-recall-and-f1-score-evaluation" class="nav-link" data-scroll-target="#precision-recall-and-f1-score-evaluation">Precision, Recall, and F1-Score Evaluation</a></li>
+  <li><a href="#chi-square-test-for-independence" id="toc-chi-square-test-for-independence" class="nav-link" data-scroll-target="#chi-square-test-for-independence">Chi-Square Test for Independence</a></li>
+  <li><a href="#comparative-performance-of-machine-learning-models" id="toc-comparative-performance-of-machine-learning-models" class="nav-link" data-scroll-target="#comparative-performance-of-machine-learning-models">Comparative Performance of Machine Learning Models</a>
+  <ul class="collapse">
+  <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model Selection:</a></li>
+  <li><a href="#model-tuning-and-accuracy" id="toc-model-tuning-and-accuracy" class="nav-link" data-scroll-target="#model-tuning-and-accuracy">Model Tuning and Accuracy:</a></li>
   </ul></li>
-  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  <li><a href="#heart-attack-prediction-a-case-study" id="toc-heart-attack-prediction-a-case-study" class="nav-link" data-scroll-target="#heart-attack-prediction-a-case-study">Heart Attack Prediction: A Case Study</a></li>
+  <li><a href="#addressing-discrepancies" id="toc-addressing-discrepancies" class="nav-link" data-scroll-target="#addressing-discrepancies">Addressing Discrepancies</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
+  <li><a href="#implications-for-clinical-use" id="toc-implications-for-clinical-use" class="nav-link" data-scroll-target="#implications-for-clinical-use">Implications for Clinical Use</a></li>
+  <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link" data-scroll-target="#ethical-considerations">Ethical Considerations</a></li>
+  <li><a href="#future-research-directions" id="toc-future-research-directions" class="nav-link" data-scroll-target="#future-research-directions">Future Research Directions</a></li>
+  <li><a href="#business-applications-of-ai-in-healthcare-diagnostics" id="toc-business-applications-of-ai-in-healthcare-diagnostics" class="nav-link" data-scroll-target="#business-applications-of-ai-in-healthcare-diagnostics">Business Applications of AI in Healthcare Diagnostics</a></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts">Final Thoughts</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#appendix-list-of-figures" id="toc-appendix-list-of-figures" class="nav-link" data-scroll-target="#appendix-list-of-figures">Appendix: List of Figures</a></li>
+  <li><a href="#appendix-supplemental-figures" id="toc-appendix-supplemental-figures" class="nav-link" data-scroll-target="#appendix-supplemental-figures">Appendix: Supplemental Figures</a>
+  <ul class="collapse">
+  <li><a href="#how-diagnoses-were-grouped-into-medical-families" id="toc-how-diagnoses-were-grouped-into-medical-families" class="nav-link" data-scroll-target="#how-diagnoses-were-grouped-into-medical-families">1. How Diagnoses were grouped into Medical Families</a></li>
+  <li><a href="#the-decision-tree-used-for-machine-learning" id="toc-the-decision-tree-used-for-machine-learning" class="nav-link" data-scroll-target="#the-decision-tree-used-for-machine-learning">2. The Decision Tree used for Machine Learning</a></li>
+  <li><a href="#average-accuracy-score-by-prognosis" id="toc-average-accuracy-score-by-prognosis" class="nav-link" data-scroll-target="#average-accuracy-score-by-prognosis">3. Average Accuracy Score By Prognosis</a></li>
+  <li><a href="#top-5-symptoms-associated-with-heart-attacks" id="toc-top-5-symptoms-associated-with-heart-attacks" class="nav-link" data-scroll-target="#top-5-symptoms-associated-with-heart-attacks">4. Top 5 Symptoms Associated With Heart Attacks</a></li>
+  <li><a href="#number-of-symptoms-per-prognosis" id="toc-number-of-symptoms-per-prognosis" class="nav-link" data-scroll-target="#number-of-symptoms-per-prognosis">5. Number of Symptoms per Prognosis</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -130,357 +154,511 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>This capstone project investigates the diagnostic accuracy of generative AI, specifically ChatGPT, in a telehealth setting. The study compares AI-generated diagnoses with those provided by human clinicians, assessing the feasibility of using AI for accurate medical diagnosis. A dataset licensed from MIT and sourced from Kaggle, containing over one hundred symptoms associated with various diagnoses, was employed. ChatGPT simulated a telehealth doctor, generating diagnostic predictions based on randomized symptom data. These predictions were then compared to actual diagnoses to evaluate accuracy.</p>
+<p>The findings reveal that while ChatGPT demonstrated moderate accuracy in grouping symptoms within the same medical family, it achieved an overall diagnostic accuracy of only 25.15%, indicating significant limitations in delivering precise and reliable diagnoses. Traditional machine learning models, such as Decision Trees and Logistic Regression, outperformed ChatGPT with a higher accuracy of 57%, underscoring the importance of targeted, data-driven approaches for clinical diagnostics.</p>
+<p>The study highlights the potential of generative AI to assist in preliminary diagnostic processes but emphasizes the need for further refinement and the integration of real-world clinical data to ensure its reliability. Ethical considerations, including data privacy, bias mitigation, and the necessity of human oversight, are critical for the responsible deployment of AI in healthcare. Future research should focus on enhancing AI model accuracy, developing hybrid AI-human diagnostic systems, and addressing ethical challenges to fully harness the transformative potential of AI in healthcare diagnostics.</p>
+</section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>One of the most promising developments in this field is generative AI, a subset of artificial intelligence that can create new data based on patterns learned from existing datasets. Generative AI can analyze large volumes of data quickly and identify patterns that may be difficult for human clinicians to discern. This capability holds the potential to revolutionize the diagnostic process, making it faster, more consistent, and potentially more accurate.</p>
-<p>Despite its potential, the integration of generative AI into healthcare raises critical questions. Key among these is how the diagnoses generated by AI compare to those made by human clinicians when presented with identical symptoms. Can generative AI achieve the level of accuracy required for clinical use? What are the strengths and limitations of AI in this context?</p>
-<p>This capstone project aims to evaluate the diagnostic accuracy of generative AI, specifically ChatGPT, in a telehealth setting. By comparing the AI-generated diagnoses with those provided by human clinicians, we seek to determine the feasibility of using AI for accurate medical diagnoses. Additionally, this study explores the potential impact of generative AI on improving diagnostic processes and patient outcomes.</p>
-<p>To achieve these objectives, we developed a methodology involving a dataset licensed from the Massachusetts Institute of Technology (MIT) and sourced from Kaggle, which contains over one hundred symptoms associated with various diagnoses. Using ChatGPT to simulate a telehealth doctor, we employed multiple API calls, presenting it with randomized symptom data and recording its diagnostic predictions. These predictions were then compared to the actual diagnoses in the dataset to assess accuracy.</p>
-<p>Our research is structured as follows: We begin with a review of the current state of generative AI in healthcare, highlighting its applications, benefits, and challenges. Next, we describe our methodology in detail, including data collection, model selection, and statistical analysis. We then present our results, followed by a discussion of the implications, limitations, and potential future directions for research. Finally, we summarize our findings and their significance for the future of AI in healthcare.</p>
-<p>Through this investigation, we aim to contribute valuable insights into the capabilities and limitations of generative AI in healthcare, paving the way for future advancements and applications in this critical field.</p>
+<p>Generative AI is rapidly emerging as a transformative technology in the field of healthcare, with the potential to significantly enhance diagnostic processes. Unlike traditional AI models, which are typically designed to classify or predict outcomes based on existing data, generative AI models have the ability to create new data by learning patterns from vast datasets. This capability enables generative AI to analyze large volumes of patient information swiftly and identify patterns that may be challenging for human clinicians to discern. The promise of generative AI lies in its potential to deliver faster, more consistent, and potentially more accurate diagnoses.</p>
+<p>However, the integration of generative AI into healthcare brings forth critical questions regarding its practical application in clinical settings. A key concern is the accuracy of AI-generated diagnoses compared to those made by human clinicians when presented with identical symptoms. Can generative AI achieve the high level of accuracy required for clinical use? What are its strengths and limitations in this context?</p>
+<p>This capstone project aims to evaluate the diagnostic accuracy of generative AI, specifically ChatGPT, within a telehealth setting. By comparing AI-generated diagnoses with those provided by human clinicians, this study seeks to assess the feasibility of using AI for accurate medical diagnoses. Additionally, the research explores the broader impact of generative AI on improving diagnostic processes and patient outcomes.</p>
+<p>To achieve these objectives, we utilized a dataset licensed from the Massachusetts Institute of Technology (MIT) and sourced from Kaggle, which includes over one hundred symptoms associated with various diagnoses. ChatGPT was employed to simulate a telehealth doctor through multiple API calls, where it generated diagnostic predictions based on randomized symptom data. These AI predictions were then compared to the actual diagnoses in the dataset to assess their accuracy.</p>
+<p>The research is structured as follows: First, we review the current state of generative AI in healthcare, highlighting its applications, benefits, and challenges. We then detail our methodology, including data collection, model selection, and statistical analysis. The results of our study are presented next, followed by a discussion of their implications, limitations, and potential future research directions. Finally, we conclude with a summary of our findings and their significance for the future of AI in healthcare.</p>
+<p>Through this investigation, we aim to provide valuable insights into the capabilities and limitations of generative AI in healthcare, contributing to the ongoing discussion about its role in the future of medical diagnostics.</p>
 </section>
 <section id="background" class="level1">
 <h1>Background</h1>
 <section id="generative-ai-in-healthcare" class="level2">
 <h2 class="anchored" data-anchor-id="generative-ai-in-healthcare">Generative AI in Healthcare</h2>
-<p>Generative AI is a branch of artificial intelligence that focuses on creating new data by learning patterns from existing datasets. Unlike traditional AI models that classify or predict based on existing data, generative AI models can generate new, synthetic data that mimics the statistical properties of the training data. This capability has significant implications for various fields, including healthcare, where data generation and pattern recognition are crucial.</p>
-<section id="current-applications" class="level3">
-<h3 class="anchored" data-anchor-id="current-applications">Current Applications</h3>
-<p>Generative AI is already making strides in healthcare through several key applications:</p>
-<ul>
-<li><strong>Clinical Decision-Making:</strong> Generative AI assists in diagnosing diseases, predicting disease progression, triaging patients, and planning treatment. By analyzing vast amounts of patient data, AI can identify patterns and correlations that might be missed by human clinicians.</li>
-<li><strong>Medical Education:</strong> Generative AI contributes to medical education by providing insights into health conditions, generating realistic medical scenarios for training, designing exam questions, and creating interactive learning tools.</li>
-<li><strong>Clinical Documentation:</strong> AI streamlines the documentation process by summarizing patient issues, generating discharge summaries, and creating comprehensive healthcare reports. This reduces the administrative burden on healthcare providers and allows them to focus more on patient care.</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/figure_1.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Figure 1: Use Cases of Generative AI in Healthcare.</strong></figcaption>
-</figure>
-</div>
-<p><em>This diagram illustrates various applications of generative AI in healthcare, including drug discovery, disease diagnosis, personalized treatment plans, research, patient care, medical chatbots, predictive maintenance, and medical robots (Uptech Team, n.d.).</em></p>
+<p>Generative AI represents a significant advancement in artificial intelligence, particularly within the healthcare sector. Unlike traditional AI models that are designed to classify or predict outcomes based on existing data, generative AI has the capability to create new, synthetic data by learning patterns from large datasets. This ability to generate data and mimic the statistical properties of training data has profound implications for healthcare, where accurate data generation and pattern recognition are crucial for improving diagnostic processes.</p>
 </section>
-<section id="benefits-of-generative-ai-in-healthcare" class="level3">
-<h3 class="anchored" data-anchor-id="benefits-of-generative-ai-in-healthcare">Benefits of Generative AI in Healthcare</h3>
-<p>The integration of generative AI into healthcare systems offers several significant benefits:</p>
+<section id="current-applications-of-generative-ai" class="level2">
+<h2 class="anchored" data-anchor-id="current-applications-of-generative-ai">Current Applications of Generative AI</h2>
+<p>Generative AI is already making notable contributions to healthcare through several key applications:</p>
 <ul>
-<li><strong>Improved Diagnostic Accuracy:</strong> Generative AI can reduce human error by efficiently analyzing symptoms and identifying potential treatment options, leading to more accurate diagnoses.</li>
-<li><strong>Rapid Insights:</strong> AI provides quick access to valuable information, often matching or exceeding the accuracy of specialist recommendations. This can expedite the diagnostic process and improve patient outcomes.</li>
-<li><strong>Enhanced Patient Engagement:</strong> By personalizing care and supporting medical research and education, AI enhances patient engagement and satisfaction.</li>
-<li><strong>Time and Cost Savings:</strong> AI streamlines processes, reduces the workload for medical professionals and lowers healthcare costs by optimizing resource utilization.</li>
+<li><p><strong>Clinical Decision-Making:</strong> Generative AI assists in diagnosing diseases, predicting disease progression, triaging patients, and planning treatment. By analyzing extensive patient data, AI can identify patterns that might be missed by human clinicians, leading to more accurate and timely diagnoses.</p></li>
+<li><p><strong>Medical Education:</strong> AI enhances medical education by generating realistic medical scenarios for training, designing exam questions, and creating interactive learning tools. These applications improve the training of healthcare professionals and contribute to higher quality in medical education.</p></li>
+<li><p><strong>Clinical Documentation:</strong> AI streamlines the documentation process by summarizing patient issues, generating discharge summaries, and creating comprehensive healthcare reports. This reduces the administrative burden on healthcare providers, allowing them to focus more on patient care.</p></li>
 </ul>
 </section>
-<section id="challenges-of-generative-ai-in-healthcare" class="level3">
-<h3 class="anchored" data-anchor-id="challenges-of-generative-ai-in-healthcare">Challenges of Generative AI in Healthcare</h3>
-<p>Despite its potential, the adoption of generative AI in healthcare is fraught with challenges:</p>
+<section id="challenges-of-generative-ai-in-healthcare" class="level2">
+<h2 class="anchored" data-anchor-id="challenges-of-generative-ai-in-healthcare">Challenges of Generative AI in Healthcare</h2>
+<p>Despite its potential, the adoption of generative AI in healthcare presents several challenges:</p>
 <ul>
-<li><strong>Bias and Variability:</strong> AI models can exhibit biases based on their training data, which can affect diagnosis and treatment accuracy. Variability in AI performance across different demographic groups is also a concern.</li>
-<li><strong>Ethical and Privacy Issues:</strong> The use of AI raises ethical questions related to data privacy, informed consent, and the potential for generating inaccurate or biased information.</li>
-<li><strong>Need for Human Oversight:</strong> While AI can assist in diagnostics, human oversight is necessary to verify AI outputs and ensure reliability. Continuous updates and monitoring are required to maintain performance standards.</li>
+<li><p><strong>Bias and Variability:</strong> AI models can exhibit biases based on the training data, which can affect diagnosis and treatment accuracy. Variability in AI performance across different demographic groups is a significant concern, as it can lead to disparities in healthcare delivery.</p></li>
+<li><p><strong>Ethical and Privacy Issues:</strong> The use of AI raises ethical questions related to data privacy, informed consent, and the potential for generating inaccurate or biased information. Ensuring that AI applications in healthcare are both ethical and trustworthy is critical to their success.</p></li>
+<li><p><strong>Need for Human Oversight:</strong> While AI can significantly aid in diagnostics, continuous human oversight is necessary to verify AI outputs and ensure reliability. Healthcare professionals must be involved in monitoring AI systems and making critical decisions to maintain trust and efficacy in AI-assisted healthcare.</p></li>
 </ul>
-</section>
 </section>
 <section id="ethical-considerations-and-bias-mitigation" class="level2">
 <h2 class="anchored" data-anchor-id="ethical-considerations-and-bias-mitigation">Ethical Considerations and Bias Mitigation</h2>
-<p>The ethical implications of using AI in healthcare are profound. Ensuring data privacy and addressing biases in AI models are paramount:</p>
+<p>The ethical implications of using AI in healthcare are significant, and addressing these concerns is essential for building reliable and fair AI systems:</p>
 <ul>
-<li><strong>Ensuring Data Quality:</strong> Using comprehensive and representative datasets is crucial to minimize biases and improve the reliability of AI models.</li>
-<li><strong>Detecting and Quantifying Biases:</strong> Implementing techniques to identify and quantify biases helps in understanding their impact and developing strategies to mitigate them.</li>
-<li><strong>Human Oversight:</strong> Continuous human involvement is essential to verify AI outputs, make critical decisions, and maintain trust in AI systems.</li>
+<li><p><strong>Ensuring Data Quality:</strong> Comprehensive and representative datasets are crucial to minimizing biases and improving the reliability of AI models. Diverse data sources help create AI systems that are more accurate and applicable to a broader range of patient populations.</p></li>
+<li><p><strong>Detecting and Quantifying Biases:</strong> Implementing techniques to identify and quantify biases in AI models is essential for understanding their impact and developing strategies to mitigate them. This is critical for creating AI systems that provide equitable healthcare.</p></li>
+<li><p><strong>Human Oversight:</strong> Continuous human involvement is essential to verify AI outputs, make critical decisions, and maintain trust in AI systems. Healthcare professionals must remain engaged in the diagnostic process, ensuring that AI enhances rather than replaces human judgment.</p></li>
 </ul>
-<section id="broader-ethical-implications" class="level4">
-<h4 class="anchored" data-anchor-id="broader-ethical-implications">Broader Ethical Implications</h4>
-<p>Integrating AI into healthcare systems affects not only technical and ethical aspects but also impacts the roles of healthcare professionals and patient trust. Developers and policymakers must ensure that AI enhances patient care without replacing the invaluable human elements of healthcare.</p>
 </section>
-<section id="limitations-of-synthetic-data-in-healthcare-ai-models" class="level3">
-<h3 class="anchored" data-anchor-id="limitations-of-synthetic-data-in-healthcare-ai-models">Limitations of Synthetic Data in Healthcare AI Models</h3>
-<p>While synthetic data offers benefits such as privacy compliance and scalability, it has limitations that need to be addressed for effective AI model development:</p>
+<section id="limitations-of-synthetic-data-in-healthcare-ai-models" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-synthetic-data-in-healthcare-ai-models">Limitations of Synthetic Data in Healthcare AI Models</h2>
+<p>While synthetic data offers benefits such as privacy compliance and scalability, it also presents challenges that must be addressed for effective AI model development:</p>
 <ul>
-<li><strong>Data Leakage:</strong> Synthetic data may inadvertently incorporate characteristics from the training data, leading to overly optimistic performance evaluations.</li>
-<li><strong>Lack of Diversity:</strong> Synthetic data may not accurately represent diverse patient populations, affecting the reliability and generalizability of AI models.</li>
-<li><strong>Inherent Biases:</strong> Any biases present in the original training data will be reflected in the synthetic data, potentially exacerbating existing healthcare disparities.</li>
+<li><p><strong>Data Leakage:</strong> Synthetic data may inadvertently incorporate characteristics from the original training data, leading to overly optimistic performance evaluations. This can create a false sense of accuracy and reliability in AI models.</p></li>
+<li><p><strong>Lack of Diversity:</strong> Synthetic data may not fully capture the diversity of real patient populations, which can affect the generalizability and reliability of AI models. Ensuring that synthetic data represents a wide range of demographic and clinical scenarios is crucial.</p></li>
+<li><p><strong>Inherent Biases:</strong> Any biases present in the original training data can be reflected in the synthetic data, potentially exacerbating existing disparities in healthcare. Addressing these biases is essential for creating fair and equitable AI systems.</p></li>
 </ul>
 </section>
 </section>
-<section id="conclusion-of-background" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion-of-background">Conclusion of Background</h2>
-<p>Generative AI holds great promise in transforming healthcare by improving diagnosis, treatment, and patient care. However, realizing this potential requires addressing challenges related to bias, ethics, and data quality. By implementing best practices and maintaining human oversight, we can harness the power of generative AI to enhance the capabilities of healthcare providers, improve patient outcomes, and build a more efficient, accurate, and ethical healthcare system.</p>
+<section id="exploratory-data-analysis" class="level1">
+<h1>Exploratory Data Analysis</h1>
+<section id="dataset-overview" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-overview">Dataset Overview</h2>
+<p>The dataset utilized in this study was sourced from Kaggle and licensed from the Massachusetts Institute of Technology (MIT). It contains over one hundred symptoms associated with various diagnoses, providing a comprehensive foundation for evaluating the diagnostic accuracy of generative AI models like ChatGPT. More information is provided in the Methods section.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure%201%20table.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 1: A screenshot of the raw data prior to the Data Engineering process</em></figcaption>
+</figure>
+</div>
+</section>
+<section id="summary-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
+<p>To begin the analysis, summary statistics were calculated for the key variables in the dataset.</p>
+<ul>
+<li><strong>Common Symptoms:</strong> Fatigue and vomiting are the most prevalent, each occurring in about 39% of cases, followed by high fever at 28%.</li>
+<li><strong>Rare Symptoms:</strong> Nodal skin eruptions and muscle wasting are much less common, present in only 2% of cases.</li>
+<li><strong>Symptom Distribution:</strong> Most symptoms, including itching and skin rash, are rarely observed, with the majority of cases showing these symptoms as absent. This highlights the importance of focusing on the more frequent symptoms in the analysis.</li>
+</ul>
+</section>
+<section id="missing-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="missing-data-analysis">Missing Data Analysis</h2>
+<p>Addressing missing data is crucial in any dataset as it can significantly affect the analysis outcomes. An initial inspection revealed that this synthetic dataset contains no missing data, allowing for more straightforward analysis.</p>
+</section>
+<section id="initial-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="initial-visualizations">Initial Visualizations</h2>
+<p>To further explore the dataset, initial visualizations were created to highlight the relationships between key variables. During this exploration, we observed that the dataset was designed with an equal distribution of diagnoses, each having 121 instances, except for “Fungal Infection,” which surprisingly had 122 occurrences.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Count%20of%20Each%20Diagnosis%20Present.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 2: Count of each Diagnosis Present</em></figcaption>
+</figure>
+</div>
+<p>When analyzing the most frequently occurring symptoms, we found that the top 10 included fatigue, vomiting, high fever, loss of appetite, nausea, headache, abdominal pain, yellowish skin, yellowing of eyes, and chills. Fatigue and vomiting were the most common, with 1,949 and 1,931 occurrences respectively, appearing in nearly half of the records in the dataset.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/symptom_prevalence_plot.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 3: Top 10 Symptoms Present in Diagnoses</em></figcaption>
+</figure>
+</div>
+<p>This analysis prompted the question: where do these symptoms lead in terms of medical families and diagnoses? To explore this, a Sankey diagram was created to visualize the flow. The diagram shows that vomiting is most closely tied to gastrointestinal issues and infections, while fatigue is connected to a broader range of conditions, including metabolic disorders and heart problems. Both symptoms are also linked to neurological and respiratory issues, indicating that they are common in many different illnesses and serve as important diagnostic clues. Specific diseases like hepatitis, jaundice, and diabetes are highlighted, showing how these symptoms play a role in those diagnoses.</p>
+<p><em>A brief note: the medical families were determined by querying ChatGPT, and while informative, may not be 100% accurate in their grouping.</em></p>
+<iframe src="images/sankey_diagram.html" width="100%" height="600px" style="border:none;">
+</iframe>
+<p><em>Figure 4: Sankey flow diagram illustrating how the most common symptoms lead to specific diagnoses.</em></p>
+</section>
+<section id="correlation-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="correlation-analysis">Correlation Analysis</h2>
+<p>To understand the relationships between symptoms and their associated diagnoses, a correlation matrix was constructed and visualized with a heatmap. This matrix shows the Pearson correlation coefficients between the top 10 most frequent symptoms.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cor%20heat%20map.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 5: A Correlation Heatmap of the Top 10 Symptoms</em></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/corr_matrix.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 6: Correlation Matrix of Selected Symptoms</em></figcaption>
+</figure>
+</div>
+<p>The correlation matrix reveals some clear patterns: yellowing of the eyes and loss of appetite (0.7680), yellowish skin and abdominal pain (0.7336), and yellowish skin and yellowing of the eyes (0.7158) are strongly linked, suggesting these symptoms often occur together in conditions like jaundice. Moderate correlations, such as those between nausea and vomiting (0.5252) and between loss of appetite and abdominal pain (0.4865), are common in gastrointestinal issues. On the other hand, symptoms like headache and abdominal pain (-0.1540) show a weak or negative relationship, indicating they rarely appear together, which could suggest different underlying causes. These correlations are critical for understanding which symptoms might co-occur and potentially lead to specific diagnoses.</p>
+</section>
+<section id="conclusion-and-segue-to-methods" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-and-segue-to-methods">Conclusion and Segue to Methods</h2>
+<p>In summary, the exploratory data analysis has provided valuable insights into the most common symptoms and their relationships with various diagnoses. The analysis highlighted key patterns in symptom occurrence, including strong correlations among symptoms commonly associated with specific conditions like jaundice and gastrointestinal disorders. Additionally, the visualizations offered a clear view of how symptoms like fatigue and vomiting are distributed across different medical categories.</p>
+<p>These findings underscore the importance of a detailed and structured approach in evaluating the diagnostic accuracy of generative AI models. To build on this exploratory analysis, we now turn to the methodology, where we will outline the steps taken to rigorously assess the performance of these models, including data preprocessing, model selection, and evaluation metrics. This systematic approach will ensure that the insights derived from the data are translated into meaningful diagnostic accuracy assessments.</p>
 </section>
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
-<section id="dataset-selection-and-api-development" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-selection-and-api-development">Dataset Selection and API Development</h2>
-<section id="dataset-selection" class="level3">
-<h3 class="anchored" data-anchor-id="dataset-selection">Dataset Selection:</h3>
-<p>We selected a dataset licensed from the Massachusetts Institute of Technology (MIT), which contains over one hundred symptoms associated with various diagnoses. The dataset includes both training and testing sets, each with 132 symptom columns and one prognosis column.</p>
+<section id="dataset-selection" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-selection">Dataset Selection</h2>
+<p>In this study, we used a dataset obtained from Kaggle, licensed by the Massachusetts Institute of Technology (MIT). The dataset includes over one hundred symptoms linked to various diagnoses, making it well-suited for assessing the diagnostic accuracy of generative AI models. The data was divided into training and testing sets, with each set containing 132 symptom columns and one prognosis column. Specifically, 80% of the data was allocated for training, and the remaining 20% was reserved for testing. This division was intended to ensure a thorough evaluation, allowing the model’s generalization capabilities to be accurately measured by testing on previously unseen data.</p>
 </section>
-<section id="api-development" class="level3">
-<h3 class="anchored" data-anchor-id="api-development">API Development:</h3>
-<p>We developed multiple API calls utilizing ChatGPT, a popular generative AI platform, to act as a tele-health doctor. For each row in our dataset, the API presented ChatGPT with a randomized order of symptoms that tested positive and requested its diagnosis estimation.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/figure_2.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Figure 2: Flowchart of Dataset Selection and API Development Process.</strong></figcaption>
-</figure>
-</div>
-</section>
+<section id="api-development" class="level2">
+<h2 class="anchored" data-anchor-id="api-development">API Development</h2>
+<p>To simulate the role of a telehealth doctor, we employed ChatGPT, a generative AI model, through a series of API calls. Each row in our dataset was processed by presenting ChatGPT with a randomized sequence of symptoms that tested positive. The AI was then prompted to provide a diagnostic prediction based on these symptoms. This process allowed us to collect predictions that were later compared against the actual diagnoses in the dataset.</p>
 </section>
 <section id="data-engineering" class="level2">
 <h2 class="anchored" data-anchor-id="data-engineering">Data Engineering</h2>
+<p>The data engineering process for this study involved several key steps to ensure the quality and reliability of the dataset:</p>
 <section id="data-collection" class="level3">
-<h3 class="anchored" data-anchor-id="data-collection">Data Collection:</h3>
-<p>Our data collection process involved several stages and sources:</p>
-<ol type="1">
-<li><strong>Synthetic Data from Kaggle:</strong> We sourced synthetic symptom and prognosis data from Kaggle’s “Disease Prediction Using Machine Learning” competition. 2 <strong>ChatGPT API Calls:</strong> We utilized the ChatGPT API to generate additional data by requesting diagnosis estimations based on the given symptoms.</li>
-<li><strong>Data Augmentation:</strong> To understand the impact of generative AI on prognosis diagnosing, we augmented our data by comparing the accuracy between the initial dataset and generative AI outputs through API calls using OpenAI.</li>
-</ol>
+<h3 class="anchored" data-anchor-id="data-collection">Data Collection</h3>
+<ul>
+<li><strong>Synthetic Data from Kaggle:</strong> The foundational dataset, containing symptoms and prognoses, was sourced from Kaggle’s “Disease Prediction Using Machine Learning” competition.</li>
+<li><strong>ChatGPT API Calls:</strong> Additional data was generated using the ChatGPT API by requesting diagnostic predictions based on the provided symptoms. This was crucial for evaluating the AI’s predictive accuracy. The “gpt-3.5-turbo” model from OpenAI was chosen for its efficiency and advanced capabilities, making it ideal for handling complex language tasks with precision.</li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/figure_3.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Figure 3: Flowchart of Datset Augmentation Approach.</strong></figcaption>
+<p><img src="images/figure_2.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 7: Flowchart showing steps from dataset selection to diagnosis estimation using API calls.</em></figcaption>
 </figure>
 </div>
 </section>
-<section id="model-selection-and-evaluation" class="level3">
-<h3 class="anchored" data-anchor-id="model-selection-and-evaluation">Model Selection and Evaluation</h3>
-<p><strong>Model Selection:</strong> We utilized the “gpt-3.5-turbo” model from OpenAI, known for its efficiency and enhanced capabilities. This model was chosen for its ability to handle complex language tasks with high accuracy.</p>
-<p><strong>Initial Diagnosis Call:</strong> Our first API call involved instructing the AI to act as a doctor with the following prompt: <em>“Pretend you are a doctor. Patient presents to you with symptoms: {symptoms}. Predict the primary diagnosis concisely using ten words or less.”</em></p>
-<p><strong>Accuracy Evaluation:</strong> We evaluated the predicted prognosis using a custom function get_rating that sends a prognosis and its predicted values to the GPT-4 API and receives a rating based on match accuracy.</p>
-<p>The rating scale ranges from 1 to 3:</p>
-<pre><code>            1. No match
-            2. Same family
-            3. Perfect match</code></pre>
-<p><strong>Medical Family Determination:</strong> We determined the medical “family” for both the original prognosis and the generative AI prognosis using specific prompts to categorize them.</p>
+<section id="data-augmentation" class="level3">
+<h3 class="anchored" data-anchor-id="data-augmentation">Data Augmentation</h3>
+<ul>
+<li><strong>Generative AI Impact Assessment:</strong> To evaluate the impact of generative AI on diagnostic accuracy, the original dataset’s accuracy was compared with the predictions generated by ChatGPT.</li>
+<li><strong>Initial Diagnosis Call:</strong> The first API call instructed the AI to act as a doctor with the prompt: “Pretend you are a doctor. Patient presents with symptoms: {symptoms}. Predict the primary diagnosis concisely using ten words or less.”</li>
+<li><strong>Accuracy Evaluation:</strong> The predicted prognosis was evaluated using a custom function <code>get_rating</code> that sent the prognosis and predicted values to the GPT-4 API, receiving a rating based on match accuracy. The rating scale ranged from 1 (No match) to 3 (Perfect match).</li>
+<li><strong>Medical Family Determination:</strong> Specific prompts were used to categorize the original and AI-generated prognoses into their respective medical “families.”</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure_3.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 8: A visual flow chart illustrating the steps taken to further augment our data.</em></figcaption>
+</figure>
+</div>
 </section>
 <section id="data-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h3>
-<p>Data cleaning and preprocessing were essential to ensure the quality and reliability of our dataset. Key steps included:</p>
 <ul>
-<li>Addressing inconsistencies or errors.</li>
-<li>Extracting scales from the “predicted diagnosis” to include only the diagnosis.</li>
-<li>Randomizing the order of symptoms to account for replicates.</li>
+<li><strong>Inconsistency Resolution:</strong> Inconsistencies in the data were identified and corrected to ensure accurate symptom-disease relationships.</li>
+<li><strong>Symptom Randomization:</strong> To reduce bias, the order of symptoms presented to ChatGPT was randomized during API calls, ensuring the AI’s predictions were not influenced by symptom order.</li>
+<li><strong>Data Storage:</strong> We organized the dataset and associated resources in a GitHub repository to ensure efficient version control and centralized access. This repository serves as a comprehensive resource for data management and future reference.</li>
 </ul>
-</section>
-<section id="data-storage" class="level3">
-<h3 class="anchored" data-anchor-id="data-storage">Data Storage</h3>
-<p>We utilized a GitHub repository for the effective organization and future reference of our data, enabling efficient version control and centralized access.</p>
-<p><strong>Repository Structure:</strong></p>
+<section id="repository-structure" class="level4">
+<h4 class="anchored" data-anchor-id="repository-structure">Repository Structure:</h4>
 <ul>
-<li><strong>.github:</strong> GitHub-specific configurations.</li>
-<li><strong>Data:</strong> Stores raw and processed datasets.</li>
-<li><strong>Data_Engineering:</strong> Scripts and resources for data engineering tasks.</li>
-<li><strong>Documentation:</strong> Project documentation, reports, and written materials.</li>
-<li><strong>Machine_Learning:</strong> Machine learning models, training scripts, and evaluation metrics.</li>
-<li><strong>Statistics:</strong> Statistical modeling, scripts, and evaluation metrics.</li>
-<li><strong>README.md</strong>: Overview of the project, research question, project description, and links to additional resources.</li>
+<li><code>.github</code>: Contains GitHub-specific configurations.</li>
+<li><code>Data</code>: Houses both raw and processed datasets.</li>
+<li><code>Data_Engineering</code>: Includes scripts and resources for data engineering tasks.</li>
+<li><code>Documentation</code>: Contains project documentation, reports, and written materials.</li>
+<li><code>Machine_Learning</code>: Stores machine learning models, training scripts, and evaluation metrics.</li>
+<li><code>Statistics</code>: Includes statistical modeling scripts and evaluation metrics.</li>
+<li><code>README.md</code>: Provides an overview of the project, including the research question, project description, and links to additional resources.</li>
 </ul>
 </section>
 </section>
-<section id="statistical-methodology" class="level2">
-<h2 class="anchored" data-anchor-id="statistical-methodology">Statistical Methodology</h2>
-<ol type="1">
-<li><strong>Summary Statistics:</strong> To summarize the central tendency and dispersion of accuracy scores, we calculated the mean, median, mode, standard deviation, and variance.</li>
-<li><strong>Confusion Matrix:</strong> We used a confusion matrix to visualize the AI model’s performance by showing the counts of true positives, true negatives, false positives, and false negatives.</li>
-<li><strong>Chi-Square Test:</strong> To determine if there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test.</li>
-<li><strong>Correlation Analysis:</strong> Correlation analysis was performed to assess the relationships between different features in the dataset and the accuracy of AI predictions.</li>
-</ol>
 </section>
-<section id="machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
-<p>To see how difficult it was to create an accurate prediction based on a list of symptoms, we decided to create our own in-house machine learning model to foresee the potential pain points of creating accurate diagnoses.</p>
-<section id="model-selection-and-development" class="level3">
-<h3 class="anchored" data-anchor-id="model-selection-and-development">Model Selection and Development:</h3>
-<p>We attempted multiple machine learning models, including logistic regression, decision trees, random forests, support vector machines (SVM), and neural networks to diagnose ailments. Before ultimatly landing on a logistic regression due to <strong>MORE</strong></p>
-</section>
-<section id="addressing-overfitting-and-validation" class="level3">
-<h3 class="anchored" data-anchor-id="addressing-overfitting-and-validation">Addressing Overfitting and Validation:</h3>
-<p><strong>ADD MORE HERE</strong></p>
-</section>
-</section>
-</section>
-<section id="data" class="level1">
-<h1>Data</h1>
-<p>Our first dataset, the synthetic source, was sourced from a Disease Prediction Using Machine Learning on Kaggle.com, a data science competition platform and online community for data scientists and machine learning practitioners. The dataset comprises two primary CSV files—one for training and another for testing. Each file contains 133 columns, with 132 columns representing different symptoms experienced by patients, and the final column denoting the disease prognosis. This structure supports the development of models capable of predicting 42 distinct diseases based on the given symptoms.</p>
-<section id="content-breakdown" class="level2">
-<h2 class="anchored" data-anchor-id="content-breakdown">Content Breakdown</h2>
+<section id="statistical-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h2>
+<p>To evaluate the performance of ChatGPT’s diagnostic predictions, we employed various statistical methods:</p>
 <ul>
-<li><strong>Columns</strong>: The dataset includes 133 columns:
-<ul>
-<li>132 columns representing various symptoms (e.g., itching, skin rash, continuous sneezing, joint pain).</li>
-<li>1 column for disease prognosis, indicating the disease corresponding to the symptoms.</li>
-</ul></li>
-<li><strong>Files</strong>: The dataset comprises two files:
-<ul>
-<li>Training.csv: Used to train machine learning models.</li>
-<li>Testing.csv: Used to evaluate the performance of the trained models.</li>
-</ul></li>
+<li><strong>Descriptive Statistics:</strong> We calculated metrics such as mean, median, standard deviation, and variance to summarize the accuracy scores and provide an overview of the AI’s performance.</li>
+<li><strong>Confusion Matrix:</strong> A confusion matrix was used to visualize the AI model’s performance by showing the counts of true positives, true negatives, false positives, and false negatives. This provided insights into the accuracy and errors of the AI model.</li>
+<li><strong>Accuracy Metrics:</strong> Precision, recall, and F1 scores were calculated to evaluate the AI’s performance across different diagnostic categories, offering a more detailed understanding of its accuracy.</li>
+<li><strong>Chi-Square Test:</strong> To determine whether there was a significant difference between the expected and observed frequencies of diagnostic accuracy categories, we conducted a chi-square test, helping to assess the consistency of the AI’s predictions.</li>
+<li><strong>Fisher’s Exact Test:</strong> In cases where sample sizes were small and the assumptions for the chi-square test might not hold, Fisher’s Exact Test was used to provide a more accurate measure of the significance of the association between the AI’s predictions and actual diagnoses.</li>
 </ul>
 </section>
-<section id="data-augmentation" class="level2">
-<h2 class="anchored" data-anchor-id="data-augmentation">Data Augmentation</h2>
-<p>To understand how generative AI can impact prognosis diagnosing, we recognized that our original dataset was insufficient. Therefore, we augmented our data by comparing the accuracy between our initial dataset and generative AI outputs. We did this by making a series of API calls using OpenAI, with the AI acting as a virtual doctor.</p>
+<section id="machine-learning-model-development" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-model-development">Machine Learning Model Development</h2>
+<p>To provide a comparative analysis, we developed traditional machine learning models using the same dataset, allowing us to compare their performance against ChatGPT’s:</p>
+<section id="model-development" class="level3">
+<h3 class="anchored" data-anchor-id="model-development">Model Development</h3>
+<ul>
+<li><strong>Decision Trees:</strong> Decision Trees were selected for their ability to handle complex datasets with hierarchical relationships. This model helps visualize the decision-making process and understand how specific symptoms influence diagnosis.</li>
+<li><strong>Logistic Regression:</strong> Logistic Regression was used for its strength in binary classification tasks, providing probabilistic outputs that indicate the likelihood of a diagnosis based on symptoms.</li>
+</ul>
 </section>
-<section id="new-feature-creation" class="level2">
-<h2 class="anchored" data-anchor-id="new-feature-creation">New Feature Creation</h2>
-<p>As mentioned prior due to the API calls, the following new features (columns) were created they include “Predicted Values”, and “Rating”. Based on these new features, we also created the following new “calculated columns” to determine a match between the original data and the generative AI data. These features include “match_found” and “match_found_family”.</p>
-<p>It was done in R by adding a new column to the dataset to check if there are any matching words between the prognosis and predicted values. This helps identify if the predicted prognosis contains any terms that appear in the actual prognosis.</p>
-<p>ds2 = ds2 %&gt;% mutate(match_found = mapply(function(x, y) { words1 &lt;- str_split(x, ” “)[[1]] words2 &lt;- str_split(y,” “)[[1]] as.integer(any(words1 %in% words2)) }, prognosis, predicted_values))</p>
+<section id="model-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="model-evaluation">Model Evaluation</h3>
+<p>The machine learning models were evaluated using metrics such as accuracy, precision, recall, and F1 scores, providing a basis for comparing their performance with that of the generative AI model.</p>
+</section>
 </section>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
-<p>In our project, we applied statistical thinking by conducting an error analysis and a diagnostic accuracy assessment. These methods allowed us to distill the complex interactions between predictions and actual outcomes into more manageable and interpretable metrics.</p>
-<p>We analyzed the discrepancies between the original prognoses and the predictions provided by ChatGPT in an error analysis model. This involved identifying instances where the AI’s prognosis diverged from the original prognosis and categorizing these errors to understand their nature and distribution. This method was appropriate because it helped us identify specific areas where the AI’s predictions were less accurate and provided insights into potential causes of these errors.</p>
-<p>We assessed how well ChatGPT’s diagnostic predictions aligned with the original diagnoses by comparing the two sets of prognoses. We used a match scale for this assessment, where 1 indicated no match, 2 indicated a match within the same diagnosis group, and 3 indicated an exact match. This match scale, as mentioned above in our methods, allowed us to quantify the degree of alignment between the AI’s predictions and the original diagnoses. This involved calculating the frequency of each match level and analyzing how often ChatGPT’s predictions aligned with the original diagnoses. This approach was suitable for evaluating the overall performance of the AI in terms of accuracy and relevance.</p>
-<p>To better understand the results, we generated visualizations such as bar plots and histograms. These visualizations helped us interpret the distribution of accuracy ratings and errors, providing a clearer picture of the AI’s performance.</p>
-<section id="match-status-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="match-status-analysis">Match Status Analysis</h3>
-<p>In our project, we evaluated the accuracy of ChatGPT’s diagnostic predictions by comparing them to the actual diagnoses. We categorized the predictions into two groups:</p>
+<section id="descriptive-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h2>
+<p>Initially, a quick text match analysis was conducted to compare the predicted prognosis with the original prognosis. The results showed that the majority of diagnoses did not match, with ChatGPT demonstrating an overall accuracy of 25.15%. This means the AI correctly identified the diagnosis in about one out of every four cases. While this indicates some diagnostic capability, it also highlights significant gaps in the model’s reliability for clinical use.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/match_analysis.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 9: API Results: Majority of Diagnoses Did Not Match After ChatGPT Simulated a Doctor’s Diagnosis Based on Symptoms Text Match</em></figcaption>
+</figure>
+</div>
+<p>However, after running another API call to compare the original prognosis with the predicted one and rating their similarity on a scale from 1 to 3, the results showed a shift. The matches were categorized into three groups: no match, same medical family, and perfect match. The analysis revealed that most predictions fell into the “same medical family” category. Descriptive statistics showed a mean match score of 2.2 out of 3, indicating that while ChatGPT often identified diagnoses within the correct medical family, it frequently lacked precision in delivering accurate diagnoses, underscoring its limitations in clinical settings.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/table_2_scale.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 10: Summary statistics of Scale Match</em></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure_5.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 11: Distribution of ChatGPT’s Prognosis Match Scores on a 1-3 Scale (Original vs.&nbsp;Predicted</em>)</figcaption>
+</figure>
+</div>
+</section>
+<section id="confusion-matrix-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="confusion-matrix-analysis">Confusion Matrix Analysis</h2>
+<p>The confusion matrix provided a detailed breakdown of ChatGPT’s performance across different diagnostic categories:</p>
 <ul>
-<li><strong>False</strong>: The diagnoses do not match.</li>
-<li><strong>True</strong>: The diagnoses match.</li>
+<li><strong>Rating 1 (No Match):</strong> ChatGPT rarely identified cases with no match correctly, resulting in a low true positive rate. This indicates that the AI often failed to recognize when a set of symptoms did not correspond to the predicted diagnosis, a critical concern for clinical accuracy.</li>
+<li><strong>Rating 2 (Same Medical Family):</strong> The AI showed moderate performance in identifying related conditions, but the high number of false positives suggests frequent misclassification of unrelated conditions as related. This reflects a need for better contextual understanding of symptoms.</li>
+<li><strong>Rating 3 (Perfect Match):</strong> While ChatGPT performed better in this category, correctly identifying perfect matches with higher frequency, it also exhibited a tendency to over-predict perfect matches, leading to a significant number of false positives. This over-prediction could be misleading in a clinical setting where precision is essential.</li>
 </ul>
-<p>To provide an overall picture of ChatGPT’s performance, we visualized the distribution of these match statuses.</p>
-<section id="key-findings" class="level4">
-<h4 class="anchored" data-anchor-id="key-findings">Key Findings:</h4>
-<section id="distribution-of-match-status" class="level5">
-<h5 class="anchored" data-anchor-id="distribution-of-match-status">Distribution of Match Status:</h5>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/confusion_matrix.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 12: Confusion Matrix Comparing ChatGPT Prognosis with Original Prognosis</em></figcaption>
+</figure>
+</div>
+</section>
+<section id="precision-recall-and-f1-score-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="precision-recall-and-f1-score-evaluation">Precision, Recall, and F1-Score Evaluation</h2>
+<p>To further evaluate ChatGPT’s performance, we calculated precision, recall, and F1-scores for each diagnostic category:</p>
 <ul>
-<li>Most of the predictions were categorized as <strong>False</strong>.</li>
-<li>A smaller proportion of predictions were categorized as <strong>True</strong>.</li>
+<li><strong>Rating 1 (No Match):</strong> The AI’s precision (0.0008), recall (0.0135), and F1-score (0.0015) were extremely low, indicating a poor ability to correctly identify no matches.</li>
+<li><strong>Rating 2 (Same Medical Family):</strong> The AI demonstrated moderate precision (0.4247) and recall (0.1737), but the overall F1-score (0.2466) revealed significant room for improvement.</li>
+<li><strong>Rating 3 (Perfect Match):</strong> The AI showed better performance with a precision of 0.5745, recall of 0.3903, and F1-score of 0.4648. However, these metrics still indicate the need for enhancements to achieve clinical reliability.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Figure%2013%20Precision,%20Recall,%20and%20F1-Score%20Evaluation.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 13: Precision, Recall, and F1-Score Evaluation</em></figcaption>
+</figure>
+</div>
+</section>
+<section id="chi-square-test-for-independence" class="level2">
+<h2 class="anchored" data-anchor-id="chi-square-test-for-independence">Chi-Square Test for Independence</h2>
+<p>The Chi-Square test results (X-squared = 308.35, p-value &lt; 2.2e-16) showed a statistically significant association between ChatGPT’s predictions and actual outcomes. This suggests that while the model’s predictions are not random, there is considerable room for improving its accuracy and consistency across different match types.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/chi-square.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 14: Pearson’s Chi-squared test output</em></figcaption>
+</figure>
+</div>
+</section>
+<section id="comparative-performance-of-machine-learning-models" class="level2">
+<h2 class="anchored" data-anchor-id="comparative-performance-of-machine-learning-models">Comparative Performance of Machine Learning Models</h2>
+<p>To understand the challenges of creating accurate predictions based on a list of symptoms, we developed our own in-house machine learning models. This not only allowed us to identify potential pain points in diagnostic accuracy but also provided a basis for comparison between traditional machine learning methods and emerging generative AI, such as ChatGPT.</p>
+<p>In this project, we employed both Decision Tree models and Logistic Regression to predict diagnoses based on a set of symptoms. Both models achieved an accuracy of 57%, which was significantly better than the 43% accuracy demonstrated by generative AI methods like ChatGPT.</p>
+<section id="model-selection" class="level3">
+<h3 class="anchored" data-anchor-id="model-selection">Model Selection:</h3>
+<ul>
+<li><p><strong>Decision Trees:</strong> This model was chosen for its ability to handle complex datasets with hierarchical relationships. Decision Trees work by splitting data into branches based on feature values, capturing intricate interactions between symptoms and diagnoses. The model’s interpretability allows us to visualize decision-making processes, making it easier to understand the relationships between symptoms and diagnoses.</p></li>
+<li><p><strong>Logistic Regression:</strong> Well-suited for binary classification tasks, Logistic Regression provides probabilistic outputs that indicate the likelihood of a diagnosis based on symptoms. It performs well when the relationship between predictors (symptoms) and the target variable (diagnosis) can be approximated by a linear decision boundary. Its simplicity and efficiency make it an ideal choice for tasks requiring interpretability and computational efficiency.</p></li>
 </ul>
 </section>
-<section id="visualization" class="level5">
-<h5 class="anchored" data-anchor-id="visualization">Visualization:</h5>
-<ul>
-<li>We used a bar plot to show the counts of <code>False</code> and <code>True</code> match statuses. This visual helps to quickly see the proportion of correct predictions versus incorrect ones.</li>
-</ul>
+<section id="model-tuning-and-accuracy" class="level3">
+<h3 class="anchored" data-anchor-id="model-tuning-and-accuracy">Model Tuning and Accuracy:</h3>
+<p>Initially, we fit the models using all available symptoms to predict diagnoses. However, this led to overfitting, where the models performed well on training data but struggled to generalize to new data. To address this, we refined the models by focusing on the 10 most common symptoms. This adjustment aimed to balance model complexity and improve generalizability.</p>
+<p>After refinement, both Decision Trees and Logistic Regression maintained a stable accuracy of 57%. This performance was notably superior to that of generative AI methods like ChatGPT, which had an accuracy of roughly 43%. The difference in performance highlights the specialized nature of our machine learning models, which are more tailored to specific classification tasks, unlike generative AI models that are designed for a broad range of language tasks.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ml_confusionmatrix.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 15: A confusion matrix visualizing the distribution of diagnoses in our Logistic Regression model. Anything outside the diagonal line from top left to bottom right represents misdiagnosed cases, illustrating the challenges in achieving perfect accuracy.</em></figcaption>
+</figure>
+</div>
 </section>
 </section>
-<section id="interpretation" class="level4">
-<h4 class="anchored" data-anchor-id="interpretation">Interpretation:</h4>
+<section id="heart-attack-prediction-a-case-study" class="level2">
+<h2 class="anchored" data-anchor-id="heart-attack-prediction-a-case-study">Heart Attack Prediction: A Case Study</h2>
+<p>In our analysis, we observed that ChatGPT achieved a 100% accuracy rate for diagnosing heart attacks. To further explore this, we developed a logistic regression model specifically for heart attack diagnosis, using the top ten most common symptoms associated with heart attacks as predictors (X) and the corresponding diagnosis as the target (y). Remarkably, our logistic regression model also achieved a 100% accuracy rate, matching the performance of ChatGPT.</p>
+<p>This finding underscores the effectiveness of both machine learning models and generative AI in diagnosing conditions characterized by a well-defined set of specific symptoms. It highlights the potential for targeted symptom analysis to significantly enhance diagnostic accuracy in specific medical scenarios, particularly for acute conditions like heart attacks.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/roc_logistic.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 16: ROC curve illustrating the 100% accuracy rate achieved by the logistic regression model in diagnosing heart attacks. This case study, coupled with the Fisher’s Exact Test results, demonstrates the importance of targeted symptom analysis and highlights areas where generative AI may still have limitations in utilizing certain symptoms effectively.</em></figcaption>
+</figure>
+</div>
+<p>To delve deeper into the influence of specific symptoms on ChatGPT’s diagnostic accuracy, particularly for heart attack cases, we conducted a Fisher’s Exact Test. The analysis provided the following insights:</p>
 <ul>
-<li><strong>False</strong>: This category had a higher count, indicating that ChatGPT’s predictions often did not match the actual diagnoses.</li>
-<li><strong>True</strong>: This category had a lower count, showing that fewer predictions were accurate.</li>
+<li><strong>Chest Pain:</strong> The test suggested a potential association with perfect match predictions, though the result was not statistically significant (p-value = 0.09711).</li>
+<li><strong>Breathlessness, Sweating, Vomiting:</strong> These symptoms did not show any significant association with the AI model’s prediction accuracy (p-values = 1), indicating that the model might not be effectively using these symptoms to improve diagnostic accuracy.</li>
 </ul>
-<p>The bar plot provides a clear picture of how often ChatGPT’s predictions align with the actual diagnoses. This analysis highlights areas where the predictions were accurate and where they were not, helping us understand the strengths and weaknesses of ChatGPT’s diagnostic capabilities. Going forward, we can focus on improving the model to increase the number of accurate predictions, test it on more diverse datasets, and refine the prediction algorithms. ### Summary of Mean Match Score Analysis</p>
-<p>In our project, we set out to evaluate the accuracy of ChatGPT’s diagnostic predictions compared to the original diagnoses. We used a match scale to measure how well the AI’s predictions matched the actual outcomes:</p>
-<ul>
-<li><strong>No Match (1)</strong>: The diagnoses do not match at all.</li>
-<li><strong>In the Same Family (2)</strong>: The diagnoses are in the same general category.</li>
-<li><strong>Perfect Match (3)</strong>: The diagnoses are identical.</li>
-</ul>
-<p>To summarize the overall accuracy, we calculated the mean match score, which is the average of all match scores in the dataset.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fisher_test.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 17: Fisher’s Exact Test on Assessing the Accuracy of Symptoms in Predicting Heart Attacks</em></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fisher_test_table.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 18: Fisher’s Exact Test Results</em></figcaption>
+</figure>
+</div>
 </section>
-<section id="key-findings-1" class="level4">
-<h4 class="anchored" data-anchor-id="key-findings-1">Key Findings:</h4>
+<section id="addressing-discrepancies" class="level2">
+<h2 class="anchored" data-anchor-id="addressing-discrepancies">Addressing Discrepancies</h2>
+<p>The difference in accuracy between ChatGPT (25%) and traditional machine learning models (57%) can be attributed to the specialized nature of the problem. Traditional models, which focus on specific symptom features and undergo targeted refinement, tend to perform better in specialized tasks like medical diagnosis. This points to the need for continued development and specialization in AI models to enhance their utility in clinical settings.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>This study aimed to evaluate the diagnostic accuracy of generative AI, specifically ChatGPT, within a telehealth setting. The findings reveal both the potential and current limitations of using AI for medical diagnoses.</p>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<ul>
+<li><p><strong>Diagnostic Performance:</strong> ChatGPT demonstrated some ability to group symptoms and provide preliminary diagnoses, achieving a mean match score of 2.2. However, the AI often fell short in delivering precise and accurate diagnoses, achieving an overall accuracy of 25.15%. This indicates that while generative AI can assist in preliminary diagnostic processes, it requires significant refinement before it can meet clinical standards.</p></li>
+<li><p><strong>Traditional Models:</strong> The performance of traditional machine learning models, such as Decision Trees and Logistic Regression, highlighted their strengths in classification tasks. These models outperformed ChatGPT with an accuracy of 57%, emphasizing the importance of targeted, data-driven approaches in achieving reliable diagnostic outcomes. This discrepancy suggests that while generative AI has broader capabilities, it may not yet be optimized for specific, nuanced tasks like medical diagnosis.</p></li>
+</ul>
+</section>
+<section id="implications-for-clinical-use" class="level2">
+<h2 class="anchored" data-anchor-id="implications-for-clinical-use">Implications for Clinical Use</h2>
+<ul>
+<li><p><strong>Integration of Real-World Data:</strong> The study underscores the critical need for the integration of real-world clinical data to validate AI models. Synthetic data, while useful for initial testing, may not fully capture the complexity and variability of real patient scenarios, potentially leading to an overestimation of AI performance. Future studies should prioritize the use of diverse and representative clinical datasets to ensure the generalizability and robustness of AI models.</p></li>
+<li><p><strong>Human Oversight:</strong> The study highlights the importance of human oversight in AI-assisted diagnostics. The potential for AI to over-predict or misclassify conditions necessitates continuous human involvement to ensure patient safety and care quality. This collaboration between AI and human clinicians is crucial for enhancing the reliability of diagnostic processes.</p></li>
+</ul>
+</section>
+<section id="ethical-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="ethical-considerations">Ethical Considerations</h2>
+<ul>
+<li><strong>Data Privacy and Bias Mitigation:</strong> Ethical considerations, such as data privacy, informed consent, and bias mitigation, are critical in the implementation of AI in healthcare. The risk of AI models reinforcing or amplifying existing biases is a major concern. To address this, it is essential to establish strong ethical frameworks that promote fairness, transparency, and trust in AI diagnostics. Given the use of synthetic data in this study, mitigating bias was a top priority. We applied methods like symptom randomization to minimize potential biases. Additionally, we adhered to stringent data privacy protocols, ensuring that all synthetic data used met privacy standards.</li>
+</ul>
+</section>
+<section id="future-research-directions" class="level2">
+<h2 class="anchored" data-anchor-id="future-research-directions">Future Research Directions</h2>
+<p>Future research will focus on integrating real-world clinical data, addressing challenges such as data variability and privacy concerns. To navigate these obstacles, we plan to collaborate with healthcare providers to access diverse and representative datasets, ensuring that AI models are trained and tested in environments that closely resemble real-world conditions.</p>
+<p>Looking ahead, research should concentrate on the following key areas:</p>
 <ol type="1">
-<li><strong>Mean Match Score Calculation</strong>:
+<li><strong>Integration of Real-World Data:</strong> Validating AI models with diverse clinical data is crucial for ensuring their applicability and accuracy in practical healthcare settings.</li>
+<li><strong>Development of Hybrid Models:</strong> By combining AI’s computational power with the nuanced reasoning of human clinicians, we can achieve more accurate and reliable diagnostic outcomes. This hybrid approach aims to harness the strengths of both AI and human expertise.</li>
+<li><strong>Ethical Oversight:</strong> Implementing robust ethical frameworks to address data privacy, informed consent, and bias mitigation is essential for building trust and ensuring that AI benefits all patients equitably.</li>
+</ol>
+<p>Additionally, future research may explore the use of tools like Google Trends to analyze common symptom combinations and test AI models with real symptom data, incorporating variables such as age, weight, and medical history.</p>
+</section>
+<section id="business-applications-of-ai-in-healthcare-diagnostics" class="level2">
+<h2 class="anchored" data-anchor-id="business-applications-of-ai-in-healthcare-diagnostics">Business Applications of AI in Healthcare Diagnostics</h2>
+<p>Furthermore, the integration of artificial intelligence (AI) into healthcare diagnostics presents several pivotal business opportunities:</p>
+<ol type="1">
+<li><strong>Healthcare Accessibility</strong>
 <ul>
-<li>We computed the mean match score by adding all the match scores together and dividing by the number of data points. For example, with match scores of 3, 2, 1, 3, and 2, the mean match score is ( = 2.2 ).</li>
+<li><strong>Expanding Reach:</strong> AI-powered diagnostic tools can be deployed in remote and underserved regions, thereby extending essential healthcare services to areas with limited access. This capability significantly enhances healthcare delivery in regions that are otherwise challenging to service.</li>
+<li><strong>Enhancing Telehealth:</strong> AI facilitates real-time diagnostics during virtual consultations, thereby augmenting the effectiveness and accessibility of telehealth services. This integration ensures that remote consultations are as reliable and informative as in-person visits.</li>
 </ul></li>
-<li><strong>Interpretation of the Mean Match Score</strong>:
+<li><strong>Operational Efficiency</strong>
 <ul>
-<li>A higher mean score means ChatGPT’s predictions are generally accurate and closely match the original diagnoses.</li>
-<li>A lower mean score indicates that the predictions are less accurate and often do not align with the actual diagnoses.</li>
+<li><strong>Reducing Workload:</strong> AI systems can automate preliminary diagnostic tasks, allowing healthcare providers to concentrate on more complex cases. This automation not only increases the number of patients that can be seen but also optimizes the allocation of healthcare resources.</li>
+<li><strong>Streamlining Workflows:</strong> The integration of AI with electronic health records (EHR) systems can automate documentation processes, thereby reducing administrative burdens. This streamlining enhances both operational efficiency and the accuracy of medical records.</li>
 </ul></li>
-<li><strong>Visualization</strong>:
+<li><strong>Cost Reduction and Revenue Growth</strong>
 <ul>
-<li>We created a bar plot to show the distribution of match scores, with a dashed line representing the mean match score. This visual helps to quickly understand the overall accuracy and the frequency of each match level.</li>
-</ul></li>
-<li><strong>Results</strong>:
-<ul>
-<li>The analysis showed that ChatGPT’s predictions, on average, are more likely to fall into the same diagnostic category as the original diagnoses rather than being completely off.</li>
+<li><strong>Lower Costs:</strong> By minimizing the need for expensive diagnostic tests, AI diagnostics can result in substantial cost savings for both healthcare providers and patients. This reduction in costs can enhance the overall financial efficiency of healthcare delivery.</li>
+<li><strong>Revenue Optimization:</strong> Increased efficiency and diagnostic accuracy can lead to a higher patient throughput, thereby boosting revenue for healthcare providers. Improved operational effectiveness translates to financial growth and sustainability.</li>
 </ul></li>
 </ol>
-<p>The mean match score offers a clear picture of ChatGPT’s diagnostic accuracy. By understanding this metric, we can see how well the AI-based platform performs and identify areas for improvement. Next steps include testing on more diverse datasets, refining the models, and further analyzing key features to boost prediction accuracy. ## Machine Learning</p>
-<p>In recent years, machine learning has revolutionized various industries, including healthcare. Machine learning algorithms can analyze vast amounts of data to identify patterns and make predictions, potentially improving diagnosis accuracy and patient outcomes. One area of growing interest is the use of AI-based telehealth platforms, which provide remote medical diagnosis and consultation services. These platforms utilize machine learning models to assist healthcare providers in diagnosing patient ailments based on symptoms reported by patients online.</p>
-<p>We wanted to determine how difficult it is to accurately predict prognosis, so we developed our own machine learning model. By creating and testing this model, we aim to better understand the challenges and potential pain points that these AI-based platforms may encounter. Our goal is to provide insights into optimizing their algorithms for more accurate ailment diagnosis.</p>
 </section>
-<section id="process" class="level4">
-<h4 class="anchored" data-anchor-id="process">Process</h4>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final Thoughts</h2>
+<p>In conclusion, generative AI holds significant potential for transforming healthcare diagnostics. However, realizing this potential will require continuous refinement, ethical vigilance, and collaboration between AI developers and healthcare professionals. By addressing these challenges, we can enhance the reliability and accuracy of AI in healthcare, ultimately improving patient outcomes and the efficiency of healthcare delivery.</p>
 </section>
-<section id="data-preprocessing" class="level4">
-<h4 class="anchored" data-anchor-id="data-preprocessing">Data Preprocessing</h4>
-<p>Involves dropping unnecessary columns, encoding categorical variables, and splitting the data into training and testing sets.</p>
-<pre><code>
-#### Exploratory Data Analysis (EDA)
-
-In this section, we performed various analyses to understand the data better. 
-
-
-### Results
-
-#### Logistic Regression 
-
-The Logistic Regression model correctly identified 83.57% of the
-diagnoses in the test set. This means it made correct predictions for
-83.57% of the cases, but there were still some errors.
-
-
-#### Decision Tree
-
-The Decision Tree model perfectly classified all samples in the test
-set, achieving 100% accuracy. This means it correctly identified every
-diagnosis without any errors.
-
-</code></pre>
 </section>
-<section id="k-fold-cross-validation" class="level4">
-<h4 class="anchored" data-anchor-id="k-fold-cross-validation">K-Fold Cross-Validation</h4>
-<p>To ensure the Decision Tree model’s performance was consistent, we used a technique called 5-fold cross-validation. This process splits the data into five parts, trains the model on four parts, and tests it on the remaining part. The average accuracy was nearly perfect at 99.98%, indicating the model performed exceptionally well across different subsets of the data.</p>
-</section>
-<section id="pruned-decision" class="level4">
-<h4 class="anchored" data-anchor-id="pruned-decision">Pruned Decision</h4>
-<p>Tree Pruning was applied to the Decision Tree to simplify it and prevent it from being too specific to the training data. The pruned tree achieved an average accuracy of 93.91%, which is lower than the unpruned tree, suggesting that while pruning reduced complexity, it also slightly decreased accuracy.</p>
-</section>
-<section id="feature-importance-analysis" class="level4">
-<h4 class="anchored" data-anchor-id="feature-importance-analysis">Feature Importance Analysis</h4>
-<p>The feature importance analysis of the Random Forest model reveals the top features contributing to the model’s predictions. The top 20 important features are visualized in the provided plot. The most important features in predicting the prognosis are muscle pain, itching, chest pain, and high fever. These features have the highest importance scores, indicating they play a significant role in the model’s decision-making process.</p>
-</section>
-<section id="random-forest" class="level4">
-<h4 class="anchored" data-anchor-id="random-forest">Random Forest</h4>
-<p>The Random Forest model, which uses multiple decision trees, also performed very well, with an average accuracy of 99.98%. This model considered various symptoms like muscle pain, itching, chest pain, and high fever as the most important factors in predicting diagnoses.</p>
-</section>
-<section id="support-vector-machine-svm" class="level4">
-<h4 class="anchored" data-anchor-id="support-vector-machine-svm">Support Vector Machine (SVM)</h4>
-<p>The SVM model achieved perfect accuracy, consistently making correct predictions across all subsets of the data.</p>
-</section>
-<section id="neural-network" class="level4">
-<h4 class="anchored" data-anchor-id="neural-network">Neural Network</h4>
-<p>The Neural Network model also showed near-perfect performance, with an average accuracy of 99.98%.</p>
-</section>
-<section id="comparison-of-models" class="level4">
-<h4 class="anchored" data-anchor-id="comparison-of-models">Comparison of Models</h4>
-<p>All three models—Random Forest, SVM, and Neural Network—demonstrated excellent performance with high accuracy and low variability. The SVM model showed perfect accuracy in every test, but the Random Forest and Neural Network models also performed exceptionally well.</p>
-</section>
-<section id="testing-on-predicted-prognosis" class="level4">
-<h4 class="anchored" data-anchor-id="testing-on-predicted-prognosis">Testing on Predicted Prognosis</h4>
-<p>We also evaluated the models on new data that included predicted diagnoses. The accuracy results were as follows:</p>
+<section id="references" class="level1">
+<h1>References</h1>
 <ul>
-<li><p>Random Forest: 98.5%</p></li>
-<li><p>SVM: 99.0%</p></li>
-<li><p>Neural Network: 98.7%</p></li>
+<li>Moulaei K. et al.&nbsp;(2024). Generative artificial intelligence in healthcare: A scoping review on benefits, challenges, and applications. International Journal of Medical Informatics, 188, 105474. <a href="https://doi.org/10.1016/j.ijmedinf.2024.105474">https://doi.org/10.1016/j.ijmedinf.2024.105474</a></li>
+<li>Pathak, A. (2018, October 22). Understanding Confusion Matrix. Towards Data Science. <a href="https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62">https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62</a></li>
+<li>Temsah M. H. et al.&nbsp;(2024). Transforming virtual healthcare: The potentials of ChatGPT-4omni in telemedicine. Cureus, 16(5), e61377. <a href="https://doi.org/10.7759/cureus.61377">https://doi.org/10.7759/cureus.61377</a></li>
+<li>Talby, D. (2023, May 26). The dangers of using synthetic patient data to build healthcare AI models. Forbes. Retrieved from <a href="https://www.forbes.com/sites/forbestechcouncil/2023/05/26/the-dangers-of-using-synthetic-patient-data-to-build-healthcare-ai-models/">https://www.forbes.com/sites/forbestechcouncil/2023/05/26/the-dangers-of-using-synthetic-patient-data-to-build-healthcare-ai-models/</a></li>
+<li>Uptech Team. (n.d.). Generative AI in healthcare [Diagram]. Retrieved August 5, 2024, from <a href="https://www.uptech.team/blog/generative-ai-in-healthcare">https://www.uptech.team/blog/generative-ai-in-healthcare</a></li>
 </ul>
 </section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
+<section id="appendix-list-of-figures" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-list-of-figures">Appendix: List of Figures</h2>
+<ul>
+<li><p><strong>Figure 1:</strong> A screenshot of the raw data prior to the Data Engineering process. <img src="images/figure%201%20table.png" class="img-fluid" alt="Figure 1: A screenshot of the raw data prior to the Data Engineering process"></p></li>
+<li><p><strong>Figure 2:</strong> Count of each Diagnosis Present. <img src="images/Count%20of%20Each%20Diagnosis%20Present.png" class="img-fluid" alt="Figure 2: Count of each Diagnosis Present"></p></li>
+<li><p><strong>Figure 3:</strong> Top 10 Symptoms Present in Diagnoses. <img src="images/symptom_prevalence_plot.png" class="img-fluid" alt="Figure 3: Top 10 Symptoms Present in Diagnoses"></p></li>
+<li><p><strong>Figure 4:</strong> Sankey flow diagram illustrating how the most common symptoms lead to specific diagnoses. <iframe src="images/sankey_diagram.html" width="100%" height="600px" style="border:none;"></iframe></p></li>
+<li><p><strong>Figure 5:</strong> A Correlation Heatmap of the Top 10 Symptoms. <img src="images/cor%20heat%20map.png" class="img-fluid" alt="Figure 5: A Correlation Heatmap of the Top 10 Symptoms"></p></li>
+<li><p><strong>Figure 6:</strong> Correlation Matrix of Selected Symptoms.</p></li>
+</ul>
+<p><img src="images/corr_matrix.png" class="img-fluid" alt="Figure 6: Correlation Matrix of Selected Symptoms"> - <strong>Figure 7:</strong> Flowchart showing steps from dataset selection to diagnosis estimation using API calls.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure_2.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 7: Flowchart showing steps from dataset selection to diagnosis estimation using API calls.</em></figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Figure 8:</strong> A visual flow chart illustrating the steps taken to further augment our data. <img src="images/figure_3.png" class="img-fluid" alt="Figure 8: A visual flow chart illustrating the steps taken to further augment our data."></p></li>
+<li><p><strong>Figure 9:</strong> API Results: Majority of Diagnoses Did Not Match After ChatGPT Simulated a Doctor’s Diagnosis Based on Symptoms Text Match. <img src="images/match_analysis.png" class="img-fluid" alt="Figure 9: API Results: Majority of Diagnoses Did Not Match After ChatGPT Simulated a Doctor’s Diagnosis Based on Symptoms Text Match"></p></li>
+<li><p><strong>Figure 10:</strong> Summary statistics of Scale Match.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/table_2_scale.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 10: Summary statistics of Scale Match</em></figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Figure 11:</strong> Distribution of ChatGPT’s Prognosis Match Scores on a 1-3 Scale (Original vs.&nbsp;Predicted). <img src="images/figure_5.png" class="img-fluid" alt="Figure 11: Distribution of ChatGPT’s Prognosis Match Scores on a 1-3 Scale (Original vs.&nbsp;Predicted)"></p></li>
+<li><p><strong>Figure 12:</strong> Confusion Matrix Comparing ChatGPT Prognosis with Original Prognosis. <img src="images/confusion_matrix.png" class="img-fluid" alt="Figure 12: Confusion Matrix Comparing ChatGPT Prognosis with Original Prognosis"></p></li>
+<li><p><strong>Figure 13:</strong> Precision Recall and F1-Score Evaluation. <img src="images/Figure%2013%20Precision,%20Recall,%20and%20F1-Score%20Evaluation.png" class="img-fluid" alt="Figure 13: Precision, Recall, and F1-Score Evaluation"></p></li>
+<li><p><strong>Figure 14:</strong> Pearson’s Chi-squared test output. <img src="images/chi-square.png" class="img-fluid" alt="Figure 14: Pearson’s Chi-squared test output"></p></li>
+<li><p><strong>Figure 15:</strong> A confusion matrix visualizing the distribution of diagnoses in our Logistic Regression model. Anything outside the diagonal line from top left to bottom right represents misdiagnosed cases, illustrating the challenges in achieving perfect accuracy.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ml_confusionmatrix.png" class="img-fluid figure-img"></p>
+<figcaption><em>Figure 15: A confusion matrix visualizing the distribution of diagnoses in our Logistic Regression model. Anything outside the diagonal line from top left to bottom right represents misdiagnosed cases, illustrating the challenges in achieving perfect accuracy.</em></figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Figure 16:</strong> ROC curve illustrating the 100% accuracy rate achieved by the logistic regression model in diagnosing heart attacks. <img src="images/roc_logistic.png" class="img-fluid" alt="Figure 16: ROC curve illustrating the 100% accuracy rate achieved by the logistic regression model in diagnosing heart attacks. This case study, coupled with the Fisher’s Exact Test results, demonstrates the importance of targeted symptom analysis and highlights areas where generative AI may still have limitations in utilizing certain symptoms effectively."></li>
+<li><strong>Figure 17:</strong> Fisher’s Exact Test on Assessing the Accuracy of Symptoms in Predicting Heart Attacks <img src="images/fisher_test.png" class="img-fluid" alt="Figure 17: Fisher’s Exact Test on Assessing the Accuracy of Symptoms in Predicting Heart Attacks"></li>
+<li><strong>Figure 18:</strong> Fisher’s Exact Test Results <img src="images/fisher_test_table.png" class="img-fluid" alt="Figure 18: Fisher’s Exact Test Results"></li>
+</ul>
 </section>
-<section id="note-on-synthetic-data" class="level3">
-<h3 class="anchored" data-anchor-id="note-on-synthetic-data"><strong>Note on Synthetic Data</strong></h3>
-<p>It’s important to mention that the data used in this project was synthetic, meaning it was artificially generated to simulate real-world scenarios. Because synthetic data can be designed to be clear and unambiguous, models often achieve very high accuracy. Therefore, while the results are promising, they do not fully represent the model’s performance on real-world data, which can be more complex and noisy.</p>
-<section id="machine-learning-conclusion" class="level4">
-<h4 class="anchored" data-anchor-id="machine-learning-conclusion">Machine Learning Conclusion</h4>
-<p>The models developed in this study achieved high accuracy in predicting diagnoses. The SVM model was especially impressive, with perfect accuracy in cross-validation tests. These results suggest that AI-based telehealth diagnosis platforms can be very accurate. However, it’s important to ensure these models don’t overfit to specific data and can generalize well to new cases. Future steps include testing on more diverse datasets, fine-tuning the models, and further analyzing the important features to optimize performance.</p>
+<section id="appendix-supplemental-figures" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-supplemental-figures">Appendix: Supplemental Figures</h2>
+<section id="how-diagnoses-were-grouped-into-medical-families" class="level3">
+<h3 class="anchored" data-anchor-id="how-diagnoses-were-grouped-into-medical-families">1. How Diagnoses were grouped into Medical Families</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/medical%20family.png" class="img-fluid figure-img"></p>
+<figcaption>How Diagnoses were grouped into Medical Families</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-decision-tree-used-for-machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="the-decision-tree-used-for-machine-learning">2. The Decision Tree used for Machine Learning</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/deicisiontree.png" class="img-fluid figure-img"></p>
+<figcaption>The Decision Tree used for Machine Learning</figcaption>
+</figure>
+</div>
+</section>
+<section id="average-accuracy-score-by-prognosis" class="level3">
+<h3 class="anchored" data-anchor-id="average-accuracy-score-by-prognosis">3. Average Accuracy Score By Prognosis</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/HA_averageaccuracy.png" class="img-fluid figure-img"></p>
+<figcaption>Average Accuracy Score By Prognosis</figcaption>
+</figure>
+</div>
+</section>
+<section id="top-5-symptoms-associated-with-heart-attacks" class="level3">
+<h3 class="anchored" data-anchor-id="top-5-symptoms-associated-with-heart-attacks">4. Top 5 Symptoms Associated With Heart Attacks</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/top5symptomswithHA.png" class="img-fluid figure-img"></p>
+<figcaption>Top 5 Symptoms Associated With Heart Attacks</figcaption>
+</figure>
+</div>
+</section>
+<section id="number-of-symptoms-per-prognosis" class="level3">
+<h3 class="anchored" data-anchor-id="number-of-symptoms-per-prognosis">5. Number of Symptoms per Prognosis</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Number%20of%20Symptoms%20per%20Prognosis.png" class="img-fluid figure-img"></p>
+<figcaption><em>Number of Symptoms per Prognosis</em></figcaption>
+</figure>
+</div>
 </section>
 </section>
-</section>
-<section id="conclusions" class="level1">
-<h1>Conclusions</h1>
-<p>Our project aimed to assess the performance of generative AI, specifically ChatGPT, in the context of healthcare diagnostics. We evaluated the AI’s diagnostic accuracy and conducted a detailed error analysis to understand its efficacy and limitations.</p>
-<p>The results of our analysis indicate that ChatGPT’s diagnostic capabilities show promise but are not yet entirely accurate. Our diagnostic accuracy assessment revealed that while the AI could group symptoms effectively, achieving exact matches with original diagnoses was less frequent. The use of a match scale (1-3) demonstrated that the AI often aligned within the same diagnostic group but often fell short of precise accuracy.</p>
-<p>Our analyses highlighted both the strengths and weaknesses of ChatGPT in diagnostic scenarios. While the AI provides valuable insights and can suggest plausible directions for further diagnosis, it does not yet offer the level of accuracy required for definitive diagnostic purposes.</p>
-<p>To extend this research, future projects could focus on: 1. <strong>Enhancing Accuracy</strong>: Further development and training of AI models to improve their diagnostic precision. 2. <strong>Broader Data Integration</strong>: Incorporating more diverse and comprehensive datasets to reduce biases and enhance the AI’s generalizability. 3. <strong>Clinical Validation</strong>: Conducting studies in real clinical settings to evaluate the AI’s performance in practical, high-stakes environments.</p>
-<p>Alternatively, if these technological advancements do not achieve the desired accuracy, exploring alternative methods or augmenting AI with additional diagnostic tools might be worthwhile. This would ensure that time and resources are invested in avenues that offer the most significant potential for advancing diagnostic capabilities.</p>
 </section>
 
 </main>
