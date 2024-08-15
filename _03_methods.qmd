@@ -2,7 +2,7 @@
 
 ## Dataset Overview
 
-The dataset utilized in this study was sourced from Kaggle and licensed from the Massachusetts Institute of Technology (MIT). It contains over one hundred symptoms associated with various diagnoses, providing a comprehensive foundation for evaluating the diagnostic accuracy of generative AI models like ChatGPT. More information is provided in the Methods section.
+The dataset utilized in this study was sourced from [Kaggle](https://www.kaggle.com/datasets/kaushil268/disease-prediction-using-machine-learning) and licensed from the Massachusetts Institute of Technology (MIT). It contains over one hundred symptoms associated with various diagnoses, providing a comprehensive foundation for evaluating the diagnostic accuracy of generative AI models like ChatGPT. More information is provided in the Methods section.
 
 
 

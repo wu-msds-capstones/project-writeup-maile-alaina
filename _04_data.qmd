@@ -2,7 +2,7 @@
 
 ## Dataset Selection
 
-In this study, we used a dataset obtained from Kaggle, licensed by the Massachusetts Institute of Technology (MIT). The dataset includes over one hundred symptoms linked to various diagnoses, making it well-suited for assessing the diagnostic accuracy of generative AI models. The data was divided into training and testing sets, with each set containing 132 symptom columns and one prognosis column. Specifically, 80% of the data was allocated for training, and the remaining 20% was reserved for testing. This division was intended to ensure a thorough evaluation, allowing the model's generalization capabilities to be accurately measured by testing on previously unseen data.
+In this study, we used a dataset obtained from [Kaggle](https://www.kaggle.com/datasets/kaushil268/disease-prediction-using-machine-learning), licensed by the Massachusetts Institute of Technology (MIT). The dataset includes over one hundred symptoms linked to various diagnoses, making it well-suited for assessing the diagnostic accuracy of generative AI models. The data was divided into training and testing sets, with each set containing 132 symptom columns and one prognosis column. Specifically, 80% of the data was allocated for training, and the remaining 20% was reserved for testing. This division was intended to ensure a thorough evaluation, allowing the model's generalization capabilities to be accurately measured by testing on previously unseen data.
 
 ## API Development
 
